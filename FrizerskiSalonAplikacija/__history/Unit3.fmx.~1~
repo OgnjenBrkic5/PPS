@@ -1,0 +1,100 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  Caption = 'Form3'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object Button1: TButton
+    Position.X = 24.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = '09:00-09:30 slobodno'
+  end
+  object Button2: TButton
+    AutoTranslate = False
+    Position.X = 24.000000000000000000
+    Position.Y = 205.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '10:00-10:30 zauzeto'
+  end
+  object Text1: TText
+    Position.X = 56.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Fade '#353'i'#353'anje 30 min'
+  end
+  object Button4: TButton
+    AutoTranslate = False
+    Position.X = 26.000000000000000000
+    Position.Y = 387.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = '11:30-12:00 slobodno'
+  end
+  object Button3: TButton
+    AutoTranslate = False
+    Position.X = 26.000000000000000000
+    Position.Y = 297.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = '10:30-11:00 zauzeto'
+  end
+  object Button5: TButton
+    AutoTranslate = False
+    Position.X = 26.000000000000000000
+    Position.Y = 471.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = '12:00-12:30 pauza'
+  end
+  object Button6: TButton
+    AutoTranslate = False
+    Position.X = 24.000000000000000000
+    Position.Y = 545.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = '12:30-13:00 zauzeto'
+  end
+  object Button7: TButton
+    Position.X = 326.000000000000000000
+    Position.Y = 14.000000000000000000
+    TabOrder = 7
+    Text = 'INFO'
+  end
+  object Line1: TLine
+    LineType = Bottom
+    Position.X = 8.000000000000000000
+    Position.Y = 66.000000000000000000
+    Size.Width = 408.000000000000000000
+    Size.Height = 6.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Text2: TText
+    Position.X = 128.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'termini'
+  end
+end
