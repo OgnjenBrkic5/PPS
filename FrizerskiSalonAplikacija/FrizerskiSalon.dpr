@@ -3,9 +3,9 @@ program FrizerskiSalon;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Unit1 in 'Unit1.pas' {Form1},
-  Unit2 in 'Unit2.pas' {Form2},
-  Unit3 in 'Unit3.pas' {Form3};
+  FormaKalendar in 'FormaKalendar.pas' {Form1},
+  FormaIzborUsluga in 'FormaIzborUsluga.pas' {Form2},
+  FormaTermini in 'FormaTermini.pas' {Form3};
 
 {$R *.res}
 
