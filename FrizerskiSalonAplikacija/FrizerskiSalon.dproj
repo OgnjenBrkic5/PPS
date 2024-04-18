@@ -211,6 +211,10 @@
             <Form>Form6</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Informacije.pas">
+            <Form>Form4</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

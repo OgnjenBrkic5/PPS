@@ -1,33 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899/12/30 00:00:00.000.750,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.168,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.535,C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\PC\Desktop\PPP aplikacija\Unit1.fmx</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.071,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaIzborUsluga.fmx</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.261,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.535,C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\PC\Desktop\PPP aplikacija\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.994,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit1.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaKalendar.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.456,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit2.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.fmx</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.511,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit3.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaTermini.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.071,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaIzborUsluga.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.081,C:\Users\PC\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\PC\Desktop\PPP aplikacija\Project1.dproj</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.302,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.fmx</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.456,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit2.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.511,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit3.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaTermini.fmx</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.243,=C:\Users\PC\Desktop\PPP aplikacija\Unit3.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.994,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit1.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaKalendar.fmx</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.492,C:\Users\PC\Desktop\PPP aplikacija\Project1.dproj=C:\Users\PC\Desktop\PPP aplikacija\FrizerskiSalon.dproj</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.302,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.580,=C:\Users\PC\Desktop\PPP aplikacija\Unit3.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.987,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.316,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.401,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.457,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.395,=C:\Users\PC\Desktop\PPP aplikacija\Unit3.pas</Transaction>
-    <Transaction>2024/04/18 13:02:24.000.646,=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonAplikacija\LogInForma.pas</Transaction>
-    <Transaction>2024/04/18 13:02:24.000.746,=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Prijava.pas</Transaction>
-    <Transaction>2024/04/18 13:02:24.000.855,=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Registracija.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.994,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaKalendar.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.535,C:\Users\PC\Desktop\PPP aplikacija\Unit1.fmx=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.071,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaIzborUsluga.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.168,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.261,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.535,C:\Users\PC\Desktop\PPP aplikacija\Unit1.pas=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.071,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaIzborUsluga.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.994,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaKalendar.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.492,C:\Users\PC\Desktop\PPP aplikacija\FrizerskiSalon.dproj=C:\Users\PC\Desktop\PPP aplikacija\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.456,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit2.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.511,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaTermini.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.302,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.750,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.395,=C:\Users\PC\Desktop\PPP aplikacija\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.580,=C:\Users\PC\Desktop\PPP aplikacija\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.243,=C:\Users\PC\Desktop\PPP aplikacija\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.081,C:\Users\PC\Desktop\PPP aplikacija\Project1.dproj=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.456,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.pas=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.987,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.511,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaTermini.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Unit3.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.302,C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\FormaUsluge.fmx=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Forma.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.457,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.316,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.401,=C:\Users\PC\Desktop\PPP aplikacija\Unit2.pas</Transaction>
+    <Transaction>2024.04.18 13:02:24.000.746,=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Prijava.pas</Transaction>
+    <Transaction>2024.04.18 13:02:24.000.855,=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Registracija.pas</Transaction>
+    <Transaction>2024.04.18 13:02:24.000.646,=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonAplikacija\LogInForma.pas</Transaction>
+    <Transaction>2024.04.18 16:00:52.669,=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikacija\Informacije.pas</Transaction>
   </Transactions>
 	<BT_BuildType>Debug</BT_BuildType>
 	<ActiveMobileDevice>
