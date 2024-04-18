@@ -199,6 +199,18 @@
             <Form>Form3</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="LogInForma.pas">
+            <Form>Form5</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Prijava.pas">
+            <Form>Form7</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Registracija.pas">
+            <Form>Form6</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
