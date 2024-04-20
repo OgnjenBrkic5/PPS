@@ -1,0 +1,40 @@
+﻿unit KorisničkiNalog;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.StdCtrls, FMX.Controls.Presentation, FormaKalendar;
+
+type
+  TFNalog = class(TForm)
+    ImeKorisnika: TLabel;
+    BtnIzaberiUslugu: TButton;
+    Line1: TLine;
+    IstorijaŠišanja: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    procedure BtnIzaberiUsluguClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FNalog: TFNalog;
+
+implementation
+
+{$R *.fmx}
+{$R *.LgXhdpiPh.fmx ANDROID}
+
+procedure TFNalog.BtnIzaberiUsluguClick(Sender: TObject);
+begin
+    var Kalendar := TForm1.Create(self);
+        Kalendar.Show;
+end;
+
+end.

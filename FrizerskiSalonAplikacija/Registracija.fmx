@@ -88,5 +88,6 @@
     Size.PlatformDefault = False
     TabOrder = 8
     Text = 'Uloguj se'
+    OnClick = UlogujSeClick
   end
 end

@@ -203,16 +203,44 @@
             <Form>Form5</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="Prijava.pas">
-            <Form>Form7</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="Registracija.pas">
             <Form>Form6</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Prijava.pas">
+            <Form>Form7</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <DCCReference Include="Informacije.pas">
             <Form>Form4</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OsnovneIformacije.pas">
+            <Form>FOsnovneIformacije</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="KorisničkiNalog.pas">
+            <Form>FNalog</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="PregledRezervacije.pas">
+            <Form>FPregledRezervacije</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="BesplatanTermin.pas">
+            <Form>FBesplatanTermin</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Placanje.pas">
+            <Form>FPlacanje</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Recenzije.pas">
+            <Form>FRecenzije</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Obavestenja.pas">
+            <Form>FObavestenja</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -475,7 +503,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Android64\Debug\Project1.classes" Configuration="Debug" Class="AndroidClasses">
+                <DeployFile LocalName="Android64\Debug\FrizerskiSalon.classes" Configuration="Debug" Class="AndroidClasses">
                     <Platform Name="Android64">
                         <Operation>64</Operation>
                         <Overwrite>true</Overwrite>
@@ -1397,6 +1425,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

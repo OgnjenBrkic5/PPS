@@ -1,4 +1,4 @@
-inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
+inherited FNalog_LgXhdpiPh: TFNalog_LgXhdpiPh
   ClientHeight = 695
   ClientWidth = 450
   DesignerMasterStyle = 3

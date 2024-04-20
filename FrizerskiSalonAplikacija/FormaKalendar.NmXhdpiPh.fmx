@@ -1,5 +1,5 @@
 inherited Form1_NmXhdpiPh: TForm1_NmXhdpiPh
-  ClientHeight = 616
+  ClientHeight = 615
   ClientWidth = 400
   DesignerMasterStyle = 0
   inherited Calendar1: TCalendar

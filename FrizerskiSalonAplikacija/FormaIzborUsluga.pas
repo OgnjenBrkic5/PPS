@@ -30,6 +30,7 @@ type
   private
     { Private declarations }
   public
+
     { Public declarations }
   end;
 
@@ -94,7 +95,7 @@ end;
 procedure TForm2.ZakaziClick(Sender: TObject);
 begin
 
-              var trecaForma:= TForm3.Create(self);
+              var trecaForma := TForm3.Create(self);
               trecaForma.Show;
               //slanje vrednosti imeRadnika, radnoVreme, izabranaUsluga, vremeTrajanjaUsluge, cenaUsluge;
 end;

@@ -45,6 +45,7 @@ object Form7: TForm7
     Size.PlatformDefault = False
     TabOrder = 1
     Text = 'Uloguj se'
+    OnClick = UlogujSeClick
   end
   object Sifra: TLabel
     Position.X = 56.000000000000000000

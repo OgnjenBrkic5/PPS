@@ -78,12 +78,6 @@ object Form3: TForm3
     TabOrder = 0
     Text = '12:30-13:00 zauzeto'
   end
-  object Button7: TButton
-    Position.X = 326.000000000000000000
-    Position.Y = 14.000000000000000000
-    TabOrder = 7
-    Text = 'INFO'
-  end
   object Line1: TLine
     LineType = Bottom
     Position.X = 8.000000000000000000
@@ -99,5 +93,12 @@ object Form3: TForm3
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
     Text = 'termini'
+  end
+  object BtnINF: TButton
+    Position.X = 312.000000000000000000
+    Position.Y = 14.000000000000000000
+    TabOrder = 9
+    Text = 'INF'
+    OnClick = BtnINFClick
   end
 end
