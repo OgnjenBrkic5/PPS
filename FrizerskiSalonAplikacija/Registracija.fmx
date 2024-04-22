@@ -1,7 +1,7 @@
-﻿object Form6: TForm6
+﻿object FRegistracija: TFRegistracija
   Left = 0
   Top = 0
-  Caption = 'Form6'
+  Caption = 'FRegistracija'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320

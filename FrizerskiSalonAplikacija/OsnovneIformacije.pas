@@ -36,7 +36,7 @@ implementation
 
 procedure TFOsnovneIformacije.BtnPrikazNalogaClick(Sender: TObject);
 begin
-    var KorisnickiNalog := TFNalog.Create(self);
+    var KorisnickiNalog := TFKorisnickiNalog.Create(self);
           KorisnickiNalog.Show;
 end;
 

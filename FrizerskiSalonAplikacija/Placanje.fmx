@@ -1,7 +1,7 @@
 object FPlacanje: TFPlacanje
   Left = 0
   Top = 0
-  Caption = 'Form8'
+  Caption = 'FPlacanje'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320
@@ -10,7 +10,7 @@ object FPlacanje: TFPlacanje
   DesignerMasterStyle = 0
   object Placanje: TLabel
     StyledSettings = [Family, FontColor]
-    Position.X = 136.000000000000000000
+    Position.X = 128.000000000000000000
     Position.Y = 48.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
@@ -21,32 +21,32 @@ object FPlacanje: TFPlacanje
     Text = 'Placanje'
     TabOrder = 0
   end
-  object LKes: TCheckBox
-    Position.X = 136.000000000000000000
-    Position.Y = 152.000000000000000000
-    TabOrder = 1
-    Text = 'Na lokaciji kesom'
-  end
-  object Karticom: TCheckBox
-    Position.X = 136.000000000000000000
-    Position.Y = 272.000000000000000000
-    TabOrder = 2
-    Text = 'Karticom'
-  end
-  object LKarticom: TCheckBox
-    Position.X = 136.000000000000000000
-    Position.Y = 216.000000000000000000
-    TabOrder = 3
-    Text = 'Na lokaciji karticom'
-  end
   object Potvrdi: TButton
     Position.X = 152.000000000000000000
     Position.Y = 512.000000000000000000
     Size.Width = 121.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 4
+    TabOrder = 1
     Text = 'Potvrdi'
     OnClick = PotvrdiClick
+  end
+  object RadioButton1: TRadioButton
+    Position.X = 136.000000000000000000
+    Position.Y = 176.000000000000000000
+    TabOrder = 2
+    Text = 'Na lokaciji kesom'
+  end
+  object RadioButton2: TRadioButton
+    Position.X = 136.000000000000000000
+    Position.Y = 240.000000000000000000
+    TabOrder = 3
+    Text = 'Na lokaciji karticom'
+  end
+  object RadioButton3: TRadioButton
+    Position.X = 136.000000000000000000
+    Position.Y = 312.000000000000000000
+    TabOrder = 4
+    Text = 'Karticom'
   end
 end

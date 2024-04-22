@@ -1,7 +1,7 @@
-object Form1: TForm1
+object FKalendar: TFKalendar
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'FKalendar'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320
@@ -54,5 +54,49 @@ object Form1: TForm1
     Position.Y = 556.000000000000000000
     TabOrder = 5
     Text = 'NOTIF'
+  end
+  object ListBox1: TListBox
+    Position.X = 63.000000000000000000
+    Position.Y = 304.000000000000000000
+    Size.Width = 297.000000000000000000
+    Size.Height = 137.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Visible = False
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 292.000000000000000000
+    Viewport.Height = 137.000000000000000000
+    object ListBoxItem1: TListBoxItem
+      TabOrder = 0
+      Text = 'ListBoxItem1'
+    end
+    object ListBoxItem2: TListBoxItem
+      Position.Y = 44.000000000000000000
+      TabOrder = 1
+      Text = 'ListBoxItem2'
+    end
+    object ListBoxItem3: TListBoxItem
+      Position.Y = 88.000000000000000000
+      TabOrder = 2
+      Text = 'ListBoxItem3'
+    end
+    object ListBoxItem4: TListBoxItem
+      Position.Y = 132.000000000000000000
+      TabOrder = 3
+      Text = 'ListBoxItem4'
+    end
+    object ListBoxItem5: TListBoxItem
+      Position.Y = 176.000000000000000000
+      TabOrder = 4
+      Text = 'ListBoxItem5'
+    end
+    object ListBoxItem6: TListBoxItem
+      Position.Y = 220.000000000000000000
+      TabOrder = 5
+      Text = 'ListBoxItem6'
+    end
   end
 end

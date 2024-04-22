@@ -4,11 +4,11 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects, FormaTermini,
-  FMX.StdCtrls, FMX.Controls.Presentation ;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.StdCtrls, FMX.Controls.Presentation, FormaTermini;
 
 type
-  TForm2 = class(TForm)
+  TFIzborUsluga = class(TForm)
     ImageControl1: TImageControl;
     Text1: TText;
     Line1: TLine;
@@ -35,7 +35,7 @@ type
   end;
 
 var
-  Form2: TForm2;
+  FIzborUsluga: TFIzborUsluga;
 
 implementation
 
@@ -48,42 +48,42 @@ var vremeTrajanjaUsluge: Integer = 0;
 var cenaUsluge:Integer = 0;
 
 
-procedure TForm2.Opcija1Change(Sender: TObject);
+procedure TFIzborUsluga.Opcija1Change(Sender: TObject);
 begin
               izabranaUsluga:= 'Brijanje glave' + ' ' + izabranaUsluga;
               vremeTrajanjaUsluge:= vremeTrajanjaUsluge + 25;
               cenaUsluge:= cenaUsluge + 350;
 end;
 
-procedure TForm2.Opcija2Change(Sender: TObject);
+procedure TFIzborUsluga.Opcija2Change(Sender: TObject);
 begin
               izabranaUsluga:= 'Šišanje duge kose makazama' + ' ' + izabranaUsluga;
               vremeTrajanjaUsluge:= vremeTrajanjaUsluge + 20;
               cenaUsluge:= cenaUsluge + 400;
 end;
 
-procedure TForm2.Opcija3Change(Sender: TObject);
+procedure TFIzborUsluga.Opcija3Change(Sender: TObject);
 begin
               izabranaUsluga:= 'Fade šišanje' + ' ' + izabranaUsluga;
               vremeTrajanjaUsluge:= vremeTrajanjaUsluge + 30;
               cenaUsluge:= cenaUsluge + 700;
 end;
 
-procedure TForm2.Opcija4Change(Sender: TObject);
+procedure TFIzborUsluga.Opcija4Change(Sender: TObject);
 begin
               izabranaUsluga:= 'Kratko šišanje mašinicom' + ' ' + izabranaUsluga;
               vremeTrajanjaUsluge:= vremeTrajanjaUsluge + 15;
               cenaUsluge:= cenaUsluge + 500;
 end;
 
-procedure TForm2.Opcija5Change(Sender: TObject);
+procedure TFIzborUsluga.Opcija5Change(Sender: TObject);
 begin
               izabranaUsluga:= 'Sređivanje brade s podbrijavanjem' + ' ' + izabranaUsluga;
               vremeTrajanjaUsluge:= vremeTrajanjaUsluge + 20;
               cenaUsluge:= cenaUsluge + 450;
 end;
 
-procedure TForm2.Opcija6Change(Sender: TObject);
+procedure TFIzborUsluga.Opcija6Change(Sender: TObject);
 begin
               izabranaUsluga:= 'Farbanje kose' + ' ' + izabranaUsluga;
               vremeTrajanjaUsluge:= vremeTrajanjaUsluge + 45;
@@ -92,11 +92,11 @@ end;
 
 
 
-procedure TForm2.ZakaziClick(Sender: TObject);
+procedure TFIzborUsluga.ZakaziClick(Sender: TObject);
 begin
 
-              var trecaForma := TForm3.Create(self);
-              trecaForma.Show;
+              var formaTermini := TFTermini.Create(self);
+              formaTermini.Show;
               //slanje vrednosti imeRadnika, radnoVreme, izabranaUsluga, vremeTrajanjaUsluge, cenaUsluge;
 end;
 

@@ -1,7 +1,7 @@
-object Form2: TForm2
+object FIzborUsluga: TFIzborUsluga
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = 'FIzborUsluga'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320

@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, Registracija, Prijava;
 
 type
-  TForm5 = class(TForm)
+  TFLogIn = class(TForm)
     Ulogujse: TButton;
     Registrujse: TButton;
     procedure UlogujseClick(Sender: TObject);
@@ -20,20 +20,20 @@ type
   end;
 
 var
-  Form5: TForm5;
+  FLogIn: TFLogIn;
 
 implementation
 
 {$R *.fmx}
 
-procedure TForm5.RegistrujseClick(Sender: TObject);
+procedure TFLogIn.RegistrujseClick(Sender: TObject);
 begin
-  var ForamaRegistrujse := TForm6.Create(self);
+  var ForamaRegistrujse := TFRegistracija.Create(self);
     ForamaRegistrujse.Show;
   end;
-procedure TForm5.UlogujseClick(Sender: TObject);
+procedure TFLogIn.UlogujseClick(Sender: TObject);
 begin
-    var FormaPrijava := TForm7.Create(self);
+    var FormaPrijava := TFPrijava.Create(self);
        FormaPrijava.Show;
 end;
 

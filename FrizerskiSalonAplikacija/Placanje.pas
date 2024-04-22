@@ -10,10 +10,10 @@ uses
 type
   TFPlacanje = class(TForm)
     Placanje: TLabel;
-    LKes: TCheckBox;
-    LKarticom: TCheckBox;
-    Karticom: TCheckBox;
     Potvrdi: TButton;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
     procedure PotvrdiClick(Sender: TObject);
   private
     { Private declarations }
@@ -30,8 +30,8 @@ implementation
 
 procedure TFPlacanje.PotvrdiClick(Sender: TObject);
 begin
-     var pregledReyervacije := TFPregledRezervacije.Create(self);
-         pregledReyervacije.Show;
+     var pregledRezervacije := TFPregledRezervacije.Create(self);
+         pregledRezervacije.Show;
 end;
 
 end.

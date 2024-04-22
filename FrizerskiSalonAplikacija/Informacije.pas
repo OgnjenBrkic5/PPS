@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls;
 
 type
-  TForm4 = class(TForm)
+  TFInformacije = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -21,7 +21,7 @@ type
   end;
 
 var
-  Form4: TForm4;
+  FInformacije: TFInformacije;
 
 implementation
 

@@ -1,7 +1,7 @@
-object Form4: TForm4
+object FInformacije: TFInformacije
   Left = 0
   Top = 0
-  Caption = 'Form4'
+  Caption = 'FInformacije'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320

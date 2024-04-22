@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, OsnovneIformacije;
 
 type
-  TForm6 = class(TForm)
+  TFRegistracija = class(TForm)
     Email: TLabel;
     Ime: TLabel;
     Prezime: TLabel;
@@ -26,13 +26,13 @@ type
   end;
 
 var
-  Form6: TForm6;
+  FRegistracija: TFRegistracija;
 
 implementation
 
 {$R *.fmx}
 
-procedure TForm6.UlogujSeClick(Sender: TObject);
+procedure TFRegistracija.UlogujSeClick(Sender: TObject);
 begin
     var OsnovneIformacije := TFOsnovneIformacije.Create(self);
              OsnovneIformacije.Show;

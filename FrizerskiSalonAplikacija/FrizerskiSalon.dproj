@@ -38,6 +38,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Cfg_1)'=='true') or '$(Cfg_1_Android)'!=''">
+        <Cfg_1_Android>true</Cfg_1_Android>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
         <Cfg_1_Win32>true</Cfg_1_Win32>
         <CfgParent>Cfg_1</CfgParent>
@@ -164,6 +170,10 @@
         <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
         <DCC_RangeChecking>true</DCC_RangeChecking>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Android)'!=''">
+        <VerInfo_Build>1</VerInfo_Build>
+        <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -188,39 +198,35 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="FormaKalendar.pas">
-            <Form>Form1</Form>
+            <Form>FKalendar</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="FormaIzborUsluga.pas">
-            <Form>Form2</Form>
+            <Form>FIzborUsluga</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="FormaTermini.pas">
-            <Form>Form3</Form>
+            <Form>FTermini</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="LogInForma.pas">
-            <Form>Form5</Form>
+            <Form>FLogIn</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Registracija.pas">
-            <Form>Form6</Form>
+            <Form>FRegistracija</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Prijava.pas">
-            <Form>Form7</Form>
+            <Form>FPrijava</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Informacije.pas">
-            <Form>Form4</Form>
+            <Form>FInformacije</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="OsnovneIformacije.pas">
             <Form>FOsnovneIformacije</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="KorisničkiNalog.pas">
-            <Form>FNalog</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="PregledRezervacije.pas">
@@ -243,6 +249,15 @@
             <Form>FObavestenja</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="KorisnickiNalog.pas">
+            <Form>FKorisnickiNalog</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="DataModule.pas">
+            <Form>FDataModule</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -263,6 +278,10 @@
                 <Source>
                     <Source Name="MainSource">FrizerskiSalon.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">

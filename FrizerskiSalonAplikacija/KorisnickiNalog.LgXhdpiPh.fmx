@@ -1,4 +1,4 @@
-inherited FNalog_LgXhdpiPh: TFNalog_LgXhdpiPh
+inherited FKorisnickiNalog_LgXhdpiPh: TFKorisnickiNalog_LgXhdpiPh
   ClientHeight = 696
   ClientWidth = 448
   DesignerMasterStyle = 3

@@ -1,7 +1,7 @@
 object FRecenzije: TFRecenzije
   Left = 0
   Top = 0
-  Caption = 'Form8'
+  Caption = 'FRecenzije'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320

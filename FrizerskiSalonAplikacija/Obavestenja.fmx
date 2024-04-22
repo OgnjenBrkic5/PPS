@@ -1,7 +1,7 @@
 object FObavestenja: TFObavestenja
   Left = 0
   Top = 0
-  Caption = 'Form8'
+  Caption = 'FObavestenja'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320

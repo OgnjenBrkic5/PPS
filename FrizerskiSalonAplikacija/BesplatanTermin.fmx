@@ -1,7 +1,7 @@
 object FBesplatanTermin: TFBesplatanTermin
   Left = 0
   Top = 0
-  Caption = 'Form8'
+  Caption = 'FBesplatanTermin'
   ClientHeight = 608
   ClientWidth = 424
   FormFactor.Width = 320
@@ -26,7 +26,7 @@ object FBesplatanTermin: TFBesplatanTermin
       Size.Width = 185.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 4
       Text = 'Pregled rezervacije'
       OnClick = BtnNazaNaPregledRezervacijeClick
     end

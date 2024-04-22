@@ -8,7 +8,7 @@ uses
   FMX.StdCtrls, FMX.Controls.Presentation, FormaKalendar;
 
 type
-  TFNalog = class(TForm)
+  TFKorisnickiNalog = class(TForm)
     ImeKorisnika: TLabel;
     BtnIzaberiUslugu: TButton;
     Line1: TLine;
@@ -24,16 +24,16 @@ type
   end;
 
 var
-  FNalog: TFNalog;
+  FKorisnickiNalog: TFKorisnickiNalog;
 
 implementation
 
 {$R *.fmx}
 {$R *.LgXhdpiPh.fmx ANDROID}
 
-procedure TFNalog.BtnIzaberiUsluguClick(Sender: TObject);
+procedure TFKorisnickiNalog.BtnIzaberiUsluguClick(Sender: TObject);
 begin
-    var Kalendar := TForm1.Create(self);
+    var Kalendar := TFKalendar.Create(self);
         Kalendar.Show;
 end;
 

@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, Informacije, Placanje;
 
 type
-  TForm3 = class(TForm)
+  TFTermini = class(TForm)
     Button1: TButton;
     Button2: TButton;
     Text1: TText;
@@ -31,7 +31,7 @@ type
   end;
 
     var
-  Form3: TForm3;
+  FTermini: TFTermini;
 
 implementation
 
@@ -40,7 +40,7 @@ implementation
 var status:String = '';
 var termin:String = '';
 
-procedure TForm3.Button1Click(Sender: TObject);
+procedure TFTermini.Button1Click(Sender: TObject);
 begin
            termin:= '09:00 - 09:30';
            status:= 'Slobodno';
@@ -50,7 +50,7 @@ begin
            placanje.Show;
            end;
 
-procedure TForm3.Button2Click(Sender: TObject);
+procedure TFTermini.Button2Click(Sender: TObject);
 begin
            termin:= '10:00 - 10:30';
            status:= 'Zauzeto';
@@ -58,7 +58,7 @@ begin
            //prelazak na formu za placanje
 end;
 
-procedure TForm3.Button3Click(Sender: TObject);
+procedure TFTermini.Button3Click(Sender: TObject);
 begin
            termin:= '10:30 - 11:00';
            status:= 'Zauzeto';
@@ -66,9 +66,9 @@ begin
            //prelazak na formu za placanje
 end;
 
-       procedure TForm3.BtnINFClick(Sendre: TObject);
+       procedure TFTermini.BtnINFClick(Sendre: TObject);
 begin
-      var Informacije := TForm4.Create(self);
+      var Informacije := TFInformacije.Create(self);
         Informacije.Show;
 end;
 
