@@ -1,0 +1,5 @@
+inherited FNalog_LgXhdpiPh: TFNalog_LgXhdpiPh
+  ClientHeight = 696
+  ClientWidth = 448
+  DesignerMasterStyle = 3
+end

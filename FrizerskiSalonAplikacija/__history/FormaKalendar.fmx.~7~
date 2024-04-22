@@ -1,0 +1,101 @@
+object FKalendar: TFKalendar
+  Left = 0
+  Top = 0
+  Caption = 'FKalendar'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object Calendar1: TCalendar
+    Date = 45385.000000000000000000
+    Position.X = 24.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 377.000000000000000000
+    Size.Height = 233.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+  end
+  object Radnik1: TButton
+    Position.X = 80.000000000000000000
+    Position.Y = 304.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Radnik1'
+    OnClick = Radnik1Click
+  end
+  object Radnik2: TButton
+    Position.X = 80.000000000000000000
+    Position.Y = 392.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Radnik2'
+    OnClick = Radnik2Click
+  end
+  object Radnik3: TButton
+    Position.X = 80.000000000000000000
+    Position.Y = 483.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Radnik3'
+    OnClick = Radnik3Click
+  end
+  object NotificationButton: TButton
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 338.000000000000000000
+    Position.Y = 556.000000000000000000
+    TabOrder = 5
+    Text = 'NOTIF'
+  end
+  object ListBox1: TListBox
+    Position.X = 119.000000000000000000
+    Position.Y = 289.000000000000000000
+    Size.Width = 297.000000000000000000
+    Size.Height = 137.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 292.000000000000000000
+    Viewport.Height = 137.000000000000000000
+    object ListBoxItem1: TListBoxItem
+      TabOrder = 0
+      Text = 'ListBoxItem1'
+    end
+    object ListBoxItem2: TListBoxItem
+      Position.Y = 44.000000000000000000
+      TabOrder = 1
+      Text = 'ListBoxItem2'
+    end
+    object ListBoxItem3: TListBoxItem
+      Position.Y = 88.000000000000000000
+      TabOrder = 2
+      Text = 'ListBoxItem3'
+    end
+    object ListBoxItem4: TListBoxItem
+      Position.Y = 132.000000000000000000
+      TabOrder = 3
+      Text = 'ListBoxItem4'
+    end
+    object ListBoxItem5: TListBoxItem
+      Position.Y = 176.000000000000000000
+      TabOrder = 4
+      Text = 'ListBoxItem5'
+    end
+    object ListBoxItem6: TListBoxItem
+      Position.Y = 220.000000000000000000
+      TabOrder = 5
+      Text = 'ListBoxItem6'
+    end
+  end
+end
