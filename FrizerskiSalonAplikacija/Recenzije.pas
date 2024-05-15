@@ -11,6 +11,7 @@ type
   TFRecenzije = class(TForm)
     ImageControl1: TImageControl;
     Frizer: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -23,5 +24,10 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFRecenzije.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
 
 end.

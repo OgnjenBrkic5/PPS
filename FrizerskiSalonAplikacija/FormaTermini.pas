@@ -23,6 +23,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure BtnINFClick(Sendre: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -48,12 +49,16 @@ begin
            //prelazak na formu za placanje
            var placanje := TFPlacanje.Create(self);
            placanje.Show;
+           self.Hide;
            end;
 
 procedure TFTermini.Button2Click(Sender: TObject);
 begin
            termin:= '10:00 - 10:30';
            status:= 'Zauzeto';
+           var placanje := TFPlacanje.Create(self);
+           placanje.Show;
+           self.Hide;
            //promena statusa termina u bazi na zazeto
            //prelazak na formu za placanje
 end;
@@ -62,11 +67,19 @@ procedure TFTermini.Button3Click(Sender: TObject);
 begin
            termin:= '10:30 - 11:00';
            status:= 'Zauzeto';
+           var placanje := TFPlacanje.Create(self);
+           placanje.Show;
+           self.Hide;
            //promena statusa termina u bazi na zazeto
            //prelazak na formu za placanje
 end;
 
-       procedure TFTermini.BtnINFClick(Sendre: TObject);
+       procedure TFTermini.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
+
+procedure TFTermini.BtnINFClick(Sendre: TObject);
 begin
       var Informacije := TFInformacije.Create(self);
         Informacije.Show;

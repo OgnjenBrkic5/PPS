@@ -13,6 +13,8 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Button1: TButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -24,9 +26,21 @@ var
   FInformacije: TFInformacije;
 
 implementation
-
+uses FormaTermini;
 {$R *.fmx}
 
 
+
+procedure TFInformacije.Button1Click(Sender: TObject);
+begin
+    FTermini.Show;
+    self.Hide;
+end;
+
+
+procedure TFInformacije.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
 
 end.

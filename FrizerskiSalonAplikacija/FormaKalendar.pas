@@ -25,6 +25,7 @@ type
     procedure Radnik1Click(Sender: TObject);
     procedure Radnik2Click(Sender: TObject);
     procedure Radnik3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -45,12 +46,18 @@ implementation
 var imeRadnika: String = '';
 var radnoVreme: String = '';
 
+procedure TFKalendar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
+
 procedure TFKalendar.Radnik1Click(Sender: TObject);
 begin
           imeRadnika:= 'Radnik1';
           radnoVreme:= '09:00 - 17:00';
           var formaIzborUsluga := TFIzborUsluga.Create(self);
           formaIzborUsluga.Show;
+          self.Hide;
           //slanje vrednosti imeRadnika i radnoVreme;
 end;
 
@@ -60,6 +67,7 @@ begin
           radnoVreme:= '09:00 - 17:00';
           var formaIzborUsluga := TFIzborUsluga.Create(self);
           formaIzborUsluga.Show;
+          self.Hide;
           //slanje vrednosti imeRadnika i radnoVreme;
 end;
 
@@ -70,6 +78,7 @@ begin
           radnoVreme:= '09:00 - 17:00';
           var formaIzborUsluga := TFIzborUsluga.Create(self);
           formaIzborUsluga.Show;
+          self.Hide;
           //slanje vrednosti imeRadnika i radnoVreme;
 end;
 

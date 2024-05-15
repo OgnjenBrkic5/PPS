@@ -5,14 +5,20 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, Registracija, Prijava;
+  FMX.Controls.Presentation, FMX.StdCtrls, Registracija, Prijava, DataModule,
+  FMX.Layouts, FMX.Objects;
 
 type
   TFLogIn = class(TForm)
-    Ulogujse: TButton;
-    Registrujse: TButton;
-    procedure UlogujseClick(Sender: TObject);
-    procedure RegistrujseClick(Sender: TObject);
+    RegistrujSe: TButton;
+    FormBackgroundLayout: TLayout;
+    InputLayout: TLayout;
+    UlogujSe: TButton;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    procedure UlogujSeClick(Sender: TObject);
+    procedure RegistrujSeClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -26,15 +32,23 @@ implementation
 
 {$R *.fmx}
 
-procedure TFLogIn.RegistrujseClick(Sender: TObject);
+procedure TFLogIn.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  var ForamaRegistrujse := TFRegistracija.Create(self);
+    application.Terminate;
+end;
+
+procedure TFLogIn.RegistrujSeClick(Sender: TObject);
+begin
+    var ForamaRegistrujse := TFRegistracija.Create(self);
     ForamaRegistrujse.Show;
+    self.Hide;
   end;
-procedure TFLogIn.UlogujseClick(Sender: TObject);
+
+procedure TFLogIn.UlogujSeClick(Sender: TObject);
 begin
     var FormaPrijava := TFPrijava.Create(self);
-       FormaPrijava.Show;
+    FormaPrijava.Show;
+    self.Hide;
 end;
 
 

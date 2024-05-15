@@ -15,6 +15,7 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -27,5 +28,10 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFObavestenja.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
 
 end.

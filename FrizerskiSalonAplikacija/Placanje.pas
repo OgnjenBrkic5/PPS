@@ -15,6 +15,7 @@ type
     RadioButton2: TRadioButton;
     RadioButton3: TRadioButton;
     procedure PotvrdiClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -28,10 +29,16 @@ implementation
 
 {$R *.fmx}
 
+procedure TFPlacanje.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
+
 procedure TFPlacanje.PotvrdiClick(Sender: TObject);
 begin
      var pregledRezervacije := TFPregledRezervacije.Create(self);
-         pregledRezervacije.Show;
+     pregledRezervacije.Show;
+     self.Hide;
 end;
 
 end.

@@ -5,16 +5,28 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.Edit, OsnovneIformacije;
+  FMX.Controls.Presentation, FMX.Edit, FMX.Objects, FMX.Layouts, FMX.Ani,
+  OsnovneIformacijeGlavnaForma;
 
 type
   TFPrijava = class(TForm)
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Email: TLabel;
+    Nazad: TButton;
+    EmailEdit: TEdit;
+    EmailLabel: TLabel;
     UlogujSe: TButton;
-    Sifra: TLabel;
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    InputLayout: TLayout;
+    EmailLine: TLine;
+    SifraLine: TLine;
+    SifraEdit: TEdit;
+    SifraLabel: TLabel;
+    PrikazSifre: TCheckBox;
     procedure UlogujSeClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NazadClick(Sender: TObject);
+    procedure PrikazSifreChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,13 +37,39 @@ var
   FPrijava: TFPrijava;
 
 implementation
-
+uses LogInForma;
 {$R *.fmx}
+
+{
+procedure TFPrijava.Button1Click(Sender: TObject);
+begin
+          //TFPrijava.Close;
+          //FormaPrijava.Free;
+end;
+}
+
+
+procedure TFPrijava.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
+
+procedure TFPrijava.NazadClick(Sender: TObject);
+begin
+    FLogIn.Show;
+    self.Close;
+end;
+
+procedure TFPrijava.PrikazSifreChange(Sender: TObject);
+begin
+    SifraEdit.Password:= not PrikazSifre.IsChecked;
+end;
 
 procedure TFPrijava.UlogujSeClick(Sender: TObject);
 begin
-       var OsnovneIformacije := TFOsnovneIformacije.Create(self);
-             OsnovneIformacije.Show;
+    var OsnovneIformacije := TFOsnovneIformacije.Create(self);
+    OsnovneIformacije.Show;
+    self.Hide;
 end;
 
 end.

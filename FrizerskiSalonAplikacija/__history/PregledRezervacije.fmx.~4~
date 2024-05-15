@@ -1,0 +1,59 @@
+object FPregledRezervacije: TFPregledRezervacije
+  Left = 0
+  Top = 0
+  Caption = 'FPregledRezervacije'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  object ImageControl1: TImageControl
+    Position.X = 40.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 121.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+  end
+  object Frizer: TLabel
+    Position.X = 232.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Frizer'
+    TabOrder = 3
+  end
+  object NacinPlacanja: TLabel
+    Position.X = 144.000000000000000000
+    Position.Y = 336.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'na'#269'in pla'#263'anja'
+    TabOrder = 2
+  end
+  object IzborUsluge: TLabel
+    Position.X = 144.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Izabrana usluga'
+    TabOrder = 1
+  end
+  object BtnIzadjiIzPregleda: TButton
+    Position.X = 144.000000000000000000
+    Position.Y = 504.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Izadji iz pregleda'
+  end
+end

@@ -14,6 +14,8 @@ type
     IzborUsluge: TLabel;
     NacinPlacanja: TLabel;
     BtnIzadjiIzPregleda: TButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnIzadjiIzPregledaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -25,8 +27,20 @@ var
   FPregledRezervacije: TFPregledRezervacije;
 
 implementation
-
+uses KorisnickiNalog;
 {$R *.fmx}
 
+
+procedure TFPregledRezervacije.BtnIzadjiIzPregledaClick(Sender: TObject);
+begin
+    FKorisnickiNalog.Show;
+    self.Close;
+end;
+
+procedure TFPregledRezervacije.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
 
 end.

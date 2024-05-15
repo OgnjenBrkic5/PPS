@@ -1,0 +1,50 @@
+object FInformacije: TFInformacije
+  Left = 0
+  Top = 0
+  Caption = 'FInformacije'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  object Label1: TLabel
+    Position.X = 32.000000000000000000
+    Position.Y = 408.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
+    Text = 
+      'Nakon ostvarenih 6 termina kod nas dobijate besplatnu uslugu kod' +
+      ' nas'
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Position.X = 32.000000000000000000
+    Position.Y = 216.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'U slu'#269'aju ka'#353'njenja od 5 min. smatra se da ste odkazali termin'
+    TabOrder = 1
+  end
+  object Label3: TLabel
+    Position.X = 32.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    Text = 
+      ' Radno vreme PON-PET od 08:00 do 18:00 PAUZA od 12:00-13:00 NED ' +
+      'ne radimo'
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Position.X = 327.000000000000000000
+    Position.Y = 549.000000000000000000
+    TabOrder = 3
+    Text = 'Nazad'
+    OnClick = Button1Click
+  end
+end

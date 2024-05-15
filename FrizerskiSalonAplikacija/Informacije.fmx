@@ -7,6 +7,7 @@ object FInformacije: TFInformacije
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   DesignerMasterStyle = 3
   object Label1: TLabel
     Position.X = 32.000000000000000000
@@ -41,8 +42,9 @@ object FInformacije: TFInformacije
   end
   object Button1: TButton
     Position.X = 327.000000000000000000
-    Position.Y = 549.000000000000000000
+    Position.Y = 556.000000000000000000
     TabOrder = 3
     Text = 'Nazad'
+    OnClick = Button1Click
   end
 end

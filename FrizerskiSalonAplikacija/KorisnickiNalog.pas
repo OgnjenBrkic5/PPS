@@ -17,6 +17,7 @@ type
     Label2: TLabel;
     Label3: TLabel;
     procedure BtnIzaberiUsluguClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -34,7 +35,14 @@ implementation
 procedure TFKorisnickiNalog.BtnIzaberiUsluguClick(Sender: TObject);
 begin
     var Kalendar := TFKalendar.Create(self);
-        Kalendar.Show;
+    Kalendar.Show;
+    self.Hide;
+end;
+
+procedure TFKorisnickiNalog.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    //application.Terminate;
 end;
 
 end.

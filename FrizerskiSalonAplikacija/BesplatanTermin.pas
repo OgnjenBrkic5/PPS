@@ -12,6 +12,7 @@ type
     Cestitamo: TLabel;
     BtnNazaNaPregledRezervacije: TButton;
     procedure BtnNazaNaPregledRezervacijeClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -28,8 +29,15 @@ implementation
 procedure TFBesplatanTermin.BtnNazaNaPregledRezervacijeClick(Sender: TObject);
 begin
     var PregledRezervaciaja := TFPregledRezervacije.Create(self);
-              PregledRezervaciaja.Show;
+    PregledRezervaciaja.Show;
+    self.Hide;
 end ;
 
+
+procedure TFBesplatanTermin.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
 
 end.

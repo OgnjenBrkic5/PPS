@@ -27,6 +27,7 @@ type
     procedure Opcija5Change(Sender: TObject);
     procedure Opcija6Change(Sender: TObject);
     procedure ZakaziClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -47,6 +48,11 @@ var izabranaUsluga: String = '';
 var vremeTrajanjaUsluge: Integer = 0;
 var cenaUsluge:Integer = 0;
 
+
+procedure TFIzborUsluga.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
 
 procedure TFIzborUsluga.Opcija1Change(Sender: TObject);
 begin
@@ -97,6 +103,7 @@ begin
 
               var formaTermini := TFTermini.Create(self);
               formaTermini.Show;
+              self.Hide
               //slanje vrednosti imeRadnika, radnoVreme, izabranaUsluga, vremeTrajanjaUsluge, cenaUsluge;
 end;
 

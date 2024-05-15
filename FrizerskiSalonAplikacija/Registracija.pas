@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, OsnovneIformacije;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, OsnovneIformacijeGlavnaForma;
 
 type
   TFRegistracija = class(TForm)
@@ -19,6 +19,7 @@ type
     Edit4: TEdit;
     UlogujSe: TButton;
     procedure UlogujSeClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -32,9 +33,16 @@ implementation
 
 {$R *.fmx}
 
+procedure TFRegistracija.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    //application.Terminate;
+end;
+
 procedure TFRegistracija.UlogujSeClick(Sender: TObject);
 begin
     var OsnovneIformacije := TFOsnovneIformacije.Create(self);
-             OsnovneIformacije.Show;
+    OsnovneIformacije.Show;
+    self.Hide;
 end;
+
 end.
