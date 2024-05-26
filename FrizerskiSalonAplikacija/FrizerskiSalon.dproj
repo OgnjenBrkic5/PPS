@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Android</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>32787</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>FrizerskiSalon.dpr</MainSource>
@@ -174,13 +174,23 @@
     <PropertyGroup Condition="'$(Cfg_1_Android)'!=''">
         <VerInfo_Build>1</VerInfo_Build>
         <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
+        <DCC_ExeOutput>..\..\Bin\FrizerskiSalonAplikacijaBin\</DCC_ExeOutput>
+        <DCC_DcuOutput>..\..\Dcu\FrizerskiSalonAplikacijaDcu\</DCC_DcuOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_OutputDependencies>true</DCC_OutputDependencies>
+        <DCC_TypedAtParameter>true</DCC_TypedAtParameter>
+        <DCC_FullBooleanEvaluations>true</DCC_FullBooleanEvaluations>
+        <DCC_WriteableConstants>true</DCC_WriteableConstants>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -246,18 +256,18 @@
             <Form>FObavestenja</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="KorisnickiNalog.pas">
-            <Form>FKorisnickiNalog</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="DataModule.pas">
             <Form>FDataModule</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="OsnovneIformacijeGlavnaForma.pas">
+        <DCCReference Include="OsnovneIformacije.pas">
             <Form>FOsnovneIformacije</Form>
             <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="KorisnickiNalogGlavnaForma.pas">
+            <Form>FKorisnickiNalog</Form>
+            <DesignClass>TFKorisnickiNalog</DesignClass>
         </DCCReference>
         <None Include="Database\database.db"/>
         <BuildConfiguration Include="Base">
@@ -519,46 +529,52 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\AndroidManifest.xml" Configuration="Debug" Class="ProjectAndroidManifest">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\AndroidManifest.xml" Configuration="Debug" Class="ProjectAndroidManifest">
                     <Platform Name="Android">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\FrizerskiSalon.classes" Configuration="Debug" Class="AndroidClasses">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\FrizerskiSalon.classes" Configuration="Debug" Class="AndroidClasses">
                     <Platform Name="Android">
                         <Operation>64</Operation>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\colors.xml" Configuration="Debug" Class="Android_Colors">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\colors.xml" Configuration="Debug" Class="Android_Colors">
                     <Platform Name="Android">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\libFrizerskiSalon.so" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\libFrizerskiSalon.so" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Android">
                         <RemoteName>libFrizerskiSalon.so</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\splash_image_def.xml" Configuration="Debug" Class="AndroidSplashImageDef">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\splash_image_def.xml" Configuration="Debug" Class="AndroidSplashImageDef">
                     <Platform Name="Android">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\strings.xml" Configuration="Debug" Class="Android_Strings">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\strings.xml" Configuration="Debug" Class="Android_Strings">
                     <Platform Name="Android">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\styles-v21.xml" Configuration="Debug" Class="AndroidSplashStylesV21">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\styles-v21.xml" Configuration="Debug" Class="AndroidSplashStylesV21">
                     <Platform Name="Android">
                         <RemoteName>styles.xml</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\styles.xml" Configuration="Debug" Class="AndroidSplashStyles">
+                <DeployFile LocalName="..\..\Bin\FrizerskiSalonAplikacijaBin\styles.xml" Configuration="Debug" Class="AndroidSplashStyles">
                     <Platform Name="Android">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Bin\FrizerskiSalonAplikacijaBin\FrizerskiSalon.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>FrizerskiSalon.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -611,9 +627,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\FrizerskiSalon.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Database\database.db" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
-                        <RemoteName>FrizerskiSalon.exe</RemoteName>
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

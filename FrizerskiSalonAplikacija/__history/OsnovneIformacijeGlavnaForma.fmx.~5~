@@ -1,0 +1,78 @@
+object FOsnovneIformacije: TFOsnovneIformacije
+  Left = 0
+  Top = 0
+  Caption = 'FOsnovneIformacije'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  object Instagram: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 323.000000000000000000
+    Size.Width = 225.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
+    Text = '@Berbernica_Brka'
+    TabOrder = 1
+  end
+  object Facebook: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 354.000000000000000000
+    Size.Width = 225.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Berbernica Brka'
+    TabOrder = 0
+  end
+  object Telefon: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 385.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
+    Text = '034-539-890'
+    TabOrder = 2
+  end
+  object Viber: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 416.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
+    Text = '+381649445129'
+    TabOrder = 3
+  end
+  object RadnoVreme: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 447.000000000000000000
+    Size.Width = 361.000000000000000000
+    Size.Height = 138.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 
+      'RadnoVreme PON-PET od 9h-19h SUB od 9h-15h NED ne radimo ul.  i ' +
+      'br. Radovana Mi'#263'ovi'#263'a 12'
+    TabOrder = 4
+  end
+  object ImageControl1: TImageControl
+    Position.X = 72.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 201.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+  end
+  object BtnPrikazNaloga: TButton
+    Position.X = 104.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 201.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'Prikaz Naloga'
+    OnClick = BtnPrikazNalogaClick
+  end
+end

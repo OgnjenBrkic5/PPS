@@ -1,0 +1,17 @@
+inherited FKorisnickiNalog_LgXhdpiPh: TFKorisnickiNalog_LgXhdpiPh
+  ClientHeight = 696
+  ClientWidth = 448
+  DesignerMasterStyle = 3
+  inherited IstrorijaStringGrid: TStringGrid
+    Viewport.Width = 326.000000000000000000
+    Viewport.Height = 264.000000000000000000
+    inherited Cena: TColumn [1]
+    end
+    inherited Datum: TColumn [2]
+    end
+    inherited Termin: TColumn [3]
+    end
+    inherited Usluga: TColumn [4]
+    end
+  end
+end

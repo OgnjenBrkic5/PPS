@@ -2,3 +2,6 @@
 Coordinates=93,71,133,33
 Visible=True
 
+[FDataModule.FDQuery1]
+Visible=False
+

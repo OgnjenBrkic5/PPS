@@ -5,8 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, Registracija, Prijava, DataModule,
-  FMX.Layouts, FMX.Objects;
+  FMX.Controls.Presentation, FMX.StdCtrls, Registracija, Prijava,
+  FMX.Layouts, FMX.Objects;      //, DataModule
 
 type
   TFLogIn = class(TForm)
@@ -48,6 +48,7 @@ procedure TFLogIn.UlogujSeClick(Sender: TObject);
 begin
     var FormaPrijava := TFPrijava.Create(self);
     FormaPrijava.Show;
+    //FLogin.Hide;
     self.Hide;
 end;
 

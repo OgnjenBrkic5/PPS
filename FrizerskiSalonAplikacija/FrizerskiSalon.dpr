@@ -15,9 +15,9 @@ uses
   Placanje in 'Placanje.pas' {FPlacanje},
   Recenzije in 'Recenzije.pas' {FRecenzije},
   Obavestenja in 'Obavestenja.pas' {FObavestenja},
-  KorisnickiNalog in 'KorisnickiNalog.pas' {FKorisnickiNalog},
   DataModule in 'DataModule.pas' {FDataModule: TDataModule},
-  OsnovneIformacijeGlavnaForma in 'OsnovneIformacijeGlavnaForma.pas' {FOsnovneIformacije};
+  OsnovneIformacije in 'OsnovneIformacije.pas' {FOsnovneIformacije},
+  KorisnickiNalogGlavnaForma in 'KorisnickiNalogGlavnaForma.pas' {FKorisnickiNalog: TFKorisnickiNalog};
 
 {$R *.res}
 
@@ -25,6 +25,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TFDataModule, FDataModule);
   Application.CreateForm(TFLogIn, FLogIn);
-  Application.CreateForm(TFOsnovneIformacije, FOsnovneIformacije);
+  Application.CreateForm(TFKorisnickiNalog, FKorisnickiNalog);
   Application.Run;
 end.

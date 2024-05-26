@@ -5,21 +5,28 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, OsnovneIformacijeGlavnaForma;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, KorisnickiNalogGlavnaForma, DataModule,
+  FMX.Objects, FMX.Layouts;
 
 type
   TFRegistracija = class(TForm)
-    Email: TLabel;
-    Ime: TLabel;
-    Prezime: TLabel;
-    Šifra: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
     UlogujSe: TButton;
-    procedure UlogujSeClick(Sender: TObject);
+    EmailLine: TLine;
+    EmailEdit: TEdit;
+    SifraLine: TLine;
+    SifraEdit: TEdit;
+    SifraLabel: TLabel;
+    InputLayout: TLayout;
+    EmailLabel: TLabel;
+    KorisnickoImeLine: TLine;
+    KorisnickoImeEdit: TEdit;
+    KorisnickoImeLabel: TLabel;
+    Nazad: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NazadClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +37,7 @@ var
   FRegistracija: TFRegistracija;
 
 implementation
-
+uses LogInForma;
 {$R *.fmx}
 
 procedure TFRegistracija.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -38,11 +45,17 @@ begin
     //application.Terminate;
 end;
 
-procedure TFRegistracija.UlogujSeClick(Sender: TObject);
+{procedure TFRegistracija.UlogujSeClick(Sender: TObject);
 begin
-    var OsnovneIformacije := TFOsnovneIformacije.Create(self);
-    OsnovneIformacije.Show;
+    var FKorisnickiNalog := TFKorisnickiNalog.Create(self);
+    FKorisnickiNalog.Show;
     self.Hide;
+end;}
+
+procedure TFRegistracija.NazadClick(Sender: TObject);
+begin
+    FLogIn.Show;
+    self.Close;
 end;
 
 end.

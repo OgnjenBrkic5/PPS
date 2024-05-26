@@ -1,0 +1,138 @@
+﻿object FKorisnickiNalog: TFKorisnickiNalog
+  Left = 0
+  Top = 0
+  Caption = 'FKorisnickiNalog'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 343.000000000000000000
+        Size.Height = 480.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 30.000000000000000000
+        YRadius = 30.000000000000000000
+      end
+      object BtnIzaberiUslugu: TButton
+        Position.X = 136.000000000000000000
+        Position.Y = 160.000000000000000000
+        Size.Width = 153.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Izaberi uslugu'
+        OnClick = BtnIzaberiUsluguClick
+      end
+      object Line2: TLine
+        LineType = Diagonal
+        Position.X = 16.000000000000000000
+        Position.Y = 227.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 377.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.Y = 80.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 377.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object IstrorijaStringGrid: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      Position.X = 50.000000000000000000
+      Position.Y = 260.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 264.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Viewport.Width = 306.000000000000000000
+      Viewport.Height = 223.000000000000000000
+      object colBerberin: TColumn
+        Header = 'Berberin'
+        ReadOnly = True
+      end
+      object colUsluga: TColumn
+        Header = 'Usluga'
+        ReadOnly = True
+      end
+      object colCena: TColumn
+        Header = 'Cena'
+        ReadOnly = True
+      end
+      object colDatum: TColumn
+        Header = 'Datum'
+        ReadOnly = True
+      end
+      object colTermin: TColumn
+        Header = 'Termin'
+        ReadOnly = True
+      end
+    end
+    object IstorijaŠišanja: TLabel
+      Position.X = 50.000000000000000000
+      Position.Y = 237.000000000000000000
+      Size.Width = 305.000000000000000000
+      Size.Height = 63.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Istorija usluga'
+      TabOrder = 2
+    end
+    object BtnOsnovneInformacije: TButton
+      Position.X = 263.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 153.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Osnovne Informacije'
+      OnClick = BtnOsnovneInformacijeClick
+    end
+  end
+  object ImeKorisnikaLabel: TLabel
+    Position.X = 136.000000000000000000
+    Position.Y = 60.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Ime Korisnika'
+    TabOrder = 1
+  end
+end

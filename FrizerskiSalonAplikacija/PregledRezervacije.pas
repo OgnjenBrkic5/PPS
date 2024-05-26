@@ -27,7 +27,7 @@ var
   FPregledRezervacije: TFPregledRezervacije;
 
 implementation
-uses KorisnickiNalog;
+uses KorisnickiNalogGlavnaForma;
 {$R *.fmx}
 
 

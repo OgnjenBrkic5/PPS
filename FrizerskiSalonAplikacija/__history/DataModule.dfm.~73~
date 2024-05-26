@@ -1,0 +1,499 @@
+object FDataModule: TFDataModule
+  Height = 999
+  Width = 1211
+  PixelsPerInch = 120
+  object FDDatabaseConnectionDBFolder: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikaci' +
+        'ja\Database\FrizerskiSalonDatabase.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 872
+    Top = 112
+  end
+  object FDMemTable1: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 1056
+    Top = 552
+  end
+  object FDTable1: TFDTable
+    Connection = FDDatabaseConnectionDBFolder
+    Left = 904
+    Top = 656
+  end
+  object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
+    Left = 1048
+    Top = 648
+  end
+  object FDSQLiteSecurity1: TFDSQLiteSecurity
+    Left = 984
+    Top = 736
+  end
+  object FDQueryTemp: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    Left = 488
+    Top = 16
+  end
+  object FDQuerySelectKorisnik: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM Korisnik;')
+    Left = 392
+    Top = 144
+  end
+  object FDQueryCreateTableKorisnik: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS Korisnik ('
+      '    IDKorisnika   INTEGER      NOT NULL'
+      '                               UNIQUE'
+      '                               DEFAULT (1),'
+      '    KorisnickoIme VARCHAR (20) NOT NULL,'
+      '    Email         VARCHAR (30) NOT NULL,'
+      '    SifraNaloga   VARCHAR (20) NOT NULL,'
+      '    SlikaProfila  BLOB,'
+      '    PRIMARY KEY ('
+      '        IDKorisnika ASC AUTOINCREMENT'
+      '    )'
+      ');')
+    Left = 120
+    Top = 144
+  end
+  object FDQueryCreateTableRadnik: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS Radnik ('
+      '    IDRadnika     INTEGER      UNIQUE'
+      '                               NOT NULL'
+      '                               DEFAULT (1),'
+      '    KorisnickoIme VARCHAR (20) NOT NULL,'
+      
+        '    IDPozicije    INTEGER      REFERENCES RadnaPozicija (IDPozic' +
+        'ije) ON DELETE CASCADE'
+      
+        '                                                                ' +
+        '     ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        '     MATCH [FULL]'
+      '                               NOT NULL,'
+      '    Email         VARCHAR (30) NOT NULL,'
+      '    SifraNaloga   VARCHAR (20) NOT NULL,'
+      '    SlikaProfila  BLOB,'
+      '    PRIMARY KEY ('
+      '        IDRadnika ASC AUTOINCREMENT')
+    Left = 120
+    Top = 208
+  end
+  object FDQueryCreateTableDostupniTermini: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS DostupniTermini ('
+      '    Datum      VARCHAR (20) NOT NULL,'
+      
+        '    IDTermina  INTEGER      REFERENCES MoguciTermini (IDTremina)' +
+        ' ON DELETE CASCADE'
+      
+        '                                                                ' +
+        ' ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        ' MATCH [FULL]'
+      '                            NOT NULL,'
+      '    Dostupnost VARCHAR (20) NOT NULL,'
+      '    PRIMARY KEY ('
+      '        Datum,'
+      '        IDTermina'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDTermina'
+      '    )'
+      '    REFERENCES MoguciTermini (IDTremina) '
+      ');'
+      '')
+    Left = 120
+    Top = 272
+  end
+  object FDQueryCreateTableDostupnostRadnika: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS DostupnostRadnika ('
+      
+        '    IDRadnika INTEGER      REFERENCES Radnik (IDRadnika) ON DELE' +
+        'TE CASCADE'
+      
+        '                                                         ON UPDA' +
+        'TE CASCADE'
+      
+        '                                                         MATCH [' +
+        'FULL]'
+      '                           NOT NULL,'
+      '    Datum     VARCHAR (20) NOT NULL,'
+      '    IDTermina INTEGER      NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDRadnika,'
+      '        Datum,'
+      '        IDTermina'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDRadnika'
+      '    )'
+      '    REFERENCES Radnik (IDRadnika),'
+      '    FOREIGN KEY ('
+      '        Datum,'
+      '        IDTermina'
+      '    )'
+      '    REFERENCES DostupniTermini (Datum,'
+      '    IDTermina) '
+      ');'
+      '')
+    Left = 120
+    Top = 336
+  end
+  object FDQueryCreateTableIzabraneUsluge: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS IzabraneUsluge ('
+      '    IDKorisnika INTEGER NOT NULL,'
+      '    IDUsluge    INTEGER NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDKorisnika,'
+      '        IDUsluge'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDKorisnika'
+      '    )'
+      '    REFERENCES Korisnik (IDKorisnika) ON UPDATE CASCADE,'
+      '    FOREIGN KEY ('
+      '        IDUsluge'
+      '    )'
+      '    REFERENCES SifarnikUsluga (IDUsluge) ON UPDATE CASCADE'
+      ');')
+    Left = 120
+    Top = 400
+  end
+  object FDQueryCreateTableMoguciTermini: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE  IF NOT EXISTS MoguciTermini ('
+      '    IDTremina      INTEGER      UNIQUE'
+      '                                NOT NULL'
+      '                                DEFAULT (1),'
+      '    PocetakTermina VARCHAR (20) UNIQUE'
+      '                                NOT NULL,'
+      '    KrajTermina    VARCHAR (20) UNIQUE'
+      '                                NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDTremina ASC AUTOINCREMENT'
+      '    )'
+      ');')
+    Left = 120
+    Top = 464
+  end
+  object FDQueryCreateTableNacinPlacanja: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE  IF NOT EXISTS NacinPlacanja ('
+      '    IDNacinaPlacanja    INTEGER      NOT NULL'
+      '                                     UNIQUE,'
+      '    NazivNacinaPlacanja VARCHAR (20) NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDNacinaPlacanja ASC AUTOINCREMENT'
+      '    )'
+      ');'
+      ''
+      ');')
+    Left = 120
+    Top = 528
+  end
+  object FDQueryCreateTableObavestenje: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS Obavestenje ('
+      '    IDObavestenja    INTEGER       NOT NULL'
+      '                                   UNIQUE'
+      '                                   DEFAULT (1),'
+      
+        '    IDRadnika        INTEGER       REFERENCES Radnik (IDRadnika)' +
+        ' ON DELETE CASCADE'
+      
+        '                                                                ' +
+        ' ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        ' MATCH [FULL]'
+      '                                   NOT NULL,'
+      '    PocetniDatum     VARCHAR (20),'
+      '    KrajnjiDatum     VARCHAR (20),'
+      '    TekstualnaPoruka VARCHAR (250),'
+      '    PRIMARY KEY ('
+      '        IDObavestenja ASC AUTOINCREMENT'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDRadnika'
+      '    )'
+      '    REFERENCES Radnik (IDRadnika) ON UPDATE CASCADE'
+      ');')
+    Left = 120
+    Top = 592
+  end
+  object FDQueryCreateTableRacun: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS Racun ('
+      '    IDRacuna         INTEGER       NOT NULL'
+      '                                   UNIQUE,'
+      '    IDZakazaneUsluge INTEGER       NOT NULL,'
+      '    IDNacinaPlacanja INTEGER       NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDRacuna ASC AUTOINCREMENT'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDZakazaneUsluge'
+      '    )'
+      '    REFERENCES Zakazivanje (IDZakazaneUsluge) ON UPDATE CASCADE,'
+      '    FOREIGN KEY ('
+      '        IDNacinaPlacanja'
+      '    )'
+      
+        '    REFERENCES NacinPlacanja (IDNacinaPlacanja) ON UPDATE CASCAD' +
+        'E'
+      ');')
+    Left = 120
+    Top = 656
+  end
+  object FDQueryCreateTableRadnaPozicija: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS RadnaPozicija ('
+      '    IDPozicije     INTEGER      NOT NULL'
+      '                                UNIQUE'
+      '                                DEFAULT (1),'
+      '    NazivZanimanja VARCHAR (20) NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDPozicije ASC AUTOINCREMENT'
+      '    )'
+      ');'
+      '')
+    Left = 120
+    Top = 720
+  end
+  object FDQueryCreateTableRecenzije: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS Recenzije ('
+      
+        '    IDKorisnika      INTEGER        REFERENCES Korisnik (IDKoris' +
+        'nika) ON DELETE CASCADE'
+      
+        '                                                                ' +
+        '      ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        '      MATCH [FULL]'
+      '                                    NOT NULL,'
+      
+        '    IDRadnika        INTEGER        REFERENCES Radnik (IDRadnika' +
+        ') ON DELETE CASCADE'
+      
+        '                                                                ' +
+        '  ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        '  MATCH [FULL]'
+      '                                    NOT NULL,'
+      '    TekstualnaPoruka VARCHAR (250),'
+      '    Ocena            INTEGER (1, 5) NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDKorisnika,'
+      '        IDRadnika'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDKorisnika'
+      '    )'
+      '    REFERENCES Korisnik (IDKorisnika) ON UPDATE CASCADE,'
+      '    FOREIGN KEY ('
+      '        IDRadnika'
+      '    )'
+      '    REFERENCES Radnik (IDRadnika) ON UPDATE CASCADE'
+      ');')
+    Left = 120
+    Top = 784
+  end
+  object FDQueryCreateTableSifarnikUsluga: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS SifarnikUsluga ('
+      '    IDUsluge      INTEGER      NOT NULL'
+      '                               UNIQUE'
+      '                               DEFAULT (1),'
+      '    NazivUsluge   VARCHAR (30) NOT NULL,'
+      '    CenaUsluge    INTEGER      NOT NULL,'
+      '    VremeTrajanja INTEGER      NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDUsluge ASC AUTOINCREMENT'
+      '    )'
+      ');'
+      '')
+    Left = 120
+    Top = 848
+  end
+  object FDQueryCreateTableZakazivanje: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS Zakazivanje ('
+      '    IDZakazaneUsluge INTEGER      NOT NULL'
+      '                                  UNIQUE,'
+      '    IDKorisnika      INTEGER      NOT NULL,'
+      '    IDUsluge         INTEGER      NOT NULL,'
+      '    IDRadnika        INTEGER      NOT NULL,'
+      '    Datum            VARCHAR (20) NOT NULL,'
+      '    IDTermina        INTEGER      NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDZakazaneUsluge ASC AUTOINCREMENT'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDKorisnika,'
+      '        IDUsluge'
+      '    )'
+      '    REFERENCES IzabraneUsluge (IDKorisnika,'
+      '    IDUsluge) ON UPDATE CASCADE,'
+      '    FOREIGN KEY ('
+      '        IDRadnika,'
+      '        Datum,'
+      '        IDTermina'
+      '    )'
+      '    REFERENCES DostupnostRadnika (IDRadnika,'
+      '    Datum,'
+      '    IDTermina) ON UPDATE CASCADE'
+      ');'
+      '')
+    Left = 120
+    Top = 912
+  end
+  object FDQueryCreateDatabase: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'CREATE DATABASE FrizerskiSalonDatabase;')
+    Left = 344
+    Top = 16
+  end
+  object FDDatabaseConnection: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikaci' +
+        'ja\Database\FrizerskiSalonDatabase.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    LoginPrompt = False
+    BeforeConnect = FDDatabaseConnectionBeforeConnect
+    Left = 120
+    Top = 16
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = FDQuery1
+    ScopeMappings = <>
+    Left = 888
+    Top = 336
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'SELECT * FROM Korisnik;')
+    Left = 904
+    Top = 240
+  end
+  object FDQuerySelectRadnik: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM Korisnik;')
+    Left = 392
+    Top = 208
+  end
+  object FDQuerySelectDostupniTermini: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM DostupniTermini;')
+    Left = 392
+    Top = 272
+  end
+  object FDQuerySelectDostupnostRadnika: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM DostupnostRadnika;')
+    Left = 392
+    Top = 336
+  end
+  object FDQuerySelectIzabraneUsluge: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM IzabraneUsluge;')
+    Left = 392
+    Top = 400
+  end
+  object FDQuerySelectMoguciTermini: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM MoguciTermini;')
+    Left = 392
+    Top = 464
+  end
+  object FDQuerySelectNacinPlacanja: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM NacinPlacanja;')
+    Left = 392
+    Top = 528
+  end
+  object FDQuerySelectObavestenje: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM Obavestenje;')
+    Left = 392
+    Top = 592
+  end
+  object FDQuerySelectRacun: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM NacinPlacanja;')
+    Left = 392
+    Top = 656
+  end
+  object FDQuerySelectRadnaPozicija: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM RadnaPozicija;')
+    Left = 392
+    Top = 720
+  end
+  object FDQuerySelectRecenzije: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM Recenzije;')
+    Left = 392
+    Top = 784
+  end
+  object FDQuerySelectSifarnikUsluga: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM SifarnikUsluga;')
+    Left = 392
+    Top = 848
+  end
+  object FDQuerySelectZakazivanje: TFDQuery
+    Connection = FDDatabaseConnectionDBFolder
+    SQL.Strings = (
+      'SELECT * FROM Zakazivanje;')
+    Left = 392
+    Top = 912
+  end
+end

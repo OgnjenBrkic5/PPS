@@ -1,4 +1,4 @@
-﻿object FRegistracija: TFRegistracija
+object FRegistracija: TFRegistracija
   Left = 0
   Top = 0
   Caption = 'FRegistracija'
@@ -9,86 +9,171 @@
   FormFactor.Devices = [Desktop]
   OnClose = FormClose
   DesignerMasterStyle = 3
-  object Email: TLabel
-    Position.X = 56.000000000000000000
-    Position.Y = 352.000000000000000000
-    Size.Width = 57.000000000000000000
-    Size.Height = 17.000000000000000000
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
     Size.PlatformDefault = False
-    Text = 'E-mail'
-    TabOrder = 1
-  end
-  object Ime: TLabel
-    Position.X = 56.000000000000000000
-    Position.Y = 402.000000000000000000
-    Size.Width = 57.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'Ime'
     TabOrder = 0
-  end
-  object Prezime: TLabel
-    Position.X = 56.000000000000000000
-    Position.Y = 442.000000000000000000
-    Size.Width = 81.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'Prezime'
-    TabOrder = 2
-  end
-  object Šifra: TLabel
-    Position.X = 56.000000000000000000
-    Position.Y = 478.000000000000000000
-    Size.Width = 57.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    Text = #352'ifra'
-    TabOrder = 3
-  end
-  object Edit1: TEdit
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 7
-    Position.X = 145.000000000000000000
-    Position.Y = 387.000000000000000000
-    Size.Width = 168.000000000000000000
-    Size.Height = 32.000000000000000000
-    Size.PlatformDefault = False
-  end
-  object Edit4: TEdit
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 6
-    Position.X = 145.000000000000000000
-    Position.Y = 337.000000000000000000
-    Size.Width = 168.000000000000000000
-    Size.Height = 32.000000000000000000
-    Size.PlatformDefault = False
-  end
-  object Edit3: TEdit
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 5
-    Position.X = 145.000000000000000000
-    Position.Y = 468.000000000000000000
-    Size.Width = 168.000000000000000000
-    Size.Height = 32.000000000000000000
-    Size.PlatformDefault = False
-  end
-  object Edit2: TEdit
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 4
-    Position.X = 145.000000000000000000
-    Position.Y = 427.000000000000000000
-    Size.Width = 168.000000000000000000
-    Size.Height = 32.000000000000000000
-    Size.PlatformDefault = False
-  end
-  object UlogujSe: TButton
-    Position.X = 168.000000000000000000
-    Position.Y = 532.000000000000000000
-    Size.Width = 97.000000000000000000
-    Size.Height = 44.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 8
-    Text = 'Uloguj se'
-    OnClick = UlogujSeClick
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 353.000000000000000000
+        Size.Height = 480.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 30.000000000000000000
+        YRadius = 30.000000000000000000
+        object UlogujSe: TButton
+          Position.X = 105.000000000000000000
+          Position.Y = 408.000000000000000000
+          Size.Width = 145.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Uloguj se'
+          TintColor = claCornflowerblue
+        end
+        object EmailLine: TLine
+          Align = Horizontal
+          LineType = Bottom
+          Margins.Left = 30.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Position.X = 30.000000000000000000
+          Position.Y = 200.000000000000000000
+          Size.Width = 293.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          object EmailEdit: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Bottom
+            TabOrder = 0
+            Position.Y = 48.000000000000000000
+            Size.Width = 293.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            ParentShowHint = False
+            ShowHint = False
+          end
+          object EmailLabel: TLabel
+            Align = Top
+            StyledSettings = [Family, FontColor]
+            Size.Width = 293.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claWhite
+            Text = 'E-mail'
+            TabOrder = 4
+          end
+        end
+        object SifraLine: TLine
+          Align = Horizontal
+          LineType = Bottom
+          Margins.Left = 30.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Position.X = 30.000000000000000000
+          Position.Y = 300.000000000000000000
+          Size.Width = 293.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          object SifraEdit: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Bottom
+            TabOrder = 3
+            Password = True
+            Position.Y = 48.000000000000000000
+            Size.Width = 293.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object SifraLabel: TLabel
+            Align = Top
+            StyledSettings = [Family, FontColor]
+            Size.Width = 293.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claWhite
+            Text = #352'ifra'
+            TabOrder = 2
+          end
+        end
+        object KorisnickoImeLine: TLine
+          Align = Horizontal
+          LineType = Bottom
+          Margins.Left = 30.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Position.X = 30.000000000000000000
+          Position.Y = 100.000000000000000000
+          Size.Width = 293.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          object KorisnickoImeEdit: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Bottom
+            TabOrder = 0
+            Position.Y = 48.000000000000000000
+            Size.Width = 293.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            ParentShowHint = False
+            ShowHint = False
+          end
+          object KorisnickoImeLabel: TLabel
+            Align = Top
+            StyledSettings = [Family, FontColor]
+            Size.Width = 293.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claWhite
+            Text = 'Korisnicko Ime'
+            TabOrder = 4
+          end
+        end
+      end
+      object InputLayout: TLayout
+        Align = Bottom
+        Position.Y = 584.000000000000000000
+        Size.Width = 424.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+      object Nazad: TButton
+        StyledSettings = [Family, Size, Style]
+        Position.X = 35.000000000000000000
+        Position.Y = 540.000000000000000000
+        Size.Width = 99.000000000000000000
+        Size.Height = 45.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Nazad'
+        TintColor = claAqua
+        OnClick = NazadClick
+      end
+    end
   end
 end
