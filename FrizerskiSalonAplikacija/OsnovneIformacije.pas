@@ -5,20 +5,26 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts, FMX.Ani;
 
 type
   TFOsnovneIformacije = class(TForm)
-    Instagram: TLabel;
-    Facebook: TLabel;
-    Telefon: TLabel;
-    Viber: TLabel;
-    RadnoVreme: TLabel;
-    ImageControl1: TImageControl;
-    BtnPrikazNaloga: TButton;
+    InstagramLabel: TLabel;
+    FacebookLabel: TLabel;
+    TelefonLabel: TLabel;
+    ViberLabel: TLabel;
+    RadnoVremeLabel: TLabel;
+    LogoImageControl: TImageControl;
+    Nazad: TButton;
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    Line2: TLine;
+    Line1: TLine;
 
     //procedure BtnPrikazNalogaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NazadClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,10 +35,8 @@ var
   FOsnovneIformacije: TFOsnovneIformacije;
 
 implementation
-
+uses KorisnickiNalogGlavnaForma;
 {$R *.fmx}
-
-
 
 
 {
@@ -53,7 +57,13 @@ end; }
 procedure TFOsnovneIformacije.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-    //application.Terminate;
+    application.Terminate;
+end;
+
+procedure TFOsnovneIformacije.NazadClick(Sender: TObject);
+begin
+      FKorisnickiNalog.Show;
+      self.Hide;
 end;
 
 end.

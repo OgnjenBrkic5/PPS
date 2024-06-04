@@ -11,7 +11,7 @@ Coordinates=208,1,107,33
 Coordinates=208,56,142,33
 
 []
-Coordinates=91,10,171,58
+Coordinates=69,78,176,33
 Visible=True
 
 [FDQuerySelectKorisnik]
@@ -65,12 +65,6 @@ EditingLayerName=
 [FDQueryCreateDatabase]
 Coordinates=148,71,135,51
 
-[FDDatabaseConnectionDBFolder]
-Coordinates=69,78,176,33
-
-[FDDatabaseConnection]
-Coordinates=49,80,130,33
-
 [BindSourceDB1]
 Coordinates=321,80,92,159
 
@@ -80,4 +74,7 @@ Visible=False
 
 [FDQueryTemp]
 Coordinates=167,1,85,51
+
+[FDDatabaseConnection]
+Coordinates=49,80,130,33
 

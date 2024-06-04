@@ -1,0 +1,62 @@
+object FPlacanje: TFPlacanje
+  Left = 0
+  Top = 0
+  Caption = 'FPlacanje'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object Placanje: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 128.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = 'Placanje'
+    TabOrder = 0
+  end
+  object Potvrdi: TButton
+    Position.X = 152.000000000000000000
+    Position.Y = 512.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Potvrdi'
+    OnClick = PotvrdiClick
+  end
+  object RadioButton1: TRadioButton
+    Position.X = 136.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Na lokaciji kesom'
+  end
+  object RadioButton2: TRadioButton
+    Position.X = 136.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Na lokaciji karticom'
+  end
+  object RadioButton3: TRadioButton
+    Position.X = 136.000000000000000000
+    Position.Y = 312.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Karticom'
+  end
+end

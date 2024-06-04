@@ -1,0 +1,21 @@
+inherited FKorisnickiNalog_LgXhdpiPh: TFKorisnickiNalog_LgXhdpiPh
+  ClientHeight = 696
+  ClientWidth = 448
+  DesignerMasterStyle = 3
+  inherited FormBackgroundLayout: TLayout
+    Size.Width = 448.000000000000000000
+    Size.Height = 696.000000000000000000
+    inherited FormBackgroundRectangle: TRectangle
+      Size.Width = 448.000000000000000000
+      Size.Height = 696.000000000000000000
+    end
+    inherited IstrorijaStringGrid: TStringGrid
+      Viewport.Width = 326.000000000000000000
+      Viewport.Height = 228.000000000000000000
+    end
+    inherited OdjaviSeBtn: TButton [4]
+    end
+    inherited ImeKorisnikaLabel: TLabel [5]
+    end
+  end
+end

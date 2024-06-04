@@ -27,7 +27,7 @@ object FBesplatanTermin: TFBesplatanTermin
       Size.Width = 185.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 4
+      TabOrder = 3
       Text = 'Pregled rezervacije'
       OnClick = BtnNazaNaPregledRezervacijeClick
     end

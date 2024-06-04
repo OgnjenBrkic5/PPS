@@ -10,10 +10,10 @@ uses
 
 type
   TFPrijava = class(TForm)
-    Nazad: TButton;
+    NazadBtn: TButton;
     EmailEdit: TEdit;
     EmailLabel: TLabel;
-    UlogujSe: TButton;
+    UlogujSeBtn: TButton;
     FormBackgroundLayout: TLayout;
     FormBackgroundRectangle: TRectangle;
     InputeRectangle: TRectangle;
@@ -22,11 +22,11 @@ type
     SifraLine: TLine;
     SifraEdit: TEdit;
     SifraLabel: TLabel;
-    PrikazSifre: TCheckBox;
-    procedure UlogujSeClick(Sender: TObject);
+    PrikazSifreChB: TCheckBox;
+    procedure UlogujSeBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure NazadClick(Sender: TObject);
-    procedure PrikazSifreChange(Sender: TObject);
+    procedure NazadBtnClick(Sender: TObject);
+    procedure PrikazSifreChBChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,25 +51,24 @@ end;
 
 procedure TFPrijava.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    //application.Terminate;
+    application.Terminate;
 end;
 
-procedure TFPrijava.NazadClick(Sender: TObject);
+procedure TFPrijava.NazadBtnClick(Sender: TObject);
 begin
     FLogIn.Show;
-    self.Close;
+    self.Hide;
 end;
 
-procedure TFPrijava.PrikazSifreChange(Sender: TObject);
+procedure TFPrijava.PrikazSifreChBChange(Sender: TObject);
 begin
-    SifraEdit.Password:= not PrikazSifre.IsChecked;
+    SifraEdit.Password:= not PrikazSifreChB.IsChecked;
 end;
 
-procedure TFPrijava.UlogujSeClick(Sender: TObject);
-
-//var OsnovneIformacije:= TFOsnovneIformacije.Create(self);
-var pwd: string;
+procedure TFPrijava.UlogujSeBtnClick(Sender: TObject);
 begin
+    //var OsnovneIformacije:= TFOsnovneIformacije.Create(self);
+    var pwd: string;
     if trim(EmailEdit.Text)='' then
     begin
       Showmessage('Unesite e-mail adresu!');
@@ -107,7 +106,6 @@ begin
               //FKorisnickiNalog.ImeKorisnika.text:= EmailEdit.text;
 
               //FPrijava.Hide;
-              FKorisnickiNalog:=TFKorisnickiNalog.Create(self);
               //FKorisnickiNalog.ImeKorisnika.text:= EmailEdit.text;
 
 
@@ -132,6 +130,8 @@ begin
               FKorisnickiNalog.SifraNaloga := FDQueryTemp.FieldByName('SifraNaloga').AsString;
               Showmessage('msg5');}
 
+              FKorisnickiNalog:=TFKorisnickiNalog.Create(self);
+
               FKorisnickiNalog.IDKorisnika := FDQueryTemp['IDKorisnika'];
               FKorisnickiNalog.KorisnickoIme  := FDQueryTemp['KorisnickoIme'];
               FKorisnickiNalog.Email := FDQueryTemp['Email'];
@@ -141,9 +141,9 @@ begin
               FDQueryTemp.Close;
 
               FKorisnickiNalog.Show;
-              self.Close;
+              self.Hide;
 
-              //self.Hide;
+              //self.Close;
 
               {FKorisnickiNalog.ShowModal(
                   procedure (Modalresult: TModalResult)

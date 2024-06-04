@@ -1,19 +1,19 @@
-unit Registracija;
+﻿unit Registracija;
 
 interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, KorisnickiNalogGlavnaForma, DataModule,
-  FMX.Objects, FMX.Layouts;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, Prijava, DataModule,
+  FMX.Objects, FMX.Layouts;                 //KorisnickiNalogGlavnaForma
 
 type
   TFRegistracija = class(TForm)
     FormBackgroundLayout: TLayout;
     FormBackgroundRectangle: TRectangle;
     InputeRectangle: TRectangle;
-    UlogujSe: TButton;
+    RegistrujSeBtn: TButton;
     EmailLine: TLine;
     EmailEdit: TEdit;
     SifraLine: TLine;
@@ -24,9 +24,10 @@ type
     KorisnickoImeLine: TLine;
     KorisnickoImeEdit: TEdit;
     KorisnickoImeLabel: TLabel;
-    Nazad: TButton;
+    NazadBtn: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure NazadClick(Sender: TObject);
+    procedure NazadBtnClick(Sender: TObject);
+    procedure RegistrujSeBtnClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,20 +43,87 @@ uses LogInForma;
 
 procedure TFRegistracija.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    //application.Terminate;
+    application.Terminate;
 end;
 
-{procedure TFRegistracija.UlogujSeClick(Sender: TObject);
+{procedure TFRegistracija.RegistrujSeClick(Sender: TObject);
 begin
     var FKorisnickiNalog := TFKorisnickiNalog.Create(self);
     FKorisnickiNalog.Show;
     self.Hide;
 end;}
 
-procedure TFRegistracija.NazadClick(Sender: TObject);
+procedure TFRegistracija.NazadBtnClick(Sender: TObject);
 begin
     FLogIn.Show;
-    self.Close;
+    self.Hide;
+end;
+
+procedure TFRegistracija.RegistrujSeBtnClick(Sender: TObject);
+begin
+    var pwd: string;
+    if trim(KorisnickoImeEdit.Text)='' then
+    begin
+        Showmessage('Unesite korisničko ime!');
+        KorisnickoImeEdit.SetFocus;
+    end
+
+    else
+    begin
+        if trim(EmailEdit.Text)='' then
+        begin
+            Showmessage('Unesite e-mail adresu!');
+            EmailEdit.SetFocus;
+        end
+
+        else
+        begin
+          if trim(SifraEdit.Text)='' then
+          begin
+              Showmessage('Unesite šifru!');
+              SifraEdit.SetFocus;
+          end
+
+          else
+          begin
+
+            with FDataModule do
+            begin
+
+               FDDatabaseConnection.Open;
+               FDQueryTemp.Sql.Clear;
+               FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
+               FDQueryTemp.Open;
+
+               if FDQueryTemp.RecordCount>0 then
+               begin
+                    Showmessage('Uneti e-mail već postoji. Unesite drugi e-mail!');
+                    EmailEdit.SetFocus;
+               end
+
+               else
+               begin
+
+                    FDQueryTemp.Sql.Clear;
+                    FDQueryTemp.ExecSql ('INSERT INTO Korisnik (KorisnickoIme, Email, SifraNaloga) VALUES ('+ quotedstr(KorisnickoImeEdit.Text) + ', ' + quotedstr(EmailEdit.Text)+ ', ' + quotedstr(SifraEdit.Text) +')');
+                    //FDQueryTemp.Open;
+                    //FDQueryTemp.Close;
+                    Showmessage('Uspešno ste se registrovali!');
+
+                    FPrijava:=TFPrijava.Create(self);
+                    FPrijava.Show;
+                    self.Hide;
+                    //self.Close;
+               end;
+
+            end;
+
+          end;
+
+        end;
+
+    end;
+
 end;
 
 end.

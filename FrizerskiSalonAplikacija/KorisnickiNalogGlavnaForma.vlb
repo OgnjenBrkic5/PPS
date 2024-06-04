@@ -15,7 +15,7 @@ Coordinates=1048,232,203,51
 Coordinates=709,78,242,51
 
 [FDataModule.BindSourceDB1]
-Coordinates=180,78,160,69
+Coordinates=404,155,160,69
 
 [FDataModule.FDQuerySelectKorisnik]
 Coordinates=470,196,196,51
@@ -44,9 +44,6 @@ Coordinates=281,196,151,51
 [FDataModule.FDQueryCreateTableKorisnik]
 Coordinates=709,1,225,51
 
-[BtnOsnovneInformacije]
-Coordinates=737,232,130,51
-
 [FDataModule.FDQueryCreateTableRadnik]
 Coordinates=22,196,218,51
 
@@ -55,9 +52,6 @@ Coordinates=1048,309,260,51
 
 [FDataModule.FDTable1]
 Coordinates=0,0,128,51
-
-[IstorijaŠišanja]
-Coordinates=81,77,84,51
 
 [FDataModule.FDQueryCreateTableDostupnostRadnika]
 Coordinates=80,328,281,51
@@ -75,6 +69,82 @@ Coordinates=369,1,257,51
 Coordinates=419,328,245,51
 
 []
-Coordinates=1048,386,105,51
+Coordinates=451,285,82,33
 Visible=True
+
+[IstorijaUslugaLabel]
+Coordinates=81,77,109,51
+
+[colTermin]
+Coordinates=12,70,63,33
+
+[ImeKorisnikaLabel]
+Coordinates=122,1,105,51
+
+[colDatum]
+Coordinates=265,1,61,33
+
+[IstrorijaStringGrid]
+Coordinates=0,0,103,51
+
+[FormBackgroundLayout]
+Coordinates=246,53,133,33
+
+[colBerberin]
+Coordinates=265,105,71,33
+
+[InputeRectangle]
+Coordinates=265,157,94,33
+
+[colCena]
+Coordinates=206,166,54,33
+
+[FormBackgroundRectangle]
+Coordinates=417,1,149,33
+
+[colUsluga]
+Coordinates=137,166,63,33
+
+[OdjaviSeBtn]
+Coordinates=0,115,75,51
+Visible=True
+
+[FDataModule.FDQuerySelectRacun]
+Coordinates=854,285,187,51
+
+[FDataModule.FDQuerySelectRecenzije]
+Coordinates=604,1,203,51
+
+[FDataModule.FDQuerySelectObavestenje]
+Coordinates=1352,351,216,51
+
+[FDataModule.FDQuerySelectZakazivanje]
+Coordinates=604,71,213,51
+
+[FDataModule.FDQuerySelectIzabraneUsluge]
+Coordinates=474,176,231,51
+
+[FDataModule.FDQuerySelectMoguciTermini]
+Coordinates=1346,141,228,51
+
+[FDataModule.FDQuerySelectSifarnikUsluga]
+Coordinates=1346,71,227,51
+
+[FDataModule.FDQuerySelectRadnaPozicija]
+Coordinates=1003,225,225,51
+
+[FDataModule.FDQuerySelectDostupnostRadnika]
+Coordinates=1352,281,252,51
+
+[FDataModule.FDQuerySelectNacinPlacanja]
+Coordinates=1003,1,225,51
+
+[FDataModule.FDQuerySelectDostupniTermini]
+Coordinates=1352,211,237,51
+
+[FDataModule.FDQuerySelectRadnik]
+Coordinates=1003,71,190,51
+
+[OsnovneInformacijeBtn]
+Coordinates=737,232,130,51
 

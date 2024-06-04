@@ -1,0 +1,9 @@
+inherited FKalendar_LgXhdpiPh: TFKalendar_LgXhdpiPh
+  ClientHeight = 696
+  ClientWidth = 448
+  DesignerMasterStyle = 3
+  inherited RadniciListBox: TListBox
+    Viewport.Width = 292.000000000000000000
+    Viewport.Height = 137.000000000000000000
+  end
+end

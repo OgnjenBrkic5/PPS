@@ -2,27 +2,19 @@ inherited FKalendar_NmXhdpiPh: TFKalendar_NmXhdpiPh
   ClientHeight = 616
   ClientWidth = 400
   DesignerMasterStyle = 0
-  inherited Calendar1: TCalendar
-    Position.X = 16.000000000000000000
-    Position.Y = 47.000000000000000000
-    Size.Width = 361.000000000000000000
-  end
-  inherited Radnik1: TButton
-    Position.X = 72.000000000000000000
-    Position.Y = 288.000000000000000000
-  end
-  inherited Radnik2: TButton
-    Position.X = 72.000000000000000000
-    Position.Y = 384.000000000000000000
-  end
-  inherited Radnik3: TButton
-    Position.Y = 480.000000000000000000
-  end
-  inherited ListBox1: TListBox
-    Viewport.Width = 200.000000000000000000
-    Viewport.Height = 200.000000000000000000
-    inherited ListBoxItem1: TListBoxItem
-      Position.Y = 44.000000000000000000
+  inherited FormBackgroundLayout: TLayout
+    Size.Width = 400.000000000000000000
+    Size.Height = 616.000000000000000000
+    inherited FormBackgroundRectangle: TRectangle
+      Size.Width = 400.000000000000000000
+      Size.Height = 616.000000000000000000
+    end
+    inherited RadniciListBox: TListBox
+      Viewport.Width = 292.000000000000000000
+      Viewport.Height = 137.000000000000000000
+    end
+    inherited IzaberiBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
     end
   end
 end

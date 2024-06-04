@@ -1,40 +1,16 @@
-﻿[Calendar1]
-Coordinates=10,232,74,36
-
-[Radnik2]
-Coordinates=159,10,62,58
-
-[Radnik3]
-Coordinates=303,10,62,58
-
-[Radnik1]
-Coordinates=231,10,62,58
-
-[NotificationButton]
+﻿[NotificationButton]
 Coordinates=375,10,116,58
 
-[ListBoxItem5]
-Coordinates=109,278,89,36
-
-[ListBoxItem1]
-Coordinates=10,278,89,36
+[]
+Coordinates=10,10,139,212
 Visible=True
 
-[ListBoxItem6]
-Coordinates=391,232,89,36
+[IzaberiBtn]
+Coordinates=231,10,62,58
 
-[ListBox1]
-Coordinates=10,10,139,212
+[Calendar]
+Coordinates=10,232,74,36
 
-[ListBoxItem2]
-Coordinates=292,232,89,36
-
-[ListBoxItem3]
-Coordinates=193,232,89,36
-
-[ListBoxItem4]
-Coordinates=94,232,89,36
-
-[]
-Coordinates=474,1,91,36
+[FDataModule.FDQuery1]
+Visible=False
 

@@ -1,0 +1,160 @@
+object FIzborUsluga: TFIzborUsluga
+  Left = 0
+  Top = 0
+  Caption = 'FIzborUsluga'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 161.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object RadnikLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 168.000000000000000000
+      Position.Y = 81.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Radnik'
+      TabOrder = 2
+    end
+    object IzaberiBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 144.000000000000000000
+      Position.Y = 258.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Izaberi uslugu'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = IzaberiBtnClick
+    end
+    object UslugeGrid: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      Position.X = 48.000000000000000000
+      Position.Y = 330.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 166.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      RowCount = 0
+      Viewport.Width = 326.000000000000000000
+      Viewport.Height = 134.000000000000000000
+      object colUsluga: TColumn
+        Header = 'Usluga'
+        ReadOnly = True
+        Size.Width = 209.000000000000000000
+      end
+      object colCena: TColumn
+        Header = 'Cena (din)'
+        ReadOnly = True
+        Size.Width = 95.000000000000000000
+      end
+      object colVremeTrajanja: TColumn
+        Header = 'Vreme trajanja (min)'
+        ReadOnly = True
+        Size.Width = 143.000000000000000000
+      end
+    end
+    object ImageControl1: TImageControl
+      Position.X = 32.000000000000000000
+      Position.Y = 43.000000000000000000
+      Size.Width = 102.000000000000000000
+      Size.Height = 102.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object UslugeComboBox: TComboBox
+      Position.X = 48.000000000000000000
+      Position.Y = 218.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+    end
+    object UslugeLabel: TLabel
+      Position.X = 144.000000000000000000
+      Position.Y = 169.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Usluge'
+      TabOrder = 5
+    end
+    object Zakazi: TButton
+      Position.X = 237.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = 'Zaka'#382'i'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = ZakaziClick
+    end
+    object NazadBtn: TButton
+      Enabled = False
+      StyledSettings = [Family, Size, Style]
+      Position.X = 48.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Nazad'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = NazadBtnClick
+    end
+  end
+end

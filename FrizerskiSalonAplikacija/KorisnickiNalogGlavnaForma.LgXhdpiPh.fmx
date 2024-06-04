@@ -11,7 +11,10 @@ inherited FKorisnickiNalog_LgXhdpiPh: TFKorisnickiNalog_LgXhdpiPh
     end
     inherited IstrorijaStringGrid: TStringGrid
       Viewport.Width = 326.000000000000000000
-      Viewport.Height = 264.000000000000000000
+      Viewport.Height = 228.000000000000000000
+      inherited colUsluga: TColumn
+        Size.Width = 180.000000000000000000
+      end
     end
   end
 end

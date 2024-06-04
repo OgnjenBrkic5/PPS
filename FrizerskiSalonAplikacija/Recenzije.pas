@@ -11,7 +11,9 @@ type
   TFRecenzije = class(TForm)
     ImageControl1: TImageControl;
     Frizer: TLabel;
+    Nazad: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NazadClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -22,12 +24,18 @@ var
   FRecenzije: TFRecenzije;
 
 implementation
-
+uses KorisnickiNalogGlavnaForma;
 {$R *.fmx}
 
 procedure TFRecenzije.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    //application.Terminate;
+      application.Terminate;
+end;
+
+procedure TFRecenzije.NazadClick(Sender: TObject);
+begin
+      FKorisnickiNalog.Show;
+      self.Hide;
 end;
 
 end.

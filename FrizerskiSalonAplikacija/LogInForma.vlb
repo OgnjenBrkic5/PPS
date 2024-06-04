@@ -7,12 +7,6 @@ Coordinates=420,423,73,33
 [FormBackgroundRectangle]
 Coordinates=503,423,149,33
 
-[UlogujSe]
-Coordinates=412,240,58,51
-
-[RegistrujSe]
-Coordinates=235,423,71,51
-
 [InputeRectangle]
 Coordinates=316,423,94,33
 
@@ -76,4 +70,10 @@ Coordinates=529,179,256,51
 
 [FDataModule.FDQueryTemp]
 Coordinates=274,301,152,51
+
+[UlogujSeBtn]
+Coordinates=412,240,58,51
+
+[RegistrujSeBtn]
+Coordinates=235,423,71,51
 

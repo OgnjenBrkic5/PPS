@@ -9,12 +9,13 @@ uses
 
 type
   TFInformacije = class(TForm)
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Button1: TButton;
+    BestlatnaUslugaLabel: TLabel;
+    KasnjenjeLabel: TLabel;
+    RadnoVremeLabel: TLabel;
+    NazadBtn: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure Button1Click(Sender: TObject);
+    procedure NazadBtnClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     { Private declarations }
@@ -31,7 +32,14 @@ uses FormaTermini;
 
 
 
-procedure TFInformacije.Button1Click(Sender: TObject);
+procedure TFInformacije.FormShow(Sender: TObject);
+begin
+    RadnoVremeLabel.Text:= 'Radno vreme Ponedeljak-Petak: 09:00 - 19:00' + #13#10
+    + 'Pauza: 12:00-13:00' + #13#10
+    + 'Subotm i Nedeljom ne radimo';
+end;
+
+procedure TFInformacije.NazadBtnClick(Sender: TObject);
 begin
     FTermini.Show;
     self.Hide;
@@ -40,7 +48,7 @@ end;
 
 procedure TFInformacije.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    //application.Terminate;
+    application.Terminate;
 end;
 
 end.

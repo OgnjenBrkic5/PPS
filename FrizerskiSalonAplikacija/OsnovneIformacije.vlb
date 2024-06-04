@@ -1,21 +1,40 @@
-﻿[BtnPrikazNaloga]
-Coordinates=10,10,96,51
+﻿[FormBackgroundRectangle]
+Coordinates=385,1,171,36
 
-[Viber]
-Coordinates=10,71,40,51
+[Line2]
+Coordinates=261,87,46,36
 
-[Instagram]
-Coordinates=60,71,63,51
+[Line1]
+Coordinates=261,142,46,36
 
-[RadnoVreme]
-Coordinates=133,71,77,51
+[InputeRectangle]
+Coordinates=53,167,108,36
 
-[Telefon]
-Coordinates=188,10,50,51
+[FormBackgroundLayout]
+Coordinates=385,56,151,36
 
-[Facebook]
-Coordinates=116,10,62,51
+[]
+Coordinates=162,167,91,36
 
-[ImageControl1]
-Coordinates=248,10,86,51
+[LogoImageControl]
+Coordinates=248,10,99,58
+Visible=True
+
+[Nazad]
+Coordinates=10,10,110,58
+
+[RadnoVremeLabel]
+Coordinates=133,71,90,58
+
+[TelefonLabel]
+Coordinates=188,10,58,58
+
+[ViberLabel]
+Coordinates=10,71,45,58
+
+[InstagramLabel]
+Coordinates=60,71,72,58
+
+[FacebookLabel]
+Coordinates=116,10,71,58
 

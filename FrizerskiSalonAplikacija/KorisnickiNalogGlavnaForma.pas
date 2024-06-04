@@ -7,8 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects,
   Datasnap.Provider, Data.DB, Datasnap.DBClient, System.Rtti, FMX.Grid.Style,
-  FMX.Grid, FMX.ScrollBox, FormaKalendar, DataModule, OsnovneIformacije,
-  FMX.Layouts;
+  FMX.Grid, FMX.ScrollBox, FMX.Layouts, FormaKalendar, DataModule, OsnovneIformacije, Obavestenja, Recenzije;
 
   {System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
@@ -23,8 +22,8 @@ type
   TFKorisnickiNalog = class(TForm)
     BtnIzaberiUslugu: TButton;
     Line1: TLine;
-    IstorijaŠišanja: TLabel;
-    BtnOsnovneInformacije: TButton;
+    IstorijaUslugaLabel: TLabel;
+    OsnovneInformacijeBtn: TButton;
     Line2: TLine;
     IstrorijaStringGrid: TStringGrid;
     colBerberin: TColumn;
@@ -36,10 +35,16 @@ type
     FormBackgroundRectangle: TRectangle;
     ImeKorisnikaLabel: TLabel;
     InputeRectangle: TRectangle;
+    OdjaviSeBtn: TButton;
+    ObavestenjaBtn: TButton;
+    RecenzijeBtn: TButton;
     procedure BtnIzaberiUsluguClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure BtnOsnovneInformacijeClick(Sender: TObject);
+    procedure OsnovneInformacijeBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure OdjaviSeBtnClick(Sender: TObject);
+    procedure RecenzijeBtnClick(Sender: TObject);
+    procedure ObavestenjaBtnClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,15 +60,25 @@ var
   FKorisnickiNalog: TFKorisnickiNalog;
 
 implementation
-uses Prijava;
+uses Prijava, Placanje;
 {$R *.fmx}
 {$R *.LgXhdpiPh.fmx ANDROID}
 
 procedure TFKorisnickiNalog.BtnIzaberiUsluguClick(Sender: TObject);
 begin
-    var Kalendar := TFKalendar.Create(self);
-    Kalendar.Show;
+
+    {
+    FPlacanje.IDKorisnika:= IDKorisnika;
+    FPlacanje.KorisnickoIme:= KorisnickoIme;
+    FPlacanje.Email:= Email;
+    FPlacanje.SifraNaloga:= SifraNaloga;
+    }
+
+
+    FKalendar := TFKalendar.Create(self);
+    FKalendar.Show;
     self.Hide;
+
 end;
 
 
@@ -74,22 +89,34 @@ begin
     self.Hide;
 end;  }
 
-procedure TFKorisnickiNalog.BtnOsnovneInformacijeClick(Sender: TObject);
+procedure TFKorisnickiNalog.OsnovneInformacijeBtnClick(Sender: TObject);
 begin
-
-  if not Assigned (FOsnovneIformacije) then
-  begin
+  //if not Assigned (FOsnovneIformacije) then
+  //begin
     FOsnovneIformacije := TFOsnovneIformacije.Create(self);
     FOsnovneIformacije.Show;
     self.Hide;
-  end;
+  //end;
+end;
 
+procedure TFKorisnickiNalog.ObavestenjaBtnClick(Sender: TObject);
+begin
+      FObavestenja := TFObavestenja.Create(self);
+      FObavestenja.Show;
+      self.Hide;
+end;
+
+procedure TFKorisnickiNalog.RecenzijeBtnClick(Sender: TObject);
+begin
+      FRecenzije := TFRecenzije.Create(self);
+      FRecenzije.Show;
+      self.Hide;
 end;
 
 procedure TFKorisnickiNalog.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-    //application.Terminate;
+    application.Terminate;
 end;
 
 
@@ -98,6 +125,34 @@ begin
 
     ImeKorisnikaLabel.Text := KorisnickoIme;
 
+    RecenzijeBtn.Text:= 'Recenzije' + #13#10 + 'radnika';
+    OsnovneInformacijeBtn.Text:= 'Osnovne' + #13#10 + 'informacije';
+
+
+
+    //EncodeTime(0,30,0,0)
+
+
+     //Showmessage(Timetostr(EncodeTime(0,10,0,0) mod EncodeTime(0,30,0,0)));
+
+
+    //IstrorijaStringGrid.CleanupInstance;
+     if IstrorijaStringGrid.RowCount > 0 then
+     begin
+     {
+           for var counter := 0 to IstrorijaStringGrid.RowCount-1 do
+           begin
+                    IstrorijaStringGrid.Cells[0,counter]:= '';
+                    IstrorijaStringGrid.Cells[1,counter]:= '';
+                    IstrorijaStringGrid.Cells[2,counter]:= '';
+                    IstrorijaStringGrid.Cells[3,counter]:= '';
+                    IstrorijaStringGrid.Cells[4,counter]:= '';
+           end;
+      }
+           IstrorijaStringGrid.RowCount:= 0;
+     end;
+
+
     {Showmessage(IDKorisnika.ToString);
     Showmessage(KorisnickoIme);
     Showmessage(Email);
@@ -105,6 +160,9 @@ begin
 
   with FDataModule do
   begin
+
+    //Promeniti u slučaju izmena tabele Zakazivanje u bazi
+
     //FDDatabaseConnection.Open;
     FDQueryTemp.Sql.Clear;
     FDQueryTemp.Sql.Text := 'SELECT * FROM Zakazivanje WHERE IDKorisnika = ' + IDKorisnika.ToString;
@@ -124,14 +182,28 @@ begin
       rowCount := rowCount-1;
     end;}
 
-    i := 0;
+
+    {Showmessage(i.ToString);
+    IstrorijaStringGrid.RowCount:= IstrorijaStringGrid.RowCount + 1;
+    i := IstrorijaStringGrid.RowCount;
+    Showmessage(i.ToString);}
+
+
     while not FDQueryTemp.Eof do
     begin
+
+      i := IstrorijaStringGrid.RowCount;
+      IstrorijaStringGrid.RowCount:= IstrorijaStringGrid.RowCount + 1;
+
       FDQuerySelectRadnik.Sql.Clear;
       FDQuerySelectRadnik.Sql.Text := 'SELECT KorisnickoIme FROM Radnik WHERE IDRadnika = ' + quotedstr(FDQueryTemp['IDRadnika']); //.ToString;
       FDQuerySelectRadnik.Open;
 
       IstrorijaStringGrid.Cells[0, i] := FDQuerySelectRadnik['KorisnickoIme'];//.ToString;
+
+      //---------------------------------------------------------------------------------
+
+      //Potencijalno izmenjen deo
 
       FDQuerySelectSifarnikUsluga.Sql.Clear;
       FDQuerySelectSifarnikUsluga.Sql.Text := 'SELECT NazivUsluge, CenaUsluge FROM SifarnikUsluga WHERE IDUsluge = ' + quotedstr(FDQueryTemp['IDUsluge']); //.ToString;
@@ -139,6 +211,8 @@ begin
 
       IstrorijaStringGrid.Cells[1,i] :=  FDQuerySelectSifarnikUsluga['NazivUsluge'];//.ToString;
       IstrorijaStringGrid.Cells[2,i] :=  FDQuerySelectSifarnikUsluga['CenaUsluge'];//.ToString;
+
+      //---------------------------------------------------------------------------------
 
       FDQuerySelectDostupniTermini.Sql.Clear;
       FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE  Datum =' + quotedstr(FDQueryTemp['Datum']) + 'AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']); //.ToString;
@@ -153,16 +227,15 @@ begin
 
       IstrorijaStringGrid.Cells[4,i] :=  FDQuerySelectMoguciTermini['PocetakTermina'];//.ToString;
 
-
-      i:= i + 1;
       FDQueryTemp.Next
     end;
 
+    IstrorijaStringGrid.AutoCalculateContentSize;
     FDQuerySelectRadnik.Close;
     FDQuerySelectSifarnikUsluga.Close;
     FDQuerySelectDostupniTermini.Close;
-    IstrorijaStringGrid.AutoCalculateContentSize;
-
+    FDQuerySelectMoguciTermini.Close;
+    FDQueryTemp.Close;
 
 
     //Berberin.items.add('');
@@ -238,6 +311,16 @@ begin
 end;
 
 
+end;
+
+procedure TFKorisnickiNalog.OdjaviSeBtnClick(Sender: TObject);
+begin
+    IDKorisnika:= 0;
+    KorisnickoIme:= '';
+    Email:= '';
+    SifraNaloga:= '';
+    FPrijava.Show;
+    self.Hide;
 end;
 
 end.

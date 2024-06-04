@@ -10,14 +10,14 @@ uses
 
 type
   TFLogIn = class(TForm)
-    RegistrujSe: TButton;
+    RegistrujSeBtn: TButton;
     FormBackgroundLayout: TLayout;
     InputLayout: TLayout;
-    UlogujSe: TButton;
+    UlogujSeBtn: TButton;
     FormBackgroundRectangle: TRectangle;
     InputeRectangle: TRectangle;
-    procedure UlogujSeClick(Sender: TObject);
-    procedure RegistrujSeClick(Sender: TObject);
+    procedure UlogujSeBtnClick(Sender: TObject);
+    procedure RegistrujSeBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -37,19 +37,20 @@ begin
     application.Terminate;
 end;
 
-procedure TFLogIn.RegistrujSeClick(Sender: TObject);
+procedure TFLogIn.RegistrujSeBtnClick(Sender: TObject);
 begin
     var ForamaRegistrujse := TFRegistracija.Create(self);
     ForamaRegistrujse.Show;
     self.Hide;
   end;
 
-procedure TFLogIn.UlogujSeClick(Sender: TObject);
+procedure TFLogIn.UlogujSeBtnClick(Sender: TObject);
 begin
     var FormaPrijava := TFPrijava.Create(self);
     FormaPrijava.Show;
     //FLogin.Hide;
     self.Hide;
+    //self.Close;
 end;
 
 
