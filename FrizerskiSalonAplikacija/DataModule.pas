@@ -1,24 +1,24 @@
-unit DataModule;
+﻿unit DataModule;
 
 interface
 
 uses
-  {System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat, System.IOUtils,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.Comp.Client, Data.DB,
   FireDAC.Comp.DataSet, Data.FMTBcd, Data.SqlExpr, Data.Bind.Components,
-  Data.Bind.DBScope, Vcl.Dialogs;}
+  Data.Bind.DBScope;
 
-  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  {System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.FMXUI.Wait, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Dialogs, Data.Bind.Components, Data.Bind.DBScope;
+  FireDAC.Comp.Client, Vcl.Dialogs, Data.Bind.Components, Data.Bind.DBScope;}
 
 type
   TFDataModule = class(TDataModule)
@@ -103,13 +103,10 @@ var
   DBPath: string;
 begin
   DBPath := ExtractFilePath(ParamStr(0)) + '\Database\FrizerskiSalonDatabase.db';
-
   ShowMessage('Database path: ' + DBPath);
-
   FDDatabaseConnection.Params.Clear;
   FDDatabaseConnection.Params.Add('DriverID=SQLite');
   FDDatabaseConnection.Params.Add('Database=' + DBPath);
-
  // FDDatabaseConnection.Params.Database := DBPath;
   try
     FDDatabaseConnection.Connected := True;
@@ -128,13 +125,10 @@ var
   DBPath: string;
 begin
   DBPath := ExtractFilePath(ParamStr(0)) + '\Database\FrizerskiSalonDatabase.db';
-
   ShowMessage('Database path: ' + DBPath);
-
   FDDatabaseConnection.Params.Clear;
   FDDatabaseConnection.Params.Add('DriverID=SQLite');
   FDDatabaseConnection.Params.Add('Database=' + DBPath);
-
  // dbBands4Booking.Params.Database := DBPath;
   try
     FDDatabaseConnection.Connected := True;
