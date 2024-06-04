@@ -35,7 +35,6 @@ type
     InputeRectangle: TRectangle;
     Line2: TLine;
     Line1: TLine;
-    Line3: TLine;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NazadClick(Sender: TObject);
     procedure FormShow(Sender: TObject);

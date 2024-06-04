@@ -475,6 +475,7 @@ object FDataModule: TFDataModule
   end
   object FDTransaction: TFDTransaction
     Connection = FDDatabaseConnection
+    AfterCommit = FDTransactionAfterCommit
     Left = 832
     Top = 16
   end

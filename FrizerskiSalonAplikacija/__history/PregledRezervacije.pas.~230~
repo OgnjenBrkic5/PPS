@@ -1,4 +1,4 @@
-﻿unit PregledRezervacije;
+unit PregledRezervacije;
 
 interface
 
@@ -403,7 +403,7 @@ begin
       end;
 
 
-      Showmessage('Uspešno zakazivanje!');
+
 
 
 

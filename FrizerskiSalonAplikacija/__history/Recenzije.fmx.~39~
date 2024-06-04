@@ -101,12 +101,11 @@ object FRecenzije: TFRecenzije
       OnClick = NazadClick
     end
     object NazivPozicijeLabel: TLabel
-      Position.X = 160.000000000000000000
+      Position.X = 157.000000000000000000
       Position.Y = 109.000000000000000000
       Size.Width = 193.000000000000000000
       Size.Height = 23.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
       Text = '- - - - - - - - - - - - - - -'
       TabOrder = 11
     end
@@ -144,7 +143,6 @@ object FRecenzije: TFRecenzije
       Size.Width = 249.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.HorzAlign = Center
       Text = 'Unesite ocenu i komentar:'
       TabOrder = 1
@@ -164,7 +162,6 @@ object FRecenzije: TFRecenzije
       Size.Width = 77.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.HorzAlign = Center
       Text = 'Radnik:'
       TabOrder = 2

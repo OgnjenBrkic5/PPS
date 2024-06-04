@@ -281,15 +281,31 @@ object FDataModule: TFDataModule
     Connection = FDDatabaseConnection
     SQL.Strings = (
       'CREATE TABLE IF NOT EXISTS Recenzije ('
-      '    IDRecenzije      INTEGER        NOT NULL'
-      '                                    DEFAULT (1) '
-      '                                    UNIQUE,'
-      '    IDKorisnika      INTEGER        NOT NULL,'
-      '    IDRadnika        INTEGER        NOT NULL,'
+      
+        '    IDKorisnika      INTEGER        REFERENCES Korisnik (IDKoris' +
+        'nika) ON DELETE CASCADE'
+      
+        '                                                                ' +
+        '      ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        '      MATCH [FULL]'
+      '                                    NOT NULL,'
+      
+        '    IDRadnika        INTEGER        REFERENCES Radnik (IDRadnika' +
+        ') ON DELETE CASCADE'
+      
+        '                                                                ' +
+        '  ON UPDATE CASCADE'
+      
+        '                                                                ' +
+        '  MATCH [FULL]'
+      '                                    NOT NULL,'
       '    TekstualnaPoruka VARCHAR (250),'
       '    Ocena            INTEGER (1, 5) NOT NULL,'
       '    PRIMARY KEY ('
-      '        IDRecenzije ASC AUTOINCREMENT'
+      '        IDKorisnika,'
+      '        IDRadnika'
       '    ),'
       '    FOREIGN KEY ('
       '        IDKorisnika'
@@ -299,8 +315,7 @@ object FDataModule: TFDataModule
       '        IDRadnika'
       '    )'
       '    REFERENCES Radnik (IDRadnika) ON UPDATE CASCADE'
-      ');'
-      '')
+      ');')
     Left = 120
     Top = 784
   end
@@ -337,13 +352,11 @@ object FDataModule: TFDataModule
       '        IDZakazaneUsluge ASC AUTOINCREMENT'
       '    ),'
       '    FOREIGN KEY ('
-      '        IDKorisnika'
-      '    )'
-      '    REFERENCES Korisnik (IDKorisnika) ON UPDATE CASCADE,'
-      '    FOREIGN KEY ('
+      '        IDKorisnika,'
       '        IDUsluge'
       '    )'
-      '    REFERENCES SifarnikUsluga (IDUsluge) ON UPDATE CASCADE,'
+      '    REFERENCES IzabraneUsluge (IDKorisnika,'
+      '    IDUsluge) ON UPDATE CASCADE,'
       '    FOREIGN KEY ('
       '        IDRadnika,'
       '        Datum,'
@@ -352,8 +365,7 @@ object FDataModule: TFDataModule
       '    REFERENCES DostupnostRadnika (IDRadnika,'
       '    Datum,'
       '    IDTermina) ON UPDATE CASCADE'
-      ');'
-      '')
+      ');')
     Left = 120
     Top = 912
   end
@@ -472,10 +484,5 @@ object FDataModule: TFDataModule
       'SELECT * FROM Zakazivanje;')
     Left = 392
     Top = 912
-  end
-  object FDTransaction: TFDTransaction
-    Connection = FDDatabaseConnection
-    Left = 832
-    Top = 16
   end
 end

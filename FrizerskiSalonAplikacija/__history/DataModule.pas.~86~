@@ -63,7 +63,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    //procedure ConnectToDatabase;
+    procedure ConnectToDatabase;
   end;
 
 CONST
@@ -97,7 +97,6 @@ implementation
 
 {$R *.dfm}
 
-{
  procedure Tdm.ConnectToDatabase;
 var
   DBPath: string;
@@ -120,7 +119,7 @@ begin
   end;
 end;
 
-}
+
 
 
 {procedure Tdm.ConnectToDatabase;
@@ -148,14 +147,16 @@ end;
 }
 
 
+{
 procedure TFDataModule.FDDatabaseConnectionBeforeConnect(Sender: TObject);
 begin
    //set the database file for each device
-   {$IF DEFINED (ANDROID)}
-   FDDatabaseConnection.Params.Values['Database'] := TPath.GetDocumentsPath + PathDelim + 'Database' + PathDelim + 'FrizerskiSalonDatabase.db';
+   {$IF DEFINED (ANDROID)
+   FDDatabaseConnection.Params.Values['Database'] := TPath.GetDocumentsPath + PathDelim + 'FrizerskiSalonDatabase.db';
    {$ELSEIF DEFINED (MSWINDOWS)}
    {$ENDIF}
 
 end;
+}
 
 end.

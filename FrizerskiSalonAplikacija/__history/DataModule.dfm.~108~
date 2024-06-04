@@ -473,9 +473,4 @@ object FDataModule: TFDataModule
     Left = 392
     Top = 912
   end
-  object FDTransaction: TFDTransaction
-    Connection = FDDatabaseConnection
-    Left = 832
-    Top = 16
-  end
 end

@@ -43,7 +43,7 @@ object FRecenzije: TFRecenzije
       object Line2: TLine
         LineType = Diagonal
         Position.X = 21.000000000000000000
-        Position.Y = 332.000000000000000000
+        Position.Y = 365.000000000000000000
         RotationCenter.X = 2.000000000000000000
         RotationCenter.Y = 2.000000000000000000
         Size.Width = 381.000000000000000000
@@ -53,17 +53,7 @@ object FRecenzije: TFRecenzije
       object Line1: TLine
         LineType = Diagonal
         Position.X = 21.000000000000000000
-        Position.Y = 148.000000000000000000
-        RotationCenter.X = 2.000000000000000000
-        RotationCenter.Y = 2.000000000000000000
-        Size.Width = 381.000000000000000000
-        Size.Height = 2.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object Line3: TLine
-        LineType = Diagonal
-        Position.X = 21.000000000000000000
-        Position.Y = 490.000000000000000000
+        Position.Y = 154.000000000000000000
         RotationCenter.X = 2.000000000000000000
         RotationCenter.Y = 2.000000000000000000
         Size.Width = 381.000000000000000000
@@ -80,7 +70,7 @@ object FRecenzije: TFRecenzije
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Position.X = 56.000000000000000000
-      Position.Y = 391.000000000000000000
+      Position.Y = 432.000000000000000000
       Size.Width = 313.000000000000000000
       Size.Height = 73.000000000000000000
       Size.PlatformDefault = False
@@ -89,8 +79,8 @@ object FRecenzije: TFRecenzije
       Viewport.Height = 65.000000000000000000
     end
     object Nazad: TButton
-      Position.X = 48.000000000000000000
-      Position.Y = 504.000000000000000000
+      Position.X = 52.000000000000000000
+      Position.Y = 534.000000000000000000
       Size.Width = 136.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
@@ -101,18 +91,17 @@ object FRecenzije: TFRecenzije
       OnClick = NazadClick
     end
     object NazivPozicijeLabel: TLabel
-      Position.X = 160.000000000000000000
-      Position.Y = 109.000000000000000000
+      Position.X = 150.000000000000000000
+      Position.Y = 93.000000000000000000
       Size.Width = 193.000000000000000000
       Size.Height = 23.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
       Text = '- - - - - - - - - - - - - - -'
       TabOrder = 11
     end
     object OcenaComboBox: TComboBox
       Position.X = 320.000000000000000000
-      Position.Y = 342.000000000000000000
+      Position.Y = 375.000000000000000000
       Size.Width = 49.000000000000000000
       Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
@@ -139,19 +128,18 @@ object FRecenzije: TFRecenzije
       end
     end
     object OcenaLabel: TLabel
-      Position.X = 63.000000000000000000
-      Position.Y = 342.000000000000000000
+      Position.X = 56.000000000000000000
+      Position.Y = 375.000000000000000000
       Size.Width = 249.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.HorzAlign = Center
       Text = 'Unesite ocenu i komentar:'
       TabOrder = 1
     end
     object RadniciComboBox: TComboBox
       Position.X = 244.000000000000000000
-      Position.Y = 57.000000000000000000
+      Position.Y = 40.000000000000000000
       Size.Width = 141.000000000000000000
       Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
@@ -160,11 +148,10 @@ object FRecenzije: TFRecenzije
     end
     object RadnikLabel: TLabel
       Position.X = 140.000000000000000000
-      Position.Y = 56.000000000000000000
+      Position.Y = 40.000000000000000000
       Size.Width = 77.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.HorzAlign = Center
       Text = 'Radnik:'
       TabOrder = 2
@@ -173,7 +160,7 @@ object FRecenzije: TFRecenzije
       CanFocus = True
       ClipChildren = True
       Position.X = 56.000000000000000000
-      Position.Y = 158.000000000000000000
+      Position.Y = 178.000000000000000000
       Size.Width = 313.000000000000000000
       Size.Height = 166.000000000000000000
       Size.PlatformDefault = False
@@ -207,8 +194,8 @@ object FRecenzije: TFRecenzije
       end
     end
     object UnesiBtn: TButton
-      Position.X = 237.000000000000000000
-      Position.Y = 504.000000000000000000
+      Position.X = 244.000000000000000000
+      Position.Y = 534.000000000000000000
       Size.Width = 136.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False

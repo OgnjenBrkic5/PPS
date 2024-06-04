@@ -1,0 +1,245 @@
+object FPregledRezervacije: TFPregledRezervacije
+  Left = 0
+  Top = 0
+  Caption = 'FPregledRezervacije'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line2: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 490.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 130.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object CenaLabel: TLabel
+      Position.X = 32.000000000000000000
+      Position.Y = 336.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Cena (din):'
+      TabOrder = 3
+    end
+    object DatumLabel: TLabel
+      Position.X = 137.000000000000000000
+      Position.Y = 73.000000000000000000
+      Size.Width = 96.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Datum:'
+      TabOrder = 5
+    end
+    object ImageControl1: TImageControl
+      Position.X = 32.000000000000000000
+      Position.Y = 41.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 81.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object IzabraneUslugeLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 120.000000000000000000
+      Position.Y = 129.000000000000000000
+      Size.Width = 169.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Izabrane usluge:'
+      TabOrder = 1
+    end
+    object Label1: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 241.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'Label1'
+      TabOrder = 14
+    end
+    object Label2: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 241.000000000000000000
+      Position.Y = 73.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'Label2'
+      TabOrder = 12
+    end
+    object Label3: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 205.000000000000000000
+      Position.Y = 336.000000000000000000
+      Size.Width = 169.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'Label3'
+      TabOrder = 10
+    end
+    object Label4: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 205.000000000000000000
+      Position.Y = 377.000000000000000000
+      Size.Width = 169.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'Label4'
+      TabOrder = 11
+    end
+    object Label5: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 205.000000000000000000
+      Position.Y = 433.000000000000000000
+      Size.Width = 169.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'Label5'
+      TabOrder = 13
+    end
+    object NacinPlacanjaLabel: TLabel
+      Position.X = 32.000000000000000000
+      Position.Y = 425.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Na'#269'in pla'#263'anja:'
+      TabOrder = 4
+    end
+    object OtkaziBtn: TButton
+      Position.X = 48.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 134.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Otka'#382'i usluge'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = PotvrdiBtnClick
+    end
+    object PotvrdiBtn: TButton
+      Position.X = 237.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = 'Potvrdi unos'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = PotvrdiBtnClick
+    end
+    object RadnikLabel: TLabel
+      Position.X = 137.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 96.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Radnik:'
+      TabOrder = 6
+    end
+    object TrajanjeLabel: TLabel
+      Position.X = 32.000000000000000000
+      Position.Y = 377.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Trajanje:'
+      TabOrder = 2
+    end
+    object UslugeGrid: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      Position.X = 48.000000000000000000
+      Position.Y = 170.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 166.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      RowCount = 0
+      Viewport.Width = 326.000000000000000000
+      Viewport.Height = 134.000000000000000000
+      object colUsluga: TColumn
+        Header = 'Usluga'
+        ReadOnly = True
+        Size.Width = 209.000000000000000000
+      end
+      object colCena: TColumn
+        Header = 'Cena (din)'
+        ReadOnly = True
+        Size.Width = 95.000000000000000000
+      end
+      object colVremeTrajanja: TColumn
+        Header = 'Vreme trajanja (min)'
+        ReadOnly = True
+        Size.Width = 143.000000000000000000
+      end
+    end
+  end
+end

@@ -109,7 +109,7 @@ end;
 procedure TFKorisnickiNalog.RecenzijeBtnClick(Sender: TObject);
 begin
 
-      //Showmessage(IDKorisnika.ToString + ' ' + KorisnickoIme + ' ' + Email + ' ' + SifraNaloga);
+      Showmessage(IDKorisnika.ToString + ' ' + KorisnickoIme + ' ' + Email + ' ' + SifraNaloga);
       //IDKorisnika: integer;
       //KorisnickoIme: string;
       //Email: string;

@@ -6,8 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Memo.Types, FMX.ScrollBox,
-  FMX.Memo, FMX.Edit, FMX.ListBox, System.Rtti, FMX.Grid.Style, FMX.Grid, DataModule,
-  FMX.Objects, FMX.Layouts;
+  FMX.Memo, FMX.Edit, FMX.ListBox, System.Rtti, FMX.Grid.Style, FMX.Grid, DataModule;
 
 type
   TFRecenzije = class(TForm)
@@ -30,12 +29,6 @@ type
     OcenaLabel: TLabel;
     IzaberiBtn: TButton;
     UnesiBtn: TButton;
-    FormBackgroundLayout: TLayout;
-    FormBackgroundRectangle: TRectangle;
-    InputeRectangle: TRectangle;
-    Line2: TLine;
-    Line1: TLine;
-    Line3: TLine;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NazadClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -156,7 +149,6 @@ begin
       SetLength(IDKorisnikaArray, 0);
       SetLength(TekstualnaPorukaArray, 0);
       SetLength(OcenaArray, 0);
-      SetLength(KorisnickoImeKorisnikaArray, 0);
 
 
       with FDataModule do
@@ -203,7 +195,7 @@ begin
 
 
                     FDQuerySelectKorisnik.Sql.Clear;
-                    FDQuerySelectKorisnik.Sql.Text:='SELECT KorisnickoIme FROM Korisnik WHERE IDKorisnika = ' +  quotedstr(FDQueryTemp['IDKorisnika']);   //quotedstr(IDKorisnikaArray[RadniciComboBox.ItemIndex].ToString);
+                    FDQuerySelectKorisnik.Sql.Text:='SELECT KorisnickoIme FROM Korisnik WHERE IDKorisnika = ' + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString);
                     FDQuerySelectKorisnik.Open;
 
                     KorisnickoImeKorisnikaArray[Length(KorisnickoImeKorisnikaArray) -1]:= FDQuerySelectKorisnik['KorisnickoIme'];
@@ -250,9 +242,9 @@ begin
                         FDQueryTemp.Sql.Clear;
                         FDQueryTemp.ExecSql ('INSERT INTO Recenzije (IDKorisnika, IDRadnika, TekstualnaPoruka, Ocena) VALUES ('
                         + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
-                        + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString) + ', '
-                        + quotedstr(KomentarMemo.Text) + ', '
-                        + quotedstr(OcenaComboBox.Selected.Text) +')');
+                        + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString)+ ', '
+                        + quotedstr(OcenaComboBox.Selected.Text)+ ', '
+                        + quotedstr(KomentarMemo.Text) +')');
 
                         //RadniciComboBox.ItemIndex
                         //FDQueryTemp.Open;

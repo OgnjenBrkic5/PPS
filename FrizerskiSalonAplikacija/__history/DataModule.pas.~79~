@@ -59,11 +59,12 @@ type
     FDQuerySelectZakazivanje: TFDQuery;
     FDTransaction: TFDTransaction;
     procedure FDDatabaseConnectionBeforeConnect(Sender: TObject);
+    procedure FDTransactionAfterCommit(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    //procedure ConnectToDatabase;
+    procedure ConnectToDatabase;
   end;
 
 CONST
@@ -97,7 +98,6 @@ implementation
 
 {$R *.dfm}
 
-{
  procedure Tdm.ConnectToDatabase;
 var
   DBPath: string;
@@ -110,7 +110,7 @@ begin
   FDDatabaseConnection.Params.Add('DriverID=SQLite');
   FDDatabaseConnection.Params.Add('Database=' + DBPath);
 
- // FDDatabaseConnection.Params.Database := DBPath;
+ // dbBands4Booking.Params.Database := DBPath;
   try
     FDDatabaseConnection.Connected := True;
     ShowMessage('Connected to database successfully.');
@@ -120,7 +120,7 @@ begin
   end;
 end;
 
-}
+
 
 
 {procedure Tdm.ConnectToDatabase;
@@ -152,10 +152,15 @@ procedure TFDataModule.FDDatabaseConnectionBeforeConnect(Sender: TObject);
 begin
    //set the database file for each device
    {$IF DEFINED (ANDROID)}
-   FDDatabaseConnection.Params.Values['Database'] := TPath.GetDocumentsPath + PathDelim + 'Database' + PathDelim + 'FrizerskiSalonDatabase.db';
+   FDDatabaseConnection.Params.Values['Database'] := TPath.GetDocumentsPath + PathDelim + 'FrizerskiSalonDatabase.db';
    {$ELSEIF DEFINED (MSWINDOWS)}
    {$ENDIF}
 
+end;
+
+procedure TFDataModule.FDTransactionAfterCommit(Sender: TObject);
+begin
+      //
 end;
 
 end.

@@ -108,13 +108,6 @@ end;
 
 procedure TFKorisnickiNalog.RecenzijeBtnClick(Sender: TObject);
 begin
-
-      //Showmessage(IDKorisnika.ToString + ' ' + KorisnickoIme + ' ' + Email + ' ' + SifraNaloga);
-      //IDKorisnika: integer;
-      //KorisnickoIme: string;
-      //Email: string;
-      //SifraNaloga: string;
-
       FRecenzije := TFRecenzije.Create(self);
       FRecenzije.Show;
       self.Hide;
