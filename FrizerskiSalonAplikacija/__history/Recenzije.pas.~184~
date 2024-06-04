@@ -1,0 +1,254 @@
+unit Recenzije;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Memo.Types, FMX.ScrollBox,
+  FMX.Memo, FMX.Edit, FMX.ListBox, System.Rtti, FMX.Grid.Style, FMX.Grid, DataModule,
+  FMX.Objects, FMX.Layouts;
+
+type
+  TFRecenzije = class(TForm)
+    ImageControl1: TImageControl;
+    RadnikLabel: TLabel;
+    Nazad: TButton;
+    KomentarMemo: TMemo;
+    RadniciComboBox: TComboBox;
+    OcenaComboBox: TComboBox;
+    colOcena1: TListBoxItem;
+    colOcena2: TListBoxItem;
+    colOcena3: TListBoxItem;
+    colOcena4: TListBoxItem;
+    colOcena5: TListBoxItem;
+    NazivPozicijeLabel: TLabel;
+    RecenzijeGrid: TStringGrid;
+    colKomentar: TColumn;
+    colOcena: TColumn;
+    colKorisnik: TStringColumn;
+    OcenaLabel: TLabel;
+    IzaberiBtn: TButton;
+    UnesiBtn: TButton;
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    Line2: TLine;
+    Line1: TLine;
+    Line3: TLine;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NazadClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure RadniciComboBoxChange(Sender: TObject);
+    procedure UnesiBtnClick(Sender: TObject);
+  private
+    { Private declarations }
+    IDRadnikaArray: array of integer;
+    KorisnickoImeArray: array of String;
+    IDPozicijeArray: array of integer;
+    EmailArray: array of String;
+
+
+    IDKorisnikaArray: array of integer;
+    OcenaArray: array of integer;
+    TekstualnaPorukaArray: array of String;
+    KorisnickoImeKorisnikaArray: array of String;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  FRecenzije: TFRecenzije;
+
+implementation
+uses KorisnickiNalogGlavnaForma;
+{$R *.fmx}
+
+procedure TFRecenzije.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      application.Terminate;
+end;
+
+procedure TFRecenzije.FormShow(Sender: TObject);
+begin
+      RadniciComboBox.Items.Clear;
+
+      if RecenzijeGrid.RowCount > 0 then
+      begin
+      {
+            for var counter := 0 to RecenzijeGrid.RowCount-1 do
+            begin
+                     RecenzijeGrid.Cells[0,counter]:= '';
+                     RecenzijeGrid.Cells[1,counter]:= '';
+                     RecenzijeGrid.Cells[2,counter]:= '';
+            end;
+       }
+            RecenzijeGrid.RowCount:= 0;
+      end;
+
+
+      with FDataModule do
+      begin
+              //FDDatabaseConnection.Open;
+              FDQueryTemp.Sql.Clear;
+              FDQueryTemp.Sql.Text:='SELECT * FROM Radnik';
+              FDQueryTemp.Open;
+
+              while not FDQueryTemp.Eof do
+              begin
+                    SetLength(IDRadnikaArray, Length(IDRadnikaArray) +1);
+                    SetLength(KorisnickoImeArray, Length(KorisnickoImeArray) +1);
+                    SetLength(IDPozicijeArray, Length(IDPozicijeArray) +1);
+                    SetLength(EmailArray, Length(EmailArray) +1);
+
+                    IDRadnikaArray[Length(IDRadnikaArray) -1]:= FDQueryTemp['IDRadnika'];
+                    KorisnickoImeArray[Length(KorisnickoImeArray) -1]:= FDQueryTemp['KorisnickoIme'];
+                    IDPozicijeArray[Length(IDPozicijeArray) -1]:= FDQueryTemp['IDPozicije'];
+                    EmailArray[Length(EmailArray) -1]:= FDQueryTemp['Email'];
+
+                    RadniciComboBox.Items.Add(FDQueryTemp['KorisnickoIme']);
+
+                    FDQueryTemp.Next;
+              end;
+
+
+              FDQueryTemp.Close;
+      end;
+
+end;
+
+procedure TFRecenzije.NazadClick(Sender: TObject);
+begin
+      FKorisnickiNalog.Show;
+      self.Hide;
+end;
+
+procedure TFRecenzije.RadniciComboBoxChange(Sender: TObject);
+begin
+
+      if RecenzijeGrid.RowCount > 0 then
+      begin
+      {
+            for var counter := 0 to RecenzijeGrid.RowCount-1 do
+            begin
+                     RecenzijeGrid.Cells[0,counter]:= '';
+                     RecenzijeGrid.Cells[1,counter]:= '';
+                     RecenzijeGrid.Cells[2,counter]:= '';
+            end;
+       }
+            RecenzijeGrid.RowCount:= 0;
+      end;
+
+
+      SetLength(IDKorisnikaArray, 0);
+      SetLength(TekstualnaPorukaArray, 0);
+      SetLength(OcenaArray, 0);
+      SetLength(KorisnickoImeKorisnikaArray, 0);
+
+
+      with FDataModule do
+      begin
+            //FDDatabaseConnection.Open;
+            FDQueryTemp.Sql.Clear;
+            FDQueryTemp.Sql.Text:='SELECT NazivZanimanja FROM RadnaPozicija WHERE IDPozicije = ' + quotedstr(IDPozicijeArray[RadniciComboBox.ItemIndex].ToString);
+            FDQueryTemp.Open;
+
+            NazivPozicijeLabel.Text:= FDQueryTemp['NazivZanimanja'];
+
+            FDQueryTemp.Close;
+
+            //FDDatabaseConnection.Open;
+            FDQueryTemp.Sql.Clear;
+            FDQueryTemp.Sql.Text:='SELECT * FROM Recenzije WHERE IDRadnika = ' + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString);
+            FDQueryTemp.Open;
+
+            var i: integer;
+            while not FDQueryTemp.Eof do
+            begin
+                  i:= RecenzijeGrid.RowCount;
+                  RecenzijeGrid.RowCount:= RecenzijeGrid.RowCount +1;
+
+
+                  SetLength(IDKorisnikaArray, Length(IDKorisnikaArray) +1);
+                  SetLength(TekstualnaPorukaArray, Length(TekstualnaPorukaArray) +1);
+                  SetLength(OcenaArray, Length(OcenaArray) +1);
+                  SetLength(KorisnickoImeKorisnikaArray, Length(KorisnickoImeKorisnikaArray) +1);
+
+
+                  IDKorisnikaArray[Length(IDKorisnikaArray) -1]:= FDQueryTemp['IDKorisnika'];
+                  TekstualnaPorukaArray[Length(TekstualnaPorukaArray) -1]:= FDQueryTemp['TekstualnaPoruka'];
+                  OcenaArray[Length(OcenaArray) -1]:= FDQueryTemp['Ocena'];
+
+
+                  FDQuerySelectKorisnik.Sql.Clear;
+                  FDQuerySelectKorisnik.Sql.Text:='SELECT KorisnickoIme FROM Korisnik WHERE IDKorisnika = ' +  quotedstr(FDQueryTemp['IDKorisnika']);   //quotedstr(IDKorisnikaArray[RadniciComboBox.ItemIndex].ToString);
+                  FDQuerySelectKorisnik.Open;
+
+
+                  KorisnickoImeKorisnikaArray[Length(KorisnickoImeKorisnikaArray) -1]:= FDQuerySelectKorisnik['KorisnickoIme'];
+
+
+                  RecenzijeGrid.Cells[0, i]:= FDQuerySelectKorisnik['KorisnickoIme'];
+                  RecenzijeGrid.Cells[1, i]:= FDQueryTemp['Ocena'];
+                  RecenzijeGrid.Cells[2, i]:= FDQueryTemp['TekstualnaPoruka'];
+
+
+                  FDQuerySelectKorisnik.Close;
+                  FDQueryTemp.Next;
+            end;
+
+
+            FDQueryTemp.Close;
+            //var i:= 0;
+            //var unos: string;
+
+
+
+
+      end;
+
+
+end;
+
+procedure TFRecenzije.UnesiBtnClick(Sender: TObject);
+begin
+      //
+      if (RadniciComboBox.ItemIndex <> -1) then
+      begin
+            if (OcenaComboBox.ItemIndex <> -1) then
+            begin
+
+                  with FDataModule do
+                  begin
+                        //
+
+                        FDQueryTemp.Sql.Clear;
+                        FDQueryTemp.ExecSql ('INSERT INTO Recenzije (IDKorisnika, IDRadnika, TekstualnaPoruka, Ocena) VALUES ('
+                        + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
+                        + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString) + ', '
+                        + quotedstr(KomentarMemo.Text) + ', '
+                        + quotedstr(OcenaComboBox.Selected.Text) +')');
+
+                        //RadniciComboBox.ItemIndex
+                        //FDQueryTemp.Open;
+                        //FDQueryTemp.Close;
+                        Showmessage('Uspešno ste se objavili komentar!');
+                  end;
+            end
+
+            else
+            begin
+                  Showmessage('Morate izabrati ocenu da nastavite!');
+                  OcenaComboBox.SetFocus;
+            end;
+      end
+
+      else
+      begin
+            Showmessage('Morate izabrati radnika da nastavite!');
+            RadniciComboBox.SetFocus;
+      end;
+end;
+
+end.

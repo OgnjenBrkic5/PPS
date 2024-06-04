@@ -5,7 +5,7 @@
     </ProjectExtensions>
     <PropertyGroup>
         <DeviceId Condition="'$(Platform)'=='Android'">bf1906a8</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='Android64'"/>
+        <DeviceId Condition="'$(Platform)'=='Android64'">bf1906a8</DeviceId>
     </PropertyGroup>
     <ItemGroup Condition="'$(Platform)'=='Win64'">
         <DeployFile Include="Win64\Debug\FrizerskiSalon.exe" Condition="'$(Config)'=='Debug'">
@@ -41,6 +41,15 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Android64'">
+        <DeployFile Include="Database\database.db" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>FrizerskiSalon\assets\internal\</RemoteDir>
+            <RemoteName>database.db</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_72x72.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\res\drawable-hdpi\</RemoteDir>
             <RemoteName>ic_launcher.png</RemoteName>
@@ -50,7 +59,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\AndroidManifest.xml" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\AndroidManifest.xml" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\</RemoteDir>
             <RemoteName>AndroidManifest.xml</RemoteName>
             <DeployClass>ProjectAndroidManifest</DeployClass>
@@ -104,7 +113,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\FrizerskiSalon.classes" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\FrizerskiSalon.classes" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\classes\</RemoteDir>
             <RemoteName>FrizerskiSalon.classes</RemoteName>
             <DeployClass>AndroidClasses</DeployClass>
@@ -113,7 +122,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\libFrizerskiSalon.so" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\libFrizerskiSalon.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\library\lib\arm64-v8a\</RemoteDir>
             <RemoteName>libFrizerskiSalon.so</RemoteName>
             <DeployClass>ProjectOutput</DeployClass>
@@ -123,7 +132,7 @@
             <Overwrite>True</Overwrite>
             <Required>True</Required>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\colors.xml" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\colors.xml" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\res\values\</RemoteDir>
             <RemoteName>colors.xml</RemoteName>
             <DeployClass>Android_Colors</DeployClass>
@@ -150,7 +159,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\splash_image_def.xml" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\splash_image_def.xml" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\res\drawable\</RemoteDir>
             <RemoteName>splash_image_def.xml</RemoteName>
             <DeployClass>AndroidSplashImageDef</DeployClass>
@@ -204,7 +213,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\styles.xml" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\styles.xml" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\res\values\</RemoteDir>
             <RemoteName>styles.xml</RemoteName>
             <DeployClass>AndroidSplashStyles</DeployClass>
@@ -213,7 +222,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\strings.xml" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\strings.xml" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\res\values\</RemoteDir>
             <RemoteName>strings.xml</RemoteName>
             <DeployClass>Android_Strings</DeployClass>
@@ -222,7 +231,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android64\Debug\styles-v21.xml" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\..\Bin\FrizerskiSalonAplikacijaBin\Android64\Debug\styles-v21.xml" Condition="'$(Config)'=='Debug'">
             <RemoteDir>FrizerskiSalon\res\values-v21\</RemoteDir>
             <RemoteName>styles.xml</RemoteName>
             <DeployClass>AndroidSplashStylesV21</DeployClass>

@@ -46,83 +46,74 @@ begin
     application.Terminate;
 end;
 
-{procedure TFRegistracija.RegistrujSeClick(Sender: TObject);
-begin
-    var FKorisnickiNalog := TFKorisnickiNalog.Create(self);
-    FKorisnickiNalog.Show;
-    self.Hide;
-end;}
-
 procedure TFRegistracija.NazadBtnClick(Sender: TObject);
 begin
-    FLogIn.Show;
-    self.Hide;
+      FLogIn.Show;
+      self.Hide;
 end;
 
 procedure TFRegistracija.RegistrujSeBtnClick(Sender: TObject);
 begin
-    var pwd: string;
-    if trim(KorisnickoImeEdit.Text)='' then
-    begin
-        Showmessage('Unesite korisničko ime!');
-        KorisnickoImeEdit.SetFocus;
-    end
+      var pwd: string;
+      if trim(KorisnickoImeEdit.Text)='' then
+      begin
+            Showmessage('Unesite korisničko ime!');
+            KorisnickoImeEdit.SetFocus;
+      end
 
-    else
-    begin
-        if trim(EmailEdit.Text)='' then
-        begin
-            Showmessage('Unesite e-mail adresu!');
-            EmailEdit.SetFocus;
-        end
-
-        else
-        begin
-          if trim(SifraEdit.Text)='' then
-          begin
-              Showmessage('Unesite šifru!');
-              SifraEdit.SetFocus;
-          end
-
-          else
-          begin
-
-            with FDataModule do
+      else
+      begin
+            if trim(EmailEdit.Text)='' then
             begin
+                  Showmessage('Unesite e-mail adresu!');
+                  EmailEdit.SetFocus;
+            end
 
-               FDDatabaseConnection.Open;
-               FDQueryTemp.Sql.Clear;
-               FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
-               FDQueryTemp.Open;
+            else
+            begin
+                  if trim(SifraEdit.Text)='' then
+                  begin
+                        Showmessage('Unesite šifru!');
+                        SifraEdit.SetFocus;
+                  end
 
-               if FDQueryTemp.RecordCount>0 then
-               begin
-                    Showmessage('Uneti e-mail već postoji. Unesite drugi e-mail!');
-                    EmailEdit.SetFocus;
-               end
+                  else
+                  begin
+                        with FDataModule do
+                        begin
+                              FDDatabaseConnection.Open;
+                              FDQueryTemp.Sql.Clear;
+                              FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
+                              FDQueryTemp.Open;
 
-               else
-               begin
+                              if FDQueryTemp.RecordCount>0 then
+                              begin
+                                    Showmessage('Uneti e-mail već postoji. Unesite drugi e-mail!');
+                                    EmailEdit.SetFocus;
+                              end
 
-                    FDQueryTemp.Sql.Clear;
-                    FDQueryTemp.ExecSql ('INSERT INTO Korisnik (KorisnickoIme, Email, SifraNaloga) VALUES ('+ quotedstr(KorisnickoImeEdit.Text) + ', ' + quotedstr(EmailEdit.Text)+ ', ' + quotedstr(SifraEdit.Text) +')');
-                    //FDQueryTemp.Open;
-                    //FDQueryTemp.Close;
-                    Showmessage('Uspešno ste se registrovali!');
+                              else
+                              begin
 
-                    FPrijava:=TFPrijava.Create(self);
-                    FPrijava.Show;
-                    self.Hide;
-                    //self.Close;
-               end;
+                                    FDQueryTemp.Sql.Clear;
+                                    FDQueryTemp.ExecSql ('INSERT INTO Korisnik (KorisnickoIme, Email, SifraNaloga) VALUES ('+ quotedstr(KorisnickoImeEdit.Text) + ', ' + quotedstr(EmailEdit.Text)+ ', ' + quotedstr(SifraEdit.Text) +')');
+
+
+                                    Showmessage('Uspešno ste se registrovali!');
+
+
+                                    FPrijava:=TFPrijava.Create(self);
+                                    FPrijava.Show;
+                                    self.Hide;
+                              end;
+
+                        end;
+
+                  end;
 
             end;
 
-          end;
-
-        end;
-
-    end;
+      end;
 
 end;
 

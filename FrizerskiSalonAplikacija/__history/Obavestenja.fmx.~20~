@@ -1,0 +1,130 @@
+object FObavestenja: TFObavestenja
+  Left = 0
+  Top = 0
+  Caption = 'FObavestenja'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+        object NotificationButton: TButton
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 280.000000000000000000
+          Position.Y = 29.000000000000000000
+          TabOrder = 6
+          Text = 'NOTIF'
+          TintColor = claCornflowerblue
+        end
+      end
+      object Line2: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 490.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 138.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object NazadBtn: TButton
+      Position.X = 48.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = 'Nazad'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = NazadBtnClick
+    end
+    object ObavestenjaLabel: TLabel
+      Position.X = 116.000000000000000000
+      Position.Y = 148.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Obavestenja:'
+      TabOrder = 1
+    end
+    object ObavestenjaStringGrid: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      Position.X = 48.000000000000000000
+      Position.Y = 220.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 228.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      RowCount = 0
+      Viewport.Width = 326.000000000000000000
+      Viewport.Height = 196.000000000000000000
+      object colRadnik: TColumn
+        Header = 'Radnik'
+        ReadOnly = True
+        Size.Width = 105.000000000000000000
+      end
+      object colPocetniDatum: TColumn
+        Header = 'Pocetni datum'
+        ReadOnly = True
+        Size.Width = 108.000000000000000000
+      end
+      object colKrajnjiDatum: TColumn
+        Header = 'Krajnji datum'
+        ReadOnly = True
+        Size.Width = 103.000000000000000000
+      end
+      object colTekstualnaPoruka: TColumn
+        Header = 'Poruka'
+        ReadOnly = True
+        Size.Width = 266.000000000000000000
+      end
+    end
+  end
+end

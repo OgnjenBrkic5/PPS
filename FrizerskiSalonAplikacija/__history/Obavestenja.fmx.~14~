@@ -1,0 +1,69 @@
+object FObavestenja: TFObavestenja
+  Left = 0
+  Top = 0
+  Caption = 'FObavestenja'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object Nazad: TButton
+    Position.X = 40.000000000000000000
+    Position.Y = 551.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Nazad'
+    TextSettings.Font.Size = 18.000000000000000000
+    TintColor = claCornflowerblue
+    OnClick = NazadClick
+  end
+  object ObavestenjaLabel: TLabel
+    Position.X = 106.000000000000000000
+    Position.Y = 111.000000000000000000
+    Size.Width = 193.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 18.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Obavestenja:'
+    TabOrder = 0
+  end
+  object ObavestenjaStringGrid: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 40.000000000000000000
+    Position.Y = 212.000000000000000000
+    Size.Width = 326.000000000000000000
+    Size.Height = 228.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    RowCount = 1
+    Viewport.Width = 326.000000000000000000
+    Viewport.Height = 228.000000000000000000
+    object colRadnik: TColumn
+      Header = 'Radnik'
+      ReadOnly = True
+      Size.Width = 105.000000000000000000
+    end
+    object colPocetniDatum: TColumn
+      Header = 'Pocetni datum'
+      ReadOnly = True
+      Size.Width = 108.000000000000000000
+    end
+    object colKrajnjiDatum: TColumn
+      Header = 'Krajnji datum'
+      ReadOnly = True
+      Size.Width = 103.000000000000000000
+    end
+    object colTekstualnaPoruka: TColumn
+      Header = 'Poruka'
+      ReadOnly = True
+      Size.Width = 266.000000000000000000
+    end
+  end
+end

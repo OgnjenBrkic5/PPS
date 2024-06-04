@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, Registracija, Prijava,
-  FMX.Layouts, FMX.Objects;      //, DataModule
+  FMX.Layouts, FMX.Objects;
 
 type
   TFLogIn = class(TForm)
@@ -34,23 +34,21 @@ implementation
 
 procedure TFLogIn.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    application.Terminate;
+      application.Terminate;
 end;
 
 procedure TFLogIn.RegistrujSeBtnClick(Sender: TObject);
 begin
-    var ForamaRegistrujse := TFRegistracija.Create(self);
-    ForamaRegistrujse.Show;
-    self.Hide;
+      var ForamaRegistrujse := TFRegistracija.Create(self);
+      ForamaRegistrujse.Show;
+      self.Hide;
   end;
 
 procedure TFLogIn.UlogujSeBtnClick(Sender: TObject);
 begin
-    var FormaPrijava := TFPrijava.Create(self);
-    FormaPrijava.Show;
-    //FLogin.Hide;
-    self.Hide;
-    //self.Close;
+      var FormaPrijava := TFPrijava.Create(self);
+      FormaPrijava.Show;
+      self.Hide;
 end;
 
 

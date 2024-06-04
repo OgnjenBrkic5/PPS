@@ -40,180 +40,84 @@ implementation
 uses LogInForma;
 {$R *.fmx}
 
-{
-procedure TFPrijava.Button1Click(Sender: TObject);
-begin
-          //TFPrijava.Close;
-          //FormaPrijava.Free;
-end;
-}
-
-
 procedure TFPrijava.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    application.Terminate;
+      application.Terminate;
 end;
 
 procedure TFPrijava.NazadBtnClick(Sender: TObject);
 begin
-    FLogIn.Show;
-    self.Hide;
+      FLogIn.Show;
+      self.Hide;
 end;
 
 procedure TFPrijava.PrikazSifreChBChange(Sender: TObject);
 begin
-    SifraEdit.Password:= not PrikazSifreChB.IsChecked;
+      SifraEdit.Password:= not PrikazSifreChB.IsChecked;
 end;
 
 procedure TFPrijava.UlogujSeBtnClick(Sender: TObject);
 begin
-    //var OsnovneIformacije:= TFOsnovneIformacije.Create(self);
-    var pwd: string;
-    if trim(EmailEdit.Text)='' then
-    begin
-      Showmessage('Unesite e-mail adresu!');
-      EmailEdit.SetFocus;
-    end
-    else
-    begin
-      //if trim(SifraEdit.Text)='' then
-      //begin
-        //Showmessage('Unesite šiftu!');
-        //SifraEdit.SetFocus;
-      //end
-      //else
-      //begin
-        with FDataModule do
-        begin
-          FDDatabaseConnection.Open;
-          //Showmessage('msg1');
-          FDQueryTemp.Sql.Clear;
-          FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
-          //Showmessage('msg2');
-          FDQueryTemp.Open;
-          //Showmessage('mdg3');
-
-          //if FDQueryTemp.RecordCount > 0  then
-          if FDQueryTemp.RecordCount = 1  then
-          begin
-            //SifraEdit.Text
-            //Showmessage('msg4');
-            pwd:= FDQueryTemp.FieldByName('SifraNaloga').AsString;
-            if pwd=SifraEdit.Text then
+      var pwd: string;
+      if trim(EmailEdit.Text)='' then
+      begin
+        Showmessage('Unesite e-mail adresu!');
+        EmailEdit.SetFocus;
+      end
+      else
+      begin
+            with FDataModule do
             begin
-              //Showmessage('msg5');
-              //FKorisnickiNalog:=TFKorisnickiNalog.Create(self);
-              //FKorisnickiNalog.ImeKorisnika.text:= EmailEdit.text;
+                  FDDatabaseConnection.Open;
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
+                  FDQueryTemp.Open;
 
-              //FPrijava.Hide;
-              //FKorisnickiNalog.ImeKorisnika.text:= EmailEdit.text;
-
-
-              {Showmessage(FDQueryTemp.FieldByName('IDKorisnika').AsString);
-              Showmessage('msg4');}
-
-
-
-              //FDQueryTemp
-               //FDQuerySelectKorisnik.Open;
-               //Showmessage(FDQuerySelectKorisnik['SifraNaloga']);//['IDKorisnika']);
-               //FDataModule.FDQueryTemp.ExecSQL()
-
-               FDQueryTemp.Sql.Clear;
-               FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
-               FDQueryTemp.Open;
-               //Showmessage(FDQueryTemp['IDKorisnika']);
-
-              {FKorisnickiNalog.IDKorisnika := FDQueryTemp.FieldByName('IDKorisnika').AsInteger;
-              FKorisnickiNalog.KorisnickoIme  := FDQueryTemp.FieldByName('KorisnickoIme').AsString;
-              FKorisnickiNalog.Email := FDQueryTemp.FieldByName('Email').AsString;
-              FKorisnickiNalog.SifraNaloga := FDQueryTemp.FieldByName('SifraNaloga').AsString;
-              Showmessage('msg5');}
-
-              FKorisnickiNalog:=TFKorisnickiNalog.Create(self);
-
-              FKorisnickiNalog.IDKorisnika := FDQueryTemp['IDKorisnika'];
-              FKorisnickiNalog.KorisnickoIme  := FDQueryTemp['KorisnickoIme'];
-              FKorisnickiNalog.Email := FDQueryTemp['Email'];
-              FKorisnickiNalog.SifraNaloga := FDQueryTemp['SifraNaloga'];
-              //Showmessage('msg5');
-
-              FDQueryTemp.Close;
-
-              FKorisnickiNalog.Show;
-              self.Hide;
-
-              //self.Close;
-
-              {FKorisnickiNalog.ShowModal(
-                  procedure (Modalresult: TModalResult)
+                  if FDQueryTemp.RecordCount = 1  then
                   begin
-                    Showmessage('msg5');
-                    if ModalResult = mrClose then Application.Terminate;
-                  end);
-
-              FPrijava.Hide;
-
-              {if not Assigned(FKorisnickiNalog) then
-              begin
-                Showmessage('msg6');
-                FKorisnickiNalog:=TFKorisnickiNalog.Create(self);
-                //Showmessage('msg7');
-                FKorisnickiNalog.ImeKorisnika.text:= EmailEdit.text;
+                        pwd:= FDQueryTemp.FieldByName('SifraNaloga').AsString;
+                        if pwd=SifraEdit.Text then
+                        begin
+                              FDQueryTemp.Sql.Clear;
+                              FDQueryTemp.Sql.Text:='SELECT * FROM Korisnik WHERE Email=' + quotedstr(EmailEdit.Text);
+                              FDQueryTemp.Open;
 
 
-              FKorisnickiNalog.ShowModal(
-                  procedure (Modalresult: TModalResult)
+                              FKorisnickiNalog:=TFKorisnickiNalog.Create(self);
+
+
+                              FKorisnickiNalog.IDKorisnika := FDQueryTemp['IDKorisnika'];
+                              FKorisnickiNalog.KorisnickoIme  := FDQueryTemp['KorisnickoIme'];
+                              FKorisnickiNalog.Email := FDQueryTemp['Email'];
+                              FKorisnickiNalog.SifraNaloga := FDQueryTemp['SifraNaloga'];
+
+
+                              FDQueryTemp.Close;
+
+
+                              FKorisnickiNalog.Show;
+                              self.Hide;
+                        end
+
+                        else
+                        begin
+                              Showmessage('Netačna lozinka!');
+                              SifraEdit.SetFocus;
+                        end;
+
+
+                  end
+
+                  else
                   begin
-                    if ModalResult = mrClose then Application.Terminate;
-                  end);
-
-
-
-
-
-
-              //ImeKorisnika
-                {FKorisnickiNalog.ShowModal(Modalresult:TFModalresult)
-                  begin
-                    if ModalResult = mrClose then Application.Terminate;
-
+                        Showmessage('Neispravan e-mail!');
+                        EmailEdit.SetFocus;
                   end;
 
-              end;
-
-              //self.Close;
-              end;}
-            end
-
-            else
-            begin
-              Showmessage('Netačna lozinka!');
-              SifraEdit.SetFocus;
             end;
 
+      end;
 
-          end
-
-          else
-          begin
-            Showmessage('Neispravan e-mail!');
-            EmailEdit.SetFocus;
-          end;
-
-        end;
-      //end;
-
-    end;
-
-
-
-
-
-
-    {var OsnovneIformacije := TFOsnovneIformacije.Create(self);
-    OsnovneIformacije.Show;
-    self.Hide;}
 end;
 
 end.

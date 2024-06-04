@@ -28,16 +28,16 @@ implementation
 
 procedure TFBesplatanTermin.BtnNazaNaPregledRezervacijeClick(Sender: TObject);
 begin
-    var PregledRezervaciaja := TFPregledRezervacije.Create(self);
-    PregledRezervaciaja.Show;
-    self.Hide;
-end ;
+      var PregledRezervaciaja := TFPregledRezervacije.Create(self);
+      PregledRezervaciaja.Show;
+      self.Hide;
+end;
 
 
 procedure TFBesplatanTermin.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-    //application.Terminate;
+      //application.Terminate;
 end;
 
 end.

@@ -1,17 +1,5 @@
-﻿[FDTable1]
-Coordinates=10,10,60,51
-
-[FDMemTable1]
-Coordinates=272,10,84,51
-
-[FDSQLiteSecurity1]
-Coordinates=208,1,107,33
-
-[FDPhysSQLiteDriverLink1]
-Coordinates=208,56,142,33
-
-[]
-Coordinates=69,78,176,33
+﻿[]
+Coordinates=394,90,63,33
 Visible=True
 
 [FDQuerySelectKorisnik]
@@ -64,13 +52,6 @@ EditingLayerName=
 
 [FDQueryCreateDatabase]
 Coordinates=148,71,135,51
-
-[BindSourceDB1]
-Coordinates=321,80,92,159
-
-[FDQuery1]
-Coordinates=321,80,63,33
-Visible=False
 
 [FDQueryTemp]
 Coordinates=167,1,85,51

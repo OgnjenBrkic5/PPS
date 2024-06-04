@@ -1,0 +1,83 @@
+object FInformacije: TFInformacije
+  Left = 0
+  Top = 0
+  Caption = 'FInformacije'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object BestlatnaUslugaLabel: TLabel
+      Position.X = 32.000000000000000000
+      Position.Y = 408.000000000000000000
+      Size.Width = 329.000000000000000000
+      Size.Height = 113.000000000000000000
+      Size.PlatformDefault = False
+      Text = 
+        'Nakon ostvarenih 6 termina kod nas dobijate besplatnu uslugu kod' +
+        ' nas'
+      TabOrder = 2
+    end
+    object KasnjenjeLabel: TLabel
+      Position.X = 32.000000000000000000
+      Position.Y = 216.000000000000000000
+      Size.Width = 329.000000000000000000
+      Size.Height = 129.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'U slu'#269'aju ka'#353'njenja od 5 min. smatra se da ste odkazali termin'
+      TabOrder = 1
+    end
+    object NazadBtn: TButton
+      Position.X = 327.000000000000000000
+      Position.Y = 556.000000000000000000
+      TabOrder = 3
+      Text = 'Nazad'
+      OnClick = NazadBtnClick
+    end
+    object RadnoVremeLabel: TLabel
+      Position.X = 32.000000000000000000
+      Position.Y = 40.000000000000000000
+      Size.Width = 329.000000000000000000
+      Size.Height = 129.000000000000000000
+      Size.PlatformDefault = False
+      Text = 
+        ' Radno vreme Ponedeljak-Petak: 09:00 - 19:00 Pauza: 12:00-13:00 ' +
+        'Subotm i Nedeljom ne radimo'
+      TabOrder = 0
+    end
+  end
+end

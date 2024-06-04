@@ -1,0 +1,146 @@
+﻿unit FormaKalendar;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.Calendar,FMX.StdCtrls,
+  FMX.ListBox, FMX.Layouts, FMX.Objects, FormaIzborUsluga, DataModule;
+
+type
+  TFKalendar = class(TForm)
+    Calendar: TCalendar;
+    IzaberiBtn: TButton;
+    RadniciListBox: TListBox;
+    ListBoxItem1: TListBoxItem;
+    ListBoxItem2: TListBoxItem;
+    ListBoxItem3: TListBoxItem;
+    ListBoxItem4: TListBoxItem;
+    ListBoxItem5: TListBoxItem;
+    ListBoxItem6: TListBoxItem;
+    RadniciComboBox: TComboBox;
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    Line1: TLine;
+    IzaberiteRadnikaLabel: TLabel;
+    NazadBtn: TButton;
+    IzaberiteDatumLabel: TLabel;
+    procedure IzaberiBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure CalendarChange(Sender: TObject);
+    procedure RadniciComboBoxChange(Sender: TObject);
+    procedure NazadBtnClick(Sender: TObject);
+  private
+    { Private declarations }
+    RadnikIDArray: array of integer;
+  public
+    { Public declarations }
+    Datum: string;
+    IDRadnika: integer;
+    RadnikKorisnickoIme: string;
+
+  end;
+
+var
+  FKalendar: TFKalendar;
+
+
+implementation
+uses KorisnickiNalogGlavnaForma;
+{$R *.fmx}
+{$R *.NmXhdpiPh.fmx ANDROID}
+{$R *.LgXhdpiPh.fmx ANDROID}
+
+procedure TFKalendar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      application.Terminate;
+end;
+
+procedure TFKalendar.CalendarChange(Sender: TObject);
+begin
+      Datum:= DateToStr(Calendar.Date);
+end;
+
+procedure TFKalendar.FormShow(Sender: TObject);
+begin
+      Datum:= DateToStr(Calendar.Date);
+
+      with FDataModule do
+      begin
+              //FDDatabaseConnection.Open;
+              FDQueryTemp.Sql.Clear;
+              FDQueryTemp.Sql.Text:='SELECT * FROM Radnik';
+              FDQueryTemp.Open;
+
+              RadniciComboBox.Items.Clear;
+
+              while not FDQueryTemp.Eof do
+              begin
+                   RadniciComboBox.Items.Add(FDQueryTemp['KorisnickoIme']);
+                   SetLength(RadnikIDArray, Length(RadnikIDArray)+1);
+                   RadnikIDArray[Length(RadnikIDArray)-1]:=  FDQueryTemp['IDRadnika'];
+
+                   FDQueryTemp.Next
+              end;
+
+              FDQueryTemp.Close;
+      end;
+end;
+
+procedure TFKalendar.RadniciComboBoxChange(Sender: TObject);
+begin
+      IDRadnika:= RadnikIDArray[RadniciComboBox.ItemIndex];
+      RadnikKorisnickoIme:= RadniciComboBox.Selected.Text;
+end;
+
+procedure TFKalendar.IzaberiBtnClick(Sender: TObject);
+begin
+      if(RadniciComboBox.ItemIndex <> -1) then
+      begin
+        if Calendar.Date < Date then
+        begin
+           Showmessage('Ne možete izabrati datum u prošlosti. Morate izabrati drugi datum!');
+           RadniciComboBox.SetFocus;
+        end
+
+        else
+        begin
+
+                //      !!!------ Day format: Sunday: 1 Saturday: 7 ------!!!
+            if (DayOfWeek(Strtodate(Datum)) <> 1) and (DayOfWeek(Strtodate(Datum)) <> 7) then
+            begin
+                  FIzborUsluga := TFIzborUsluga.Create(self);
+                  FIzborUsluga.Show;
+                  self.Hide;
+            end
+
+            else
+            begin
+                  Showmessage('Subotom i Nedeljom ne radimo. Morate izabrati drugi datum!');
+                  RadniciComboBox.SetFocus;
+            end;
+
+        end;
+
+      end
+
+      else
+      begin
+            Showmessage('Morate izabrati radnika da nastavite!');
+            RadniciComboBox.SetFocus;
+      end;
+
+end;
+
+
+procedure TFKalendar.NazadBtnClick(Sender: TObject);
+begin
+          FKorisnickiNalog.Show;
+          self.Hide;
+end;
+
+
+end.

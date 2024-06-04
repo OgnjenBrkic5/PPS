@@ -69,225 +69,71 @@ begin
                      UslugeGrid.Cells[1,counter]:= '';
                      UslugeGrid.Cells[2,counter]:= '';
             end;
-       }
+      }
             UslugeGrid.RowCount:= 0;
       end;
 
+      Label1.Text:= FKalendar.RadnikKorisnickoIme;
+      Label2.Text:= FKalendar.Datum;
 
-      //
-      {
-        //FKorisnickiNalog:
-            IDKorisnika: integer;
-            KorisnickoIme: string;
-            Email: string;
-            SifraNaloga: string;
-        //FKalendar:
-            Datum: string;
-            IDRadnika: integer;
-            RadnikKorisnickoIme: string;
-        //FIzborUsluga:
-            unetiIDUslugeArray: array of integer;
-            unetiNazivUslugeArray: array of String;
-            unetiCenaUslugeArray: array of integer;
-            unetiVremeTrajanjaArray: array of integer;
-        //FTermini:
-            ukupnoVremeUsluga: TTime;
-            ukupnaCenaUsluga: integer;
-            //---------------------------
-            izabraniIDTermina: integer;
-            izabraniPocetakTermina: String;
-            izabraniKrajTermina: String;
-            izabraniStatus: String;
-            //---------------------------
-            izabraniIDTerminaArray: array of integer;
-            izabraniPocetakTerminaArray: array of String;
-            izabraniKrajTerminaArray: array of String;
-            izabraniStatusArray: array of String;
-        //Fplacanje:
-            IDNacinaPlacanja: integer;
-            NazivNacinaPlacanja: String;
-      }
-
-
-       //Showmessage('');
-
-
-       //--------------------------------------------------------------------------------
-
-       {
-
-       Showmessage(FKorisnickiNalog.IDKorisnika.ToString + #13#10
-                  + FKorisnickiNalog.KorisnickoIme + #13#10
-                  + FKorisnickiNalog.Email + #13#10
-                  + FKorisnickiNalog.SifraNaloga);
-
-       Showmessage(FKalendar.IDRadnika.ToString + #13#10
-                  + FKalendar.RadnikKorisnickoIme + #13#10
-                  + FKalendar.Datum);
-
-       for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
-       begin
-
-            Showmessage(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString + #13#10
-                  + FIzborUsluga.unetiNazivUslugeArray[uslugeIndex] + #13#10
-                  + FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString + #13#10
-                  + FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString);
-
-       end;
-
-       for var terminiIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
-       begin
-
-            //ukupnoVremeUsluga: TTime;
-            //ukupnaCenaUsluga: integer;
-            Showmessage( TimetoStr(FTermini.ukupnoVremeUsluga) + #13#10
-                  + FTermini.ukupnaCenaUsluga.ToString + #13#10
-                  + FTermini.izabraniIDTerminaArray[terminiIndex].ToString + #13#10
-                  + FTermini.izabraniPocetakTerminaArray[terminiIndex] + #13#10
-                  + FTermini.izabraniKrajTerminaArray[terminiIndex] + #13#10
-                  + FTermini.izabraniStatusArray[terminiIndex]);
-       end;
-
-
-       Showmessage(FPlacanje.IDNacinaPlacanja.ToString + #13#10
-                  + FPlacanje.NazivNacinaPlacanja);
-
-       }
-
-       //--------------------------------------------------------------------------------
-
-       Label1.Text:= FKalendar.RadnikKorisnickoIme;
-       Label2.Text:= FKalendar.Datum;
-
-       for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
-       begin
+      for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
+      begin
             UslugeGrid.RowCount:= UslugeGrid.RowCount+1;
+
 
             UslugeGrid.Cells[0,uslugeIndex]:= FIzborUsluga.unetiNazivUslugeArray[uslugeIndex];
             UslugeGrid.Cells[1,uslugeIndex]:= FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString;
             UslugeGrid.Cells[2,uslugeIndex]:= FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString;
-       end;
+      end;
 
 
-       Label3.Text:= FTermini.ukupnaCenaUsluga.ToString;
-       Label4.Text:= TimetoStr(FTermini.ukupnoVremeUsluga);
-       Label5.Text:= FPlacanje.NazivNacinaPlacanja;
-
-       //--------------------------------------------------------------------------------
+      Label3.Text:= FTermini.ukupnaCenaUsluga.ToString;
+      Label4.Text:= TimetoStr(FTermini.ukupnoVremeUsluga);
+      Label5.Text:= FPlacanje.NazivNacinaPlacanja;
 end;
 
 procedure TFPregledRezervacije.PotvrdiBtnClick(Sender: TObject);
 begin
-
-      {
-
-       Showmessage(FKorisnickiNalog.IDKorisnika.ToString + #13#10
-                  + FKorisnickiNalog.KorisnickoIme + #13#10
-                  + FKorisnickiNalog.Email + #13#10
-                  + FKorisnickiNalog.SifraNaloga);
-
-       Showmessage(FKalendar.IDRadnika.ToString + #13#10
-                  + FKalendar.RadnikKorisnickoIme + #13#10
-                  + FKalendar.Datum);
-
-       for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
-       begin
-
-            Showmessage(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString + #13#10
-                  + FIzborUsluga.unetiNazivUslugeArray[uslugeIndex] + #13#10
-                  + FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString + #13#10
-                  + FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString);
-
-       end;
-
-       for var terminiIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
-       begin
-
-            //ukupnoVremeUsluga: TTime;
-            //ukupnaCenaUsluga: integer;
-            Showmessage( TimetoStr(FTermini.ukupnoVremeUsluga) + #13#10
-                  + FTermini.ukupnaCenaUsluga.ToString + #13#10
-                  + FTermini.izabraniIDTerminaArray[terminiIndex].ToString + #13#10
-                  + FTermini.izabraniPocetakTerminaArray[terminiIndex] + #13#10
-                  + FTermini.izabraniKrajTerminaArray[terminiIndex] + #13#10
-                  + FTermini.izabraniStatusArray[terminiIndex]);
-       end;
-
-
-       Showmessage(FPlacanje.IDNacinaPlacanja.ToString + #13#10
-                  + FPlacanje.NazivNacinaPlacanja);
-
-       }
-
       with FDataModule do
       begin
-
-
-
               // unos u bazu IzabraneUsluge  (1)
+
              for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
              begin
-
                   //FDDatabaseConnection.Open;
                   FDQueryTemp.Sql.Clear;
-                  FDQueryTemp.ExecSql ('INSERT INTO IzabraneUsluge (IDKorisnika, IDUsluge) VALUES ('+ quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', ' + quotedstr(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString)+')');
-                  //FDQueryTemp.Open;
-                  //FDQueryTemp.Close;
-                  //Showmessage('Uneti IzabraneUsluge!');
-                      //UslugeGrid.RowCount:= UslugeGrid.RowCount+1;
-
-                  //UslugeGrid.Cells[0,uslugeIndex]:= FIzborUsluga.unetiNazivUslugeArray[uslugeIndex];
-                  //UslugeGrid.Cells[1,uslugeIndex]:= FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString;
-                  //UslugeGrid.Cells[2,uslugeIndex]:= FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString;
+                  FDQueryTemp.ExecSql ('INSERT INTO IzabraneUsluge (IDKorisnika, IDUsluge) VALUES ('
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString)+')');
              end;
-
-
 
 
               // unos u baze DostupniTermini i DostupnostRadnika   (2)
 
-
-
-
              for var terminiIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
              begin
-
                   //FDDatabaseConnection.Open;
                   FDQueryTemp.Sql.Clear;
-                  FDQueryTemp.ExecSql ('INSERT INTO DostupniTermini (Datum, IDTermina, Dostupnost) VALUES (' + quotedstr(FKalendar.Datum) + ', ' + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ', ' + quotedstr(FTermini.izabraniStatusArray[terminiIndex])+')');
-                  //FDQueryTemp.Open;
-                  //FDQueryTemp.Close;
-                  //Showmessage('Uneti DostupniTermini!');
+                  FDQueryTemp.ExecSql ('INSERT INTO DostupniTermini (Datum, IDTermina, Dostupnost) VALUES ('
+                  + quotedstr(FKalendar.Datum) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ', '
+                  + quotedstr(FTermini.izabraniStatusArray[terminiIndex])+')');
 
                   FDQueryTemp.Sql.Clear;
-                  FDQueryTemp.ExecSql ('INSERT INTO DostupnostRadnika (IDRadnika, Datum, IDTermina) VALUES (' + quotedstr(FKalendar.IDRadnika.ToString) + ', ' + quotedstr(FKalendar.Datum) + ', ' + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ')');
-                  //FDQueryTemp.Open;
-                  //FDQueryTemp.Close;
-                  //Showmessage('Uneti DostupnostRadnika!');
-
-
-                      //UslugeGrid.RowCount:= UslugeGrid.RowCount+1;
-
-                  //UslugeGrid.Cells[0,uslugeIndex]:= FIzborUsluga.unetiNazivUslugeArray[uslugeIndex];
-                  //UslugeGrid.Cells[1,uslugeIndex]:= FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString;
-                  //UslugeGrid.Cells[2,uslugeIndex]:= FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString;
-             end;
-
+                  FDQueryTemp.ExecSql ('INSERT INTO DostupnostRadnika (IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + quotedstr(FKalendar.Datum) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ')');
+            end;
 
 
              // unos u baze Zakazivanje i Racun   (3)
-
-
-             //var trajanjeTermina: TTime := EncodeTime(0,30,0,0);
-             //unetiVremeTrajanjaArray: array of integer;
 
              for var vremeTrajanjaIndex := 0 to Length(FIzborUsluga.unetiVremeTrajanjaArray)-1 do
              begin
                    SetLength(pomVremeTrajanjaArray, Length(pomVremeTrajanjaArray) +1);
                    pomVremeTrajanjaArray[vremeTrajanjaIndex]:= FIzborUsluga.unetiVremeTrajanjaArray[vremeTrajanjaIndex];
 
-
-                   //Showmessage(pomVremeTrajanjaArray[vremeTrajanjaIndex].ToString);
              end;
 
 
@@ -296,23 +142,10 @@ begin
 
              for var zakazivanjeIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
              begin
-
-
-                  {
-                  Showmessage(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString +#13#10
-                  + pomVremeTrajanjaArray[pomIndex].ToString +#13#10
-                  + FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString + #13#10
-                  + FTermini.izabraniPocetakTerminaArray[zakazivanjeIndex] + #13#10
-                  + FTermini.izabraniKrajTerminaArray[zakazivanjeIndex]);
-                  }
-
-
-                  //Showmessage('msg1');
-
                   //FDDatabaseConnection.Open;
                   FDQueryTemp.Sql.Clear;
 
-                  //ako je trajanje usluge > 30 min pomIndex-1;
+
                   FDQueryTemp.ExecSql ('INSERT INTO Zakazivanje (IDKorisnika, IDUsluge, IDRadnika, Datum, IDTermina) VALUES ('
                   + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
                   + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ', '
@@ -320,17 +153,6 @@ begin
                   + quotedstr(FKalendar.Datum) + ', '
                   + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString) + ')');
 
-
-
-                  //Showmessage('Uneto Zakazivanje');
-
-
-                  //-----}
-
-
-                  //Showmessage('msg2');
-
-                  //-----
 
                   FDQuerySelectZakazivanje.Sql.Clear;
                   FDQuerySelectZakazivanje.Sql.Text:= 'SELECT IDZakazaneUsluge FROM Zakazivanje WHERE IDKorisnika = '
@@ -340,71 +162,32 @@ begin
                   + quotedstr(FKalendar.Datum) + ' AND IDTermina = '
                   + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString);
 
+
                   FDQuerySelectZakazivanje.Open;
+
 
                   if FDQuerySelectZakazivanje.RecordCount = 1 then
                   begin
-                        //Showmessage('msg3');
                         FDQueryTemp.Sql.Clear;
                         FDQueryTemp.ExecSql ('INSERT INTO Racun (IDZakazaneUsluge, IDNacinaPlacanja) VALUES ('
                         + quotedstr(FDQuerySelectZakazivanje['IDZakazaneUsluge']) + ', '
                         + quotedstr(FPlacanje.IDNacinaPlacanja.ToString) + ')');
-
-
-                        //Showmessage('Unet Racun');
                   end;
-
 
                   FDQuerySelectZakazivanje.Close;
 
-
-                  //-----}
-
-
-
-
-
-
-                  {
-                  FDQueryTemp.Sql.Clear;
-                  FDQueryTemp.ExecSql ('INSERT INTO IzabraneUsluge (IDKorisnika, IDUsluge) VALUES ('+ quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', ' + quotedstr(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString)+')');
-                  //FDQueryTemp.Open;
-                  //FDQueryTemp.Close;
-                  }
-
-
-
-
-
-
                   if ((pomVremeTrajanjaArray[pomIndex] - 30) > 0) then
                   begin
-                        {
-                        Showmessage(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString + #13#10
-                        + FIzborUsluga.unetiNazivUslugeArray[uslugeIndex] + #13#10
-                        + FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString + #13#10
-                        + FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString);
-                        }
-
                         pomVremeTrajanjaArray[pomIndex]:= pomVremeTrajanjaArray[pomIndex] -30;
                         pomIndex:= pomIndex -1;
-
-                        //Showmessage('msg1');
                   end;
 
                   pomIndex:= pomIndex +1;
              end;
 
-
-
-
-              //FDQueryTemp.Close;
-
       end;
 
-
       Showmessage('Uspešno zakazivanje!');
-
 
 
       FKorisnickiNalog.Show;

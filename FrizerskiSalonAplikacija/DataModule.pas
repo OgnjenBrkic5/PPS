@@ -22,10 +22,6 @@ uses
 
 type
   TFDataModule = class(TDataModule)
-    FDMemTable1: TFDMemTable;
-    FDTable1: TFDTable;
-    FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
-    FDSQLiteSecurity1: TFDSQLiteSecurity;
     FDQueryTemp: TFDQuery;
     FDQuerySelectKorisnik: TFDQuery;
     FDQueryCreateTableKorisnik: TFDQuery;
@@ -43,8 +39,6 @@ type
     FDQueryCreateTableZakazivanje: TFDQuery;
     FDQueryCreateDatabase: TFDQuery;
     FDDatabaseConnection: TFDConnection;
-    BindSourceDB1: TBindSourceDB;
-    FDQuery1: TFDQuery;
     FDQuerySelectRadnik: TFDQuery;
     FDQuerySelectDostupniTermini: TFDQuery;
     FDQuerySelectDostupnostRadnika: TFDQuery;

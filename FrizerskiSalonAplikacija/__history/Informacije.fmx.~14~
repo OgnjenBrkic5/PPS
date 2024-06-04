@@ -1,0 +1,159 @@
+object FInformacije: TFInformacije
+  Left = 0
+  Top = 0
+  Caption = 'FInformacije'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object BestlatnaUslugaLabel: TLabel
+    Position.X = 32.000000000000000000
+    Position.Y = 408.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
+    Text = 
+      'Nakon ostvarenih 6 termina kod nas dobijate besplatnu uslugu kod' +
+      ' nas'
+    TabOrder = 3
+  end
+  object KasnjenjeLabel: TLabel
+    Position.X = 32.000000000000000000
+    Position.Y = 216.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'U slu'#269'aju ka'#353'njenja od 5 min. smatra se da ste odkazali termin'
+    TabOrder = 2
+  end
+  object RadnoVremeLabel: TLabel
+    Position.X = 32.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    Text = 
+      ' Radno vreme Ponedeljak-Petak: 09:00 - 19:00 Pauza: 12:00-13:00 ' +
+      'Subotm i Nedeljom ne radimo'
+    TabOrder = 1
+  end
+  object NazadBtn: TButton
+    Position.X = 327.000000000000000000
+    Position.Y = 556.000000000000000000
+    TabOrder = 4
+    Text = 'Nazad'
+    OnClick = NazadBtnClick
+  end
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 138.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object DostupniTerminiComboBox: TComboBox
+      Position.X = 120.000000000000000000
+      Position.Y = 258.000000000000000000
+      Size.Width = 201.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+    end
+    object BtnINF: TButton
+      Position.X = 288.000000000000000000
+      Position.Y = 62.000000000000000000
+      Size.Width = 87.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'INF'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+    end
+    object IzaberiBtn: TButton
+      Position.X = 237.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Izaberi'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+    end
+    object TerminiLabel: TLabel
+      Position.X = 120.000000000000000000
+      Position.Y = 160.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Izaberite termini:'
+      TabOrder = 0
+    end
+    object TrajanjeCenaLabel: TLabel
+      Position.X = 37.000000000000000000
+      Position.Y = 50.000000000000000000
+      Size.Width = 201.000000000000000000
+      Size.Height = 72.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Trajanje i cena usluge'
+      TabOrder = 2
+    end
+    object Button1: TButton
+      Enabled = False
+      StyledSettings = [Family, Size, Style]
+      Position.X = 48.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Nazad'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = NazadBtnClick
+    end
+  end
+end

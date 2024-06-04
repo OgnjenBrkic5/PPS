@@ -1,0 +1,196 @@
+﻿unit PregledRezervacije;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Controls.Presentation, System.Rtti, FMX.Grid.Style, FMX.Grid,
+  FMX.ScrollBox, DataModule, FMX.Objects, FMX.Layouts;
+
+type
+  TFPregledRezervacije = class(TForm)
+    ImageControl1: TImageControl;
+    RadnikLabel: TLabel;
+    IzabraneUslugeLabel: TLabel;
+    NacinPlacanjaLabel: TLabel;
+    PotvrdiBtn: TButton;
+    OtkaziBtn: TButton;
+    UslugeGrid: TStringGrid;
+    colUsluga: TColumn;
+    colCena: TColumn;
+    colVremeTrajanja: TColumn;
+    CenaLabel: TLabel;
+    Label1: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    TrajanjeLabel: TLabel;
+    DatumLabel: TLabel;
+    Label2: TLabel;
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    Line2: TLine;
+    Line1: TLine;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure PotvrdiBtnClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+  private
+    { Private declarations }
+    pomVremeTrajanjaArray: array of integer;
+  public
+    { Public declarations }
+  end;
+
+var
+  FPregledRezervacije: TFPregledRezervacije;
+
+implementation
+uses KorisnickiNalogGlavnaForma, FormaKalendar, FormaIzborUsluga, FormaTermini, Placanje;
+{$R *.fmx}
+
+procedure TFPregledRezervacije.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    application.Terminate;
+end;
+
+
+procedure TFPregledRezervacije.FormShow(Sender: TObject);
+begin
+
+      if UslugeGrid.RowCount > 0 then
+      begin
+      {
+            for var counter := 0 to UslugeGrid.RowCount-1 do
+            begin
+                     UslugeGrid.Cells[0,counter]:= '';
+                     UslugeGrid.Cells[1,counter]:= '';
+                     UslugeGrid.Cells[2,counter]:= '';
+            end;
+      }
+            UslugeGrid.RowCount:= 0;
+      end;
+
+      Label1.Text:= FKalendar.RadnikKorisnickoIme;
+      Label2.Text:= FKalendar.Datum;
+
+      for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
+      begin
+            UslugeGrid.RowCount:= UslugeGrid.RowCount+1;
+
+
+            UslugeGrid.Cells[0,uslugeIndex]:= FIzborUsluga.unetiNazivUslugeArray[uslugeIndex];
+            UslugeGrid.Cells[1,uslugeIndex]:= FIzborUsluga.unetiCenaUslugeArray[uslugeIndex].ToString;
+            UslugeGrid.Cells[2,uslugeIndex]:= FIzborUsluga.unetiVremeTrajanjaArray[uslugeIndex].ToString;
+      end;
+
+
+      Label3.Text:= FTermini.ukupnaCenaUsluga.ToString;
+      Label4.Text:= TimetoStr(FTermini.ukupnoVremeUsluga);
+      Label5.Text:= FPlacanje.NazivNacinaPlacanja;
+end;
+
+procedure TFPregledRezervacije.PotvrdiBtnClick(Sender: TObject);
+begin
+      with FDataModule do
+      begin
+              // unos u bazu IzabraneUsluge  (1)
+
+             for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
+             begin
+                  //FDDatabaseConnection.Open;
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.ExecSql ('INSERT INTO IzabraneUsluge (IDKorisnika, IDUsluge) VALUES ('
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[uslugeIndex].ToString)+')');
+             end;
+
+
+              // unos u baze DostupniTermini i DostupnostRadnika   (2)
+
+             for var terminiIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
+             begin
+                  //FDDatabaseConnection.Open;
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.ExecSql ('INSERT INTO DostupniTermini (Datum, IDTermina, Dostupnost) VALUES ('
+                  + quotedstr(FKalendar.Datum) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ', '
+                  + quotedstr(FTermini.izabraniStatusArray[terminiIndex])+')');
+
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.ExecSql ('INSERT INTO DostupnostRadnika (IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + quotedstr(FKalendar.Datum) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ')');
+            end;
+
+
+             // unos u baze Zakazivanje i Racun   (3)
+
+             for var vremeTrajanjaIndex := 0 to Length(FIzborUsluga.unetiVremeTrajanjaArray)-1 do
+             begin
+                   SetLength(pomVremeTrajanjaArray, Length(pomVremeTrajanjaArray) +1);
+                   pomVremeTrajanjaArray[vremeTrajanjaIndex]:= FIzborUsluga.unetiVremeTrajanjaArray[vremeTrajanjaIndex];
+
+             end;
+
+
+             var pomIndex: integer := 0;
+             var trajanjeTermina: integer := 30;
+
+             for var zakazivanjeIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
+             begin
+                  //FDDatabaseConnection.Open;
+                  FDQueryTemp.Sql.Clear;
+
+
+                  FDQueryTemp.ExecSql ('INSERT INTO Zakazivanje (IDKorisnika, IDUsluge, IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ', '
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + quotedstr(FKalendar.Datum) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString) + ')');
+
+
+                  FDQuerySelectZakazivanje.Sql.Clear;
+                  FDQuerySelectZakazivanje.Sql.Text:= 'SELECT IDZakazaneUsluge FROM Zakazivanje WHERE IDKorisnika = '
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ' AND IDUsluge = '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ' AND IDRadnika = '
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ' AND Datum = '
+                  + quotedstr(FKalendar.Datum) + ' AND IDTermina = '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString);
+
+
+                  FDQuerySelectZakazivanje.Open;
+
+
+                  if FDQuerySelectZakazivanje.RecordCount = 1 then
+                  begin
+                        FDQueryTemp.Sql.Clear;
+                        FDQueryTemp.ExecSql ('INSERT INTO Racun (IDZakazaneUsluge, IDNacinaPlacanja) VALUES ('
+                        + quotedstr(FDQuerySelectZakazivanje['IDZakazaneUsluge']) + ', '
+                        + quotedstr(FPlacanje.IDNacinaPlacanja.ToString) + ')');
+                  end;
+
+                  FDQuerySelectZakazivanje.Close;
+
+                  if ((pomVremeTrajanjaArray[pomIndex] - 30) > 0) then
+                  begin
+                        pomVremeTrajanjaArray[pomIndex]:= pomVremeTrajanjaArray[pomIndex] -30;
+                        pomIndex:= pomIndex -1;
+                  end;
+
+                  pomIndex:= pomIndex +1;
+             end;
+
+      end;
+
+      Showmessage('Uspešno zakazivanje!');
+
+      FKorisnickiNalog.Show;
+      self.Hide;
+end;
+
+end.

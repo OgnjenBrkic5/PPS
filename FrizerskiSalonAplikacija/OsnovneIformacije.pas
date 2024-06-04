@@ -22,7 +22,6 @@ type
     Line2: TLine;
     Line1: TLine;
 
-    //procedure BtnPrikazNalogaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NazadClick(Sender: TObject);
   private
@@ -38,26 +37,9 @@ implementation
 uses KorisnickiNalogGlavnaForma;
 {$R *.fmx}
 
-
-{
-procedure TFOsnovneIformacije.BtnPrikazNalogaClick(Sender: TObject);
+procedure TFOsnovneIformacije.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-    {var KorisnickiNalog := TFKorisnickiNalog.Create(self);
-    KorisnickiNalog.Show;
-    self.Hide;
-
-    if not Assigned(FKorisnickiNalog) then
-      begin
-        FKorisnickiNalog:= TFKorisnickiNalog.Create(self);
-        FKorisnickiNalog.ImeKorisnika.text:= FOsnovneIformacije.EmailEdit.Text;
-        FKorisnickiNalog.Show;
-      end;
-end; }
-
-procedure TFOsnovneIformacije.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-    application.Terminate;
+      application.Terminate;
 end;
 
 procedure TFOsnovneIformacije.NazadClick(Sender: TObject);
