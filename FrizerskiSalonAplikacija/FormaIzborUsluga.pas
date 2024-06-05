@@ -195,6 +195,56 @@ end;
 
 procedure TFIzborUsluga.NazadBtnClick(Sender: TObject);
 begin
+      if Length(IDUslugeArray) > 0 then
+      begin
+            for var counter := 0 to Length(IDUslugeArray) -1 do
+            begin
+                  IDUslugeArray[counter]:= 0;
+                  NazivUslugeArray[counter]:= '';
+                  CenaUslugeArray[counter]:= 0;
+                  VremeTrajanjaArray[counter]:= 0;
+            end;
+
+      end;
+
+      Setlength(IDUslugeArray, 0);
+      Setlength(NazivUslugeArray, 0);
+      Setlength(CenaUslugeArray, 0);
+      Setlength(VremeTrajanjaArray, 0);
+
+      if Length(unetiIDUslugeArray) > 0 then
+      begin
+            for var counter := 0 to Length(unetiIDUslugeArray) -1 do
+            begin
+                  unetiIDUslugeArray[counter]:= 0;
+                  unetiNazivUslugeArray[counter]:= '';
+                  unetiCenaUslugeArray[counter]:= 0;
+                  unetiVremeTrajanjaArray[counter]:= 0;
+            end;
+
+      end;
+
+      Setlength(unetiIDUslugeArray, 0);
+      Setlength(unetiNazivUslugeArray, 0);
+      Setlength(unetiCenaUslugeArray, 0);
+      Setlength(unetiVremeTrajanjaArray, 0);
+
+      UslugeComboBox.Items.Clear;
+
+      if UslugeGrid.RowCount > 0 then
+      begin
+      {
+            for var counter := 0 to UslugeGrid.RowCount-1 do
+            begin
+                     UslugeGrid.Cells[0,counter]:= '';
+                     UslugeGrid.Cells[1,counter]:= '';
+                     UslugeGrid.Cells[2,counter]:= '';
+            end;
+      }//<---
+            UslugeGrid.RowCount:= 0;
+      end;
+
+
       FKalendar.Show;
       self.Hide;
 end;

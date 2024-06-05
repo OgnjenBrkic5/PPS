@@ -118,93 +118,90 @@ begin
 
 end;
 
-procedure TFRecenzije.NazadClick(Sender: TObject);
-begin
-      FKorisnickiNalog.Show;
-      self.Hide;
-end;
-
 procedure TFRecenzije.RadniciComboBoxChange(Sender: TObject);
 begin
 
-      if RecenzijeGrid.RowCount > 0 then
+      if (RadniciComboBox.ItemIndex <> -1) then
       begin
-      {
-            for var counter := 0 to RecenzijeGrid.RowCount-1 do
+            if RecenzijeGrid.RowCount > 0 then
             begin
-                     RecenzijeGrid.Cells[0,counter]:= '';
-                     RecenzijeGrid.Cells[1,counter]:= '';
-                     RecenzijeGrid.Cells[2,counter]:= '';
-            end;
-       }
-            RecenzijeGrid.RowCount:= 0;
-      end;
-
-
-      SetLength(IDKorisnikaArray, 0);
-      SetLength(TekstualnaPorukaArray, 0);
-      SetLength(OcenaArray, 0);
-      SetLength(KorisnickoImeKorisnikaArray, 0);
-
-
-      with FDataModule do
-      begin
-            //FDDatabaseConnection.Open;
-            FDQueryTemp.Sql.Clear;
-            FDQueryTemp.Sql.Text:='SELECT NazivZanimanja FROM RadnaPozicija WHERE IDPozicije = ' + quotedstr(IDPozicijeArray[RadniciComboBox.ItemIndex].ToString);
-            FDQueryTemp.Open;
-
-
-            NazivPozicijeLabel.Text:= FDQueryTemp['NazivZanimanja'];
-
-
-            FDQueryTemp.Close;
-
-
-            //FDDatabaseConnection.Open;
-            FDQueryTemp.Sql.Clear;
-            FDQueryTemp.Sql.Text:='SELECT * FROM Recenzije WHERE IDRadnika = ' + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString);
-            FDQueryTemp.Open;
-
-            var i: integer;
-            while not FDQueryTemp.Eof do
-            begin
-                  i:= RecenzijeGrid.RowCount;
-                  RecenzijeGrid.RowCount:= RecenzijeGrid.RowCount +1;
-
-
-                  SetLength(IDKorisnikaArray, Length(IDKorisnikaArray) +1);
-                  SetLength(TekstualnaPorukaArray, Length(TekstualnaPorukaArray) +1);
-                  SetLength(OcenaArray, Length(OcenaArray) +1);
-                  SetLength(KorisnickoImeKorisnikaArray, Length(KorisnickoImeKorisnikaArray) +1);
-
-
-                  IDKorisnikaArray[Length(IDKorisnikaArray) -1]:= FDQueryTemp['IDKorisnika'];
-                  TekstualnaPorukaArray[Length(TekstualnaPorukaArray) -1]:= FDQueryTemp['TekstualnaPoruka'];
-                  OcenaArray[Length(OcenaArray) -1]:= FDQueryTemp['Ocena'];
-
-
-                  FDQuerySelectKorisnik.Sql.Clear;
-                  FDQuerySelectKorisnik.Sql.Text:='SELECT KorisnickoIme FROM Korisnik WHERE IDKorisnika = ' +  quotedstr(FDQueryTemp['IDKorisnika']);   //quotedstr(IDKorisnikaArray[RadniciComboBox.ItemIndex].ToString);
-                  FDQuerySelectKorisnik.Open;
-
-
-                  KorisnickoImeKorisnikaArray[Length(KorisnickoImeKorisnikaArray) -1]:= FDQuerySelectKorisnik['KorisnickoIme'];
-
-
-                  RecenzijeGrid.Cells[0, i]:= FDQuerySelectKorisnik['KorisnickoIme'];
-                  RecenzijeGrid.Cells[1, i]:= FDQueryTemp['Ocena'];
-                  RecenzijeGrid.Cells[2, i]:= FDQueryTemp['TekstualnaPoruka'];
-
-
-                  FDQuerySelectKorisnik.Close;
-                  FDQueryTemp.Next;
+            {
+                  for var counter := 0 to RecenzijeGrid.RowCount-1 do
+                  begin
+                           RecenzijeGrid.Cells[0,counter]:= '';
+                           RecenzijeGrid.Cells[1,counter]:= '';
+                           RecenzijeGrid.Cells[2,counter]:= '';
+                  end;
+             }
+                  RecenzijeGrid.RowCount:= 0;
             end;
 
 
-            FDQueryTemp.Close;
-      end;
+            SetLength(IDKorisnikaArray, 0);
+            SetLength(TekstualnaPorukaArray, 0);
+            SetLength(OcenaArray, 0);
+            SetLength(KorisnickoImeKorisnikaArray, 0);
 
+
+            with FDataModule do
+            begin
+                  //FDDatabaseConnection.Open;
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.Sql.Text:='SELECT NazivZanimanja FROM RadnaPozicija WHERE IDPozicije = ' + quotedstr(IDPozicijeArray[RadniciComboBox.ItemIndex].ToString);
+                  FDQueryTemp.Open;
+
+
+                  NazivPozicijeLabel.Text:= FDQueryTemp['NazivZanimanja'];
+
+
+                  FDQueryTemp.Close;
+
+
+                  //FDDatabaseConnection.Open;
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.Sql.Text:='SELECT * FROM Recenzije WHERE IDRadnika = ' + quotedstr(IDRadnikaArray[RadniciComboBox.ItemIndex].ToString);
+                  FDQueryTemp.Open;
+
+                  var i: integer;
+                  while not FDQueryTemp.Eof do
+                  begin
+                        i:= RecenzijeGrid.RowCount;
+                        RecenzijeGrid.RowCount:= RecenzijeGrid.RowCount +1;
+
+
+                        SetLength(IDKorisnikaArray, Length(IDKorisnikaArray) +1);
+                        SetLength(TekstualnaPorukaArray, Length(TekstualnaPorukaArray) +1);
+                        SetLength(OcenaArray, Length(OcenaArray) +1);
+                        SetLength(KorisnickoImeKorisnikaArray, Length(KorisnickoImeKorisnikaArray) +1);
+
+
+                        IDKorisnikaArray[Length(IDKorisnikaArray) -1]:= FDQueryTemp['IDKorisnika'];
+                        TekstualnaPorukaArray[Length(TekstualnaPorukaArray) -1]:= FDQueryTemp['TekstualnaPoruka'];
+                        OcenaArray[Length(OcenaArray) -1]:= FDQueryTemp['Ocena'];
+
+
+                        FDQuerySelectKorisnik.Sql.Clear;
+                        FDQuerySelectKorisnik.Sql.Text:='SELECT KorisnickoIme FROM Korisnik WHERE IDKorisnika = ' +  quotedstr(FDQueryTemp['IDKorisnika']);   //quotedstr(IDKorisnikaArray[RadniciComboBox.ItemIndex].ToString);
+                        FDQuerySelectKorisnik.Open;
+
+
+                        KorisnickoImeKorisnikaArray[Length(KorisnickoImeKorisnikaArray) -1]:= FDQuerySelectKorisnik['KorisnickoIme'];
+
+
+                        RecenzijeGrid.Cells[0, i]:= FDQuerySelectKorisnik['KorisnickoIme'];
+                        RecenzijeGrid.Cells[1, i]:= FDQueryTemp['Ocena'];
+                        RecenzijeGrid.Cells[2, i]:= FDQueryTemp['TekstualnaPoruka'];
+
+
+                        FDQuerySelectKorisnik.Close;
+                        FDQueryTemp.Next;
+                  end;
+
+
+                  FDQueryTemp.Close;
+            end;
+
+      end;
 
 end;
 
@@ -242,6 +239,62 @@ begin
             Showmessage('Morate izabrati radnika da nastavite!');
             RadniciComboBox.SetFocus;
       end;
+end;
+
+procedure TFRecenzije.NazadClick(Sender: TObject);
+begin
+
+      if Length(IDRadnikaArray) > 0 then
+      begin
+            for var counter := 0 to Length(IDRadnikaArray) -1 do
+            begin
+                  IDRadnikaArray[counter]:= 0;
+                  KorisnickoImeArray[counter]:= '';
+                  IDPozicijeArray[counter]:= 0;
+                  EmailArray[counter]:= '';
+            end;
+
+      end;
+
+      Setlength(IDRadnikaArray, 0);
+      Setlength(KorisnickoImeArray, 0);
+      Setlength(KorisnickoImeArray, 0);
+      Setlength(EmailArray, 0);
+
+      if Length(IDKorisnikaArray) > 0 then
+      begin
+            for var counter := 0 to Length(IDKorisnikaArray) -1 do
+            begin
+                  IDKorisnikaArray[counter]:= 0;
+                  OcenaArray[counter]:= 0;
+                  TekstualnaPorukaArray[counter]:= '';
+                  KorisnickoImeKorisnikaArray[counter]:= '';
+            end;
+
+      end;
+
+      Setlength(IDKorisnikaArray, 0);
+      Setlength(OcenaArray, 0);
+      Setlength(TekstualnaPorukaArray, 0);
+      Setlength(KorisnickoImeKorisnikaArray, 0);
+
+      RadniciComboBox.Items.Clear;
+
+      if RecenzijeGrid.RowCount > 0 then
+      begin
+      {
+            for var counter := 0 to RecenzijeGrid.RowCount-1 do
+            begin
+                     RecenzijeGrid.Cells[0,counter]:= '';
+                     RecenzijeGrid.Cells[1,counter]:= '';
+                     RecenzijeGrid.Cells[2,counter]:= '';
+            end;
+       }//<---
+            RecenzijeGrid.RowCount:= 0;
+      end;
+
+      FKorisnickiNalog.Show;
+      self.Hide;
 end;
 
 end.

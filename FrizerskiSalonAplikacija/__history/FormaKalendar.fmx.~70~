@@ -1,0 +1,169 @@
+object FKalendar: TFKalendar
+  Left = 0
+  Top = 0
+  Caption = 'FKalendar'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 490.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object IzaberiteRadnikaLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 128.000000000000000000
+      Position.Y = 355.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Izaberite Radnika:'
+      TabOrder = 4
+    end
+    object RadniciListBox: TListBox
+      Position.X = 63.000000000000000000
+      Position.Y = 304.000000000000000000
+      Size.Width = 297.000000000000000000
+      Size.Height = 137.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Visible = False
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 292.000000000000000000
+      Viewport.Height = 137.000000000000000000
+      object ListBoxItem1: TListBoxItem
+        TabOrder = 0
+        Text = 'ListBoxItem1'
+      end
+      object ListBoxItem2: TListBoxItem
+        Position.Y = 44.000000000000000000
+        TabOrder = 1
+        Text = 'ListBoxItem2'
+      end
+      object ListBoxItem3: TListBoxItem
+        Position.Y = 88.000000000000000000
+        TabOrder = 2
+        Text = 'ListBoxItem3'
+      end
+      object ListBoxItem4: TListBoxItem
+        Position.Y = 132.000000000000000000
+        TabOrder = 3
+        Text = 'ListBoxItem4'
+      end
+      object ListBoxItem5: TListBoxItem
+        Position.Y = 176.000000000000000000
+        TabOrder = 4
+        Text = 'ListBoxItem5'
+      end
+      object ListBoxItem6: TListBoxItem
+        Position.Y = 220.000000000000000000
+        TabOrder = 5
+        Text = 'ListBoxItem6'
+      end
+    end
+    object RadniciComboBox: TComboBox
+      Position.X = 88.000000000000000000
+      Position.Y = 420.000000000000000000
+      Size.Width = 250.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      OnChange = RadniciComboBoxChange
+    end
+    object IzaberiBtn: TButton
+      Position.X = 237.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Izaberi'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = IzaberiBtnClick
+    end
+    object Calendar: TCalendar
+      Date = 45447.000000000000000000
+      Position.X = 23.000000000000000000
+      Position.Y = 103.000000000000000000
+      Size.Width = 378.000000000000000000
+      Size.Height = 233.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      TodayDefault = True
+      OnChange = CalendarChange
+    end
+    object NazadBtn: TButton
+      Enabled = False
+      StyledSettings = [Family, Size, Style]
+      Position.X = 48.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Nazad'
+      TextSettings.Font.Size = 18.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = NazadBtnClick
+    end
+    object IzaberiteDatumLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 128.000000000000000000
+      Position.Y = 38.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Izaberite Datum:'
+      TabOrder = 3
+    end
+  end
+end

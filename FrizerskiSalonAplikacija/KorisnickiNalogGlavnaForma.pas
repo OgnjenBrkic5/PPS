@@ -183,10 +183,28 @@ end;
 
 procedure TFKorisnickiNalog.OdjaviSeBtnClick(Sender: TObject);
 begin
+
       IDKorisnika:= 0;
       KorisnickoIme:= '';
       Email:= '';
       SifraNaloga:= '';
+
+      if IstrorijaStringGrid.RowCount > 0 then
+       begin
+       {
+             for var counter := 0 to IstrorijaStringGrid.RowCount-1 do
+             begin
+                      IstrorijaStringGrid.Cells[0,counter]:= '';
+                      IstrorijaStringGrid.Cells[1,counter]:= '';
+                      IstrorijaStringGrid.Cells[2,counter]:= '';
+                      IstrorijaStringGrid.Cells[3,counter]:= '';
+                      IstrorijaStringGrid.Cells[4,counter]:= '';
+             end;
+       }//<---
+             IstrorijaStringGrid.RowCount:= 0;
+       end;
+
+
       FPrijava.Show;
       self.Hide;
 end;

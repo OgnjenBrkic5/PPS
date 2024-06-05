@@ -86,7 +86,7 @@ object FIzborUsluga: TFIzborUsluga
       TabOrder = 4
       RowCount = 0
       Viewport.Width = 326.000000000000000000
-      Viewport.Height = 134.000000000000000000
+      Viewport.Height = 166.000000000000000000
       object colUsluga: TColumn
         Header = 'Usluga'
         ReadOnly = True
@@ -143,7 +143,6 @@ object FIzborUsluga: TFIzborUsluga
       OnClick = ZakaziClick
     end
     object NazadBtn: TButton
-      Enabled = False
       StyledSettings = [Family, Size, Style]
       Position.X = 48.000000000000000000
       Position.Y = 504.000000000000000000

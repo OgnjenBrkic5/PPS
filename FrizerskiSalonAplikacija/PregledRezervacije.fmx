@@ -168,17 +168,17 @@ object FPregledRezervacije: TFPregledRezervacije
       Text = 'Na'#269'in pla'#263'anja:'
       TabOrder = 4
     end
-    object OtkaziBtn: TButton
+    object NazadiBtn: TButton
       Position.X = 48.000000000000000000
       Position.Y = 504.000000000000000000
       Size.Width = 134.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 8
-      Text = 'Otka'#382'i usluge'
+      Text = 'Nazad'
       TextSettings.Font.Size = 18.000000000000000000
       TintColor = claCornflowerblue
-      OnClick = PotvrdiBtnClick
+      OnClick = NazadiBtnClick
     end
     object PotvrdiBtn: TButton
       Position.X = 237.000000000000000000
@@ -224,7 +224,7 @@ object FPregledRezervacije: TFPregledRezervacije
       TabOrder = 7
       RowCount = 0
       Viewport.Width = 326.000000000000000000
-      Viewport.Height = 134.000000000000000000
+      Viewport.Height = 166.000000000000000000
       object colUsluga: TColumn
         Header = 'Usluga'
         ReadOnly = True

@@ -60,16 +60,20 @@ end;
 
 procedure TFTermini.DostupniTerminiComboBoxChange(Sender: TObject);
 begin
-      izabraniIDTermina:= IDTerminaArray[DostupniTerminiComboBox.ItemIndex];
-      izabraniPocetakTermina:= PocetakTerminaArray[DostupniTerminiComboBox.ItemIndex];
-      izabraniKrajTermina:= KrajTerminaArray[DostupniTerminiComboBox.ItemIndex];
-      izabraniStatus:= StatusArray[DostupniTerminiComboBox.ItemIndex];
+
+      if (DostupniTerminiComboBox.ItemIndex <> -1) then
+      begin
+            izabraniIDTermina:= IDTerminaArray[DostupniTerminiComboBox.ItemIndex];
+            izabraniPocetakTermina:= PocetakTerminaArray[DostupniTerminiComboBox.ItemIndex];
+            izabraniKrajTermina:= KrajTerminaArray[DostupniTerminiComboBox.ItemIndex];
+            izabraniStatus:= StatusArray[DostupniTerminiComboBox.ItemIndex];
+      end;
 end;
 
 
 procedure TFTermini.FormShow(Sender: TObject);
 begin
-      ukupnoVremeUsluga:= Strtotime('0:0:0');
+      ukupnoVremeUsluga:= Encodetime(0,0,0,0); //Strtotime('0:0:0');
       ukupnaCenaUsluga:= 0;
       var i: integer;
 
@@ -228,6 +232,51 @@ end;
 
 procedure TFTermini.NazadBtnClick(Sender: TObject);
 begin
+      if Length(IDTerminaArray) > 0 then
+      begin
+            for var counter := 0 to Length(IDTerminaArray) -1 do
+            begin
+                  IDTerminaArray[counter]:= 0;
+                  PocetakTerminaArray[counter]:= '';
+                  KrajTerminaArray[counter]:= '';
+                  StatusArray[counter]:= '';
+            end;
+
+      end;
+
+      Setlength(IDTerminaArray, 0);
+      Setlength(PocetakTerminaArray, 0);
+      Setlength(KrajTerminaArray, 0);
+      Setlength(StatusArray, 0);
+
+      ukupnoVremeUsluga:= Encodetime(0,0,0,0);
+      ukupnaCenaUsluga:= 0;
+      izabraniIDTermina:= 0;
+      izabraniPocetakTermina:= '';
+      izabraniKrajTermina:= '';
+      izabraniStatus:= '';
+
+      if Length(izabraniIDTerminaArray) > 0 then
+      begin
+            for var counter := 0 to Length(izabraniIDTerminaArray) -1 do
+            begin
+                  izabraniIDTerminaArray[counter]:= 0;
+                  izabraniPocetakTerminaArray[counter]:= '';
+                  izabraniKrajTerminaArray[counter]:= '';
+                  izabraniStatusArray[counter]:= '';
+            end;
+
+      end;
+
+      Setlength(izabraniIDTerminaArray, 0);
+      Setlength(izabraniPocetakTerminaArray, 0);
+      Setlength(izabraniKrajTerminaArray, 0);
+      Setlength(izabraniStatusArray, 0);
+
+
+      DostupniTerminiComboBox.Items.Clear;
+
+
       FIzborUsluga.Show;
       self.Hide;
 end;

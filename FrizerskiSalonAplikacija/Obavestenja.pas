@@ -100,6 +100,23 @@ end;
 
 procedure TFObavestenja.NazadBtnClick(Sender: TObject);
 begin
+
+      if ObavestenjaStringGrid.RowCount > 0 then
+      begin
+      {
+           for var counter := 0 to ObavestenjaStringGrid.RowCount-1 do
+           begin
+                    ObavestenjaStringGrid.Cells[0,counter]:= '';
+                    ObavestenjaStringGrid.Cells[1,counter]:= '';
+                    ObavestenjaStringGrid.Cells[2,counter]:= '';
+                    ObavestenjaStringGrid.Cells[3,counter]:= '';
+                    ObavestenjaStringGrid.Cells[4,counter]:= '';
+           end;
+      }//<---
+           ObavestenjaStringGrid.RowCount:= 0;
+      end;
+
+
       FKorisnickiNalog.Show;
       self.Hide;
 end;

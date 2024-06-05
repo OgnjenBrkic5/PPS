@@ -16,5 +16,8 @@ inherited FKorisnickiNalog_LgXhdpiPh: TFKorisnickiNalog_LgXhdpiPh
         Size.Width = 180.000000000000000000
       end
     end
+    inherited OdjaviSeBtn: TButton
+      Enabled = False
+    end
   end
 end

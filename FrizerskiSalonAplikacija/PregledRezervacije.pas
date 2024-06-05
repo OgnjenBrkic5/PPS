@@ -15,7 +15,7 @@ type
     IzabraneUslugeLabel: TLabel;
     NacinPlacanjaLabel: TLabel;
     PotvrdiBtn: TButton;
-    OtkaziBtn: TButton;
+    NazadiBtn: TButton;
     UslugeGrid: TStringGrid;
     colUsluga: TColumn;
     colCena: TColumn;
@@ -36,6 +36,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure PotvrdiBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure NazadiBtnClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -191,6 +192,37 @@ begin
 
 
       FKorisnickiNalog.Show;
+      self.Hide;
+end;
+
+procedure TFPregledRezervacije.NazadiBtnClick(Sender: TObject);
+begin
+
+      if Length(pomVremeTrajanjaArray) > 0 then
+      begin
+            for var counter := 0 to Length(pomVremeTrajanjaArray) -1 do
+            begin
+                  pomVremeTrajanjaArray[counter]:= 0;
+            end;
+
+      end;
+
+      if UslugeGrid.RowCount > 0 then
+      begin
+      {
+            for var counter := 0 to UslugeGrid.RowCount-1 do
+            begin
+                     UslugeGrid.Cells[0,counter]:= '';
+                     UslugeGrid.Cells[1,counter]:= '';
+                     UslugeGrid.Cells[2,counter]:= '';
+            end;
+      }//<---
+            UslugeGrid.RowCount:= 0;
+      end;
+
+       Setlength(pomVremeTrajanjaArray, 0);
+
+      FPlacanje.Show;
       self.Hide;
 end;
 

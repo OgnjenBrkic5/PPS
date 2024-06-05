@@ -343,8 +343,8 @@ object FDataModule: TFDataModule
   object FDDatabaseConnection: TFDConnection
     Params.Strings = (
       
-        'Database=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikaci' +
-        'ja\Database\FrizerskiSalonDatabase.db'
+        'Database=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonApli' +
+        'kacija\Database\FrizerskiSalonDatabase.db'
       'LockingMode=Normal'
       'DriverID=SQLite')
     Connected = True

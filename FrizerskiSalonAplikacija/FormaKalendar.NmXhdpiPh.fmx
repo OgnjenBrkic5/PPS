@@ -16,5 +16,8 @@ inherited FKalendar_NmXhdpiPh: TFKalendar_NmXhdpiPh
     inherited IzaberiBtn: TButton
       StyledSettings = [Family, Style, FontColor]
     end
+    inherited NazadBtn: TButton
+      Enabled = False
+    end
   end
 end

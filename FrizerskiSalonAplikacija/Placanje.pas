@@ -73,12 +73,33 @@ end;
 
 procedure TFPlacanje.NacinPlacanjaComboBoxChange(Sender: TObject);
 begin
-      IDNacinaPlacanja:= IDNacinaPlacanjaArray[NacinPlacanjaComboBox.ItemIndex];
-      NazivNacinaPlacanja:= NacinPlacanjaComboBox.Selected.Text;
+      if (NacinPlacanjaComboBox.ItemIndex <> -1) then
+      begin
+            IDNacinaPlacanja:= IDNacinaPlacanjaArray[NacinPlacanjaComboBox.ItemIndex];
+            NazivNacinaPlacanja:= NacinPlacanjaComboBox.Selected.Text;
+      end;
 end;
 
 procedure TFPlacanje.NazadBtnClick(Sender: TObject);
 begin
+
+      if Length(IDNacinaPlacanjaArray) > 0 then
+      begin
+            for var counter := 0 to Length(IDNacinaPlacanjaArray) -1 do
+            begin
+                  IDNacinaPlacanjaArray[counter]:= 0;
+            end;
+
+      end;
+
+      Setlength(IDNacinaPlacanjaArray, 0);
+
+      IDNacinaPlacanja:= 0;
+      NazivNacinaPlacanja:= '';
+
+      NacinPlacanjaComboBox.Items.Clear;
+
+
       FTermini.Show;
       self.Hide;
 end;

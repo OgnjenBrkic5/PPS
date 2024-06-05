@@ -1,0 +1,20 @@
+inherited FKalendar_LgXhdpiPh: TFKalendar_LgXhdpiPh
+  ClientHeight = 696
+  ClientWidth = 448
+  DesignerMasterStyle = 3
+  inherited FormBackgroundLayout: TLayout
+    Size.Width = 448.000000000000000000
+    Size.Height = 696.000000000000000000
+    inherited FormBackgroundRectangle: TRectangle
+      Size.Width = 448.000000000000000000
+      Size.Height = 696.000000000000000000
+    end
+    inherited RadniciListBox: TListBox
+      Viewport.Width = 292.000000000000000000
+      Viewport.Height = 137.000000000000000000
+    end
+    inherited IzaberiBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
+    end
+  end
+end

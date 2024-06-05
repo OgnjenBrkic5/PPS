@@ -105,7 +105,7 @@ object FObavestenja: TFObavestenja
       TabOrder = 7
       RowCount = 0
       Viewport.Width = 326.000000000000000000
-      Viewport.Height = 228.000000000000000000
+      Viewport.Height = 196.000000000000000000
       object colRadnik: TColumn
         Header = 'Radnik'
         ReadOnly = True
