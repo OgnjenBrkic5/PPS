@@ -1,0 +1,87 @@
+unit Test;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Rtti,
+  FMX.Grid.Style, FMX.StdCtrls, FMX.Grid, FMX.Controls.Presentation,
+  FMX.ScrollBox, FMX.Layouts, DataModule;
+
+type
+  TFTest = class(TForm)
+    FormBackgroundLayout: TLayout;
+    TestGrid: TStringGrid;
+    colID: TColumn;
+    colDatum: TColumn;
+    OsnovneInformacijeBtn: TButton;
+    NazadBtn: TButton;
+    RecenzijeBtn: TButton;
+    procedure NazadBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FTest: TFTest;
+
+implementation
+uses LogInForma;
+{$R *.fmx}
+
+procedure TFTest.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      application.Terminate;
+end;
+
+procedure TFTest.FormShow(Sender: TObject);
+begin
+
+
+      with FDataModule do
+      begin
+            if TestGrid.RowCount > 0 then
+            begin
+            {
+                  for var counter := 0 to IstrorijaStringGrid.RowCount-1 do
+                  begin
+                           IstrorijaStringGrid.Cells[0,counter]:= '';
+                           IstrorijaStringGrid.Cells[1,counter]:= '';
+                           IstrorijaStringGrid.Cells[2,counter]:= '';
+                           IstrorijaStringGrid.Cells[3,counter]:= '';
+                           IstrorijaStringGrid.Cells[4,counter]:= '';
+                  end;
+             }
+                  TestGrid.RowCount:= 0;
+            end;
+
+
+
+            FDQueryTemp.Sql.Clear;
+            FDQueryTemp.Sql.Text := 'SELECT * FROM Test ORDER BY Datum DEC';
+            FDQueryTemp.Open;
+
+
+            while not FDQueryTemp.Eof do
+            begin
+
+
+
+            end;
+
+            FDQueryTemp.Close;
+      end;
+
+end;
+
+procedure TFTest.NazadBtnClick(Sender: TObject);
+begin
+      FLogIn.Show;
+      self.Hide;
+end;
+
+end.

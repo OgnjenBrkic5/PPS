@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.ListBox, PregledRezervacije, DataModule,
+  FMX.Controls.Presentation, FMX.ListBox, PregledRezervacije, FormaPlacanjeKarticom, DataModule,
   FMX.Objects, FMX.Layouts;
 
 type
@@ -108,9 +108,20 @@ procedure TFPlacanje.PotvrdiBtnClick(Sender: TObject);
 begin
       if(NacinPlacanjaComboBox.ItemIndex <> -1) then
       begin
-            FPregledRezervacije := TFPregledRezervacije.Create(self);
-            FPregledRezervacije.Show;
-            self.Hide;
+            //if (NacinPlacanjaComboBox.Items.Text = 'Karticom - putem aplikacije') then
+            if (IDNacinaPlacanja = 3) then
+            begin
+                  FPlacanjeKarticom := TFPlacanjeKarticom.Create(self);
+                  FPlacanjeKarticom.Show;
+                  self.Hide;
+            end
+
+            else
+            begin
+                  FPregledRezervacije := TFPregledRezervacije.Create(self);
+                  FPregledRezervacije.Show;
+                  self.Hide;
+            end;
       end
 
       else

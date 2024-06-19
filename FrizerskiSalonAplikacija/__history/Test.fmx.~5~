@@ -1,0 +1,73 @@
+object FTest: TFTest
+  Left = 0
+  Top = 0
+  Caption = 'Test'
+  ClientHeight = 532
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 532.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object IstrorijaStringGrid: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      Position.X = 32.000000000000000000
+      Position.Y = 236.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 228.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      RowCount = 0
+      Viewport.Width = 322.000000000000000000
+      Viewport.Height = 203.000000000000000000
+      object colID: TColumn
+        Header = 'ID'
+        ReadOnly = True
+      end
+      object colDatum: TColumn
+        Header = 'Datum'
+        ReadOnly = True
+      end
+    end
+    object OsnovneInformacijeBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 281.000000000000000000
+      Position.Y = 52.000000000000000000
+      Size.Width = 110.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Osnovne informacije'
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+    object NazadBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 140.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Nazad'
+      TextSettings.Font.Size = 15.000000000000000000
+      OnClick = NazadBtnClick
+    end
+    object RecenzijeBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 158.000000000000000000
+      Position.Y = 52.000000000000000000
+      Size.Width = 110.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Recenzije radnika'
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+  end
+end

@@ -17,7 +17,11 @@ uses
   Obavestenja in 'Obavestenja.pas' {FObavestenja},
   DataModule in 'DataModule.pas' {FDataModule: TDataModule},
   OsnovneIformacije in 'OsnovneIformacije.pas' {FOsnovneIformacije},
-  KorisnickiNalogGlavnaForma in 'KorisnickiNalogGlavnaForma.pas' {FKorisnickiNalog: TFKorisnickiNalog};
+  KorisnickiNalogGlavnaForma in 'KorisnickiNalogGlavnaForma.pas' {FKorisnickiNalog: TFKorisnickiNalog},
+  FormaPlacanjeKarticom in 'FormaPlacanjeKarticom.pas' {FPlacanjeKarticom},
+  Izbor in 'Izbor.pas' {FIzbor},
+  RadnickiNalog in 'RadnickiNalog.pas' {FRadnickiNalog},
+  StanjeAlata in 'StanjeAlata.pas' {FStanjeAlata};
 
 {$R *.res}
 

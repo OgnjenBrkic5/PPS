@@ -1,0 +1,11 @@
+object FIzbor: TFIzbor
+  Left = 0
+  Top = 0
+  Caption = 'FIzbor'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+end

@@ -52,6 +52,12 @@ type
     FDQuerySelectSifarnikUsluga: TFDQuery;
     FDQuerySelectZakazivanje: TFDQuery;
     FDTransaction: TFDTransaction;
+    FDQueryCreateTableTipoviAlata: TFDQuery;
+    FDQueryCreateTableZaduzeniAlat: TFDQuery;
+    FDQueryCreateTableIstorijaOdrzavana: TFDQuery;
+    FDQuerySelectTipoviAlata: TFDQuery;
+    FDQuerySelectZaduzeniAlat: TFDQuery;
+    FDQuerySelectIstorijaOdrzavana: TFDQuery;
     procedure FDDatabaseConnectionBeforeConnect(Sender: TObject);
   private
     { Private declarations }

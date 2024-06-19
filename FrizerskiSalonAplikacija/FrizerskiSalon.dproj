@@ -269,6 +269,22 @@
             <Form>FKorisnickiNalog</Form>
             <DesignClass>TFKorisnickiNalog</DesignClass>
         </DCCReference>
+        <DCCReference Include="FormaPlacanjeKarticom.pas">
+            <Form>FPlacanjeKarticom</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Izbor.pas">
+            <Form>FIzbor</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="RadnickiNalog.pas">
+            <Form>FRadnickiNalog</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="StanjeAlata.pas">
+            <Form>FStanjeAlata</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <None Include="Database\FrizerskiSalonDatabase.db"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

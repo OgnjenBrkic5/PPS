@@ -38,7 +38,8 @@ type
     RadnikIDArray: array of integer;
   public
     { Public declarations }
-    Datum: string;
+    //Datum: string;
+    Datum: TDate;
     IDRadnika: integer;
     RadnikKorisnickoIme: string;
 
@@ -61,12 +62,14 @@ end;
 
 procedure TFKalendar.CalendarChange(Sender: TObject);
 begin
-      Datum:= DateToStr(Calendar.Date);
+      //Datum:= DateToStr(Calendar.Date);
+      Datum:= Calendar.Date;
 end;
 
 procedure TFKalendar.FormShow(Sender: TObject);
 begin
-      Datum:= DateToStr(Calendar.Date);
+      //Datum:= DateToStr(Calendar.Date);
+      Datum:= Calendar.Date;
 
       with FDataModule do
       begin
@@ -115,7 +118,8 @@ begin
             else
             begin
                       //      !!!------ Day format: Sunday: 1 Saturday: 7 ------!!!
-                  if (DayOfWeek(Strtodate(Datum)) <> 1) and (DayOfWeek(Strtodate(Datum)) <> 7) then
+                  //if (DayOfWeek(Strtodate(Datum)) <> 1) and (DayOfWeek(Strtodate(Datum)) <> 7) then
+                  if (DayOfWeek(Datum) <> 1) and (DayOfWeek(Datum) <> 7) then
                   begin
                         FIzborUsluga := TFIzborUsluga.Create(self);
                         FIzborUsluga.Show;
@@ -143,7 +147,8 @@ end;
 
 procedure TFKalendar.NazadBtnClick(Sender: TObject);
 begin
-      Datum:= '';
+      //Datum:= '';
+      Datum:= Calendar.Date;
       IDRadnika:= 0;
       RadnikKorisnickoIme:= '';
 

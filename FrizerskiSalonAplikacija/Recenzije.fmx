@@ -85,8 +85,8 @@ object FRecenzije: TFRecenzije
       Size.Height = 73.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 8
-      Viewport.Width = 305.000000000000000000
-      Viewport.Height = 65.000000000000000000
+      Viewport.Width = 313.000000000000000000
+      Viewport.Height = 73.000000000000000000
     end
     object Nazad: TButton
       Position.X = 48.000000000000000000
@@ -180,7 +180,7 @@ object FRecenzije: TFRecenzije
       TabOrder = 6
       RowCount = 0
       Viewport.Width = 313.000000000000000000
-      Viewport.Height = 134.000000000000000000
+      Viewport.Height = 166.000000000000000000
       object colKorisnik: TStringColumn
         Header = 'Korisnik'
         object IzaberiBtn: TButton

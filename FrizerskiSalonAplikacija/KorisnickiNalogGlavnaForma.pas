@@ -90,6 +90,8 @@ end;
 
 procedure TFKorisnickiNalog.FormShow(Sender: TObject);
 begin
+      //Showmessage(IDKorisnika.ToString + ' ' + KorisnickoIme + ' ' + Email + ' ' + SifraNaloga);
+
 
       ImeKorisnikaLabel.Text := KorisnickoIme;
 
@@ -117,12 +119,16 @@ begin
        begin
 
        FDQueryTemp.Sql.Clear;
-       FDQueryTemp.Sql.Text := 'SELECT * FROM Zakazivanje WHERE IDKorisnika = ' + IDKorisnika.ToString;
+       FDQueryTemp.Sql.Text := 'SELECT * FROM Zakazivanje WHERE IDKorisnika = ' + IDKorisnika.ToString + ' ORDER BY Datum DESC';
+       //FDQueryTemp.Sql.Text := 'SELECT * FROM Zakazivanje WHERE IDKorisnika = ' + IDKorisnika.ToString;
        FDQueryTemp.Open;
 
        var i: integer;
        var rowCount: integer;
        rowCount := FDQueryTemp.RecordCount;
+
+       //var Datum: TDate;
+       //var Day, Month, Year: word;
 
               while not FDQueryTemp.Eof do
               begin
@@ -137,6 +143,7 @@ begin
 
 
                     IstrorijaStringGrid.Cells[0, i] := FDQuerySelectRadnik['KorisnickoIme'];
+                    //showmessage('msg1');
 
                     //---------------------------------------------------------------------------------
 
@@ -149,16 +156,64 @@ begin
 
                     IstrorijaStringGrid.Cells[1,i] :=  FDQuerySelectSifarnikUsluga['NazivUsluge'];
                     IstrorijaStringGrid.Cells[2,i] :=  FDQuerySelectSifarnikUsluga['CenaUsluge'];
+                    //showmessage('msg2');
 
                     //---------------------------------------------------------------------------------
 
+
+                    //prepraviti Datum
+
+                    //showmessage(quotedstr(DateToStr(FDQueryTemp['Datum'])));
+                    //showmessage(quotedstr(FDQueryTemp['IDTermina']));
+
+                    //DecodeDate(FDQueryTemp['Datum'], Year, Month, Day);
+
+                    //showmessage(Year.ToString + ' - ' + Month.ToString + ' - ' + Day.ToString);
+
+
+                    //Datum:= EncodeDate(Year, Month, Day);
+                    //showmessage(DateToStr(Datum));
+
+                    //Datum:= StrToDate(FDQueryTemp['Datum']);
+                    //showmessage(DateToStr(Datum));
+
+
                     FDQuerySelectDostupniTermini.Sql.Clear;
-                    FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE  Datum =' + quotedstr(FDQueryTemp['Datum']) + 'AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']);
+
+                    FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE Datum = :Datum AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']);
+                    //FDQuerySelectDostupniTermini.ParamByName('Datum').AsDateTime := Datum;
+                    FDQuerySelectDostupniTermini.ParamByName('Datum').AsDate := FDQueryTemp['Datum'];
+                    //FDQuerySelectDostupniTermini.ParamByName('Datum').AsDateTime := FDQueryTemp['Datum'];
+
+
+
+
+
+                    //FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE Datum = ' + quotedstr(FDQueryTemp['Datum']) + 'AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']);
+
+
+                    //showmessage('SELECT Datum FROM DostupniTermini WHERE Datum =' + quotedstr(DateToStr(FDQueryTemp['Datum'])) + ' AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina'])); //.ToString));
+
+                    //FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE Datum = ' + quotedstr('2024-06-10') + ' AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']); //.ToString);
+                    //FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE Datum = ' + quotedstr(DateToStr(Datum)) + ' AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']); //.ToString);
+
+                    //--------
+                    //FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE Datum = ' + quotedstr(DateToStr(FDQueryTemp['Datum'])) + ' AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']); //.ToString);
+                    //FDQuerySelectDostupniTermini.Sql.Text := 'SELECT Datum FROM DostupniTermini WHERE Datum =' + DateToStr(FDQueryTemp['Datum']) + 'AND IDTermina = ' + quotedstr(FDQueryTemp['IDTermina']);
+
+
+
                     FDQuerySelectDostupniTermini.Open;
 
 
-                    IstrorijaStringGrid.Cells[3,i] :=  FDQuerySelectDostupniTermini['Datum'];
 
+                    //showmessage(FDQuerySelectDostupniTermini.RecordCount.ToString);
+
+                    //FDQueryTemp.FieldByName('SifraNaloga').AsString;
+                    //IstrorijaStringGrid.Cells[3,i] :=  FDQuerySelectDostupniTermini.FieldByName('Datum').AsString;
+                    //IstrorijaStringGrid.Cells[3,i] :=  FDQuerySelectDostupniTermini['Datum'].ToString;
+                    IstrorijaStringGrid.Cells[3,i] :=  FDQuerySelectDostupniTermini['Datum'];
+                    //showmessage('msg3');
 
                     FDQuerySelectMoguciTermini.Sql.Clear;
                     FDQuerySelectMoguciTermini.Sql.Text := 'SELECT PocetakTermina FROM MoguciTermini WHERE  IDTremina =' + quotedstr(FDQueryTemp['IDTermina']);
@@ -166,7 +221,7 @@ begin
 
 
                     IstrorijaStringGrid.Cells[4,i] :=  FDQuerySelectMoguciTermini['PocetakTermina'];
-
+                    //showmessage('msg4');
 
                     FDQueryTemp.Next
               end;
@@ -201,6 +256,7 @@ begin
                       IstrorijaStringGrid.Cells[4,counter]:= '';
              end;
        }//<---
+
              IstrorijaStringGrid.RowCount:= 0;
        end;
 

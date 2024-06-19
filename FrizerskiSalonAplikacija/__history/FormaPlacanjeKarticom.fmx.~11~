@@ -1,0 +1,160 @@
+object FPlacanjeKarticom: TFPlacanjeKarticom
+  Left = 0
+  Top = 0
+  Caption = 'FPlacanjeKarticom'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 381.000000000000000000
+        Size.Height = 544.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Line1: TLine
+        LineType = Diagonal
+        Position.X = 21.000000000000000000
+        Position.Y = 138.000000000000000000
+        RotationCenter.X = 2.000000000000000000
+        RotationCenter.Y = 2.000000000000000000
+        Size.Width = 381.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+        object Line2: TLine
+          LineType = Diagonal
+          Position.Y = 240.000000000000000000
+          RotationCenter.X = 2.000000000000000000
+          RotationCenter.Y = 2.000000000000000000
+          Size.Width = 381.000000000000000000
+          Size.Height = 2.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+    end
+    object IzaberiBtn: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 237.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Izaberi'
+      TextSettings.Font.Size = 20.000000000000000000
+      TintColor = claCornflowerblue
+    end
+    object BrojRacunaLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 120.000000000000000000
+      Position.Y = 160.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Broj ra'#269'una:'
+      TabOrder = 0
+    end
+    object DatumIstekaLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 64.000000000000000000
+      Position.Y = 249.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Datum isteka:'
+      TabOrder = 2
+      object CVVLabel: TLabel
+        StyledSettings = [Family, Style, FontColor]
+        Position.X = 192.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.HorzAlign = Center
+        Text = 'CCV:'
+        TabOrder = 2
+      end
+    end
+    object NazadBtn: TButton
+      StyledSettings = [Family, Style]
+      Position.X = 48.000000000000000000
+      Position.Y = 504.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Nazad'
+      TextSettings.Font.Size = 20.000000000000000000
+      TintColor = claCornflowerblue
+      OnClick = NazadBtnClick
+    end
+    object MeesecEdit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 6
+      Position.X = 73.000000000000000000
+      Position.Y = 298.000000000000000000
+      Size.Width = 45.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Edit3: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 5
+      Position.X = 259.000000000000000000
+      Position.Y = 298.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object GodinaEdit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 4
+      Position.X = 128.000000000000000000
+      Position.Y = 298.000000000000000000
+      Size.Width = 45.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object BrojRacunaEdit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 9
+      Position.X = 64.000000000000000000
+      Position.Y = 201.000000000000000000
+      Size.Width = 293.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+end

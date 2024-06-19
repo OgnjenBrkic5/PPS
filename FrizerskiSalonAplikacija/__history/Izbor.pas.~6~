@@ -1,0 +1,39 @@
+unit Izbor;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts,
+   KorisnickiNalogGlavnaForma, RadnickiNalog;
+
+type
+  TFIzbor = class(TForm)
+    FormBackgroundLayout: TLayout;
+    FormBackgroundRectangle: TRectangle;
+    InputeRectangle: TRectangle;
+    RadnikBtn: TButton;
+    KorisnikBtn: TButton;
+    InputLayout: TLayout;
+    NazadBtn: TButton;
+    procedure NazadBtnClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FIzbor: TFIzbor;
+
+implementation
+uses Registracija;
+{$R *.fmx}
+
+procedure TFIzbor.NazadBtnClick(Sender: TObject);
+begin
+      F
+end;
+
+end.

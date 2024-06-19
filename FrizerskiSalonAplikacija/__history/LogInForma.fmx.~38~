@@ -1,0 +1,98 @@
+object FLogIn: TFLogIn
+  Left = 0
+  Top = 0
+  Caption = 'FLogIn'
+  ClientHeight = 608
+  ClientWidth = 424
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  object FormBackgroundLayout: TLayout
+    Align = Client
+    Size.Width = 424.000000000000000000
+    Size.Height = 608.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object FormBackgroundRectangle: TRectangle
+      Align = Client
+      Fill.Color = xFF554FF3
+      Size.Width = 424.000000000000000000
+      Size.Height = 608.000000000000000000
+      Size.PlatformDefault = False
+      object InputeRectangle: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF348CF4
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = claWhite
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Size.Width = 343.000000000000000000
+        Size.Height = 480.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 30.000000000000000000
+        YRadius = 30.000000000000000000
+        object RegistrujSeBtn: TButton
+          Align = Scale
+          StyledSettings = [Family, Style, FontColor]
+          Margins.Left = 80.000000000000000000
+          Margins.Right = 80.000000000000000000
+          Position.X = 106.000000000000000000
+          Position.Y = 348.000000000000000000
+          Size.Width = 145.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Registruj se '
+          TextSettings.Font.Size = 18.000000000000000000
+          TintColor = claCornflowerblue
+          OnClick = RegistrujSeBtnClick
+        end
+        object UlogujSeBtn: TButton
+          Align = Scale
+          StyledSettings = [Family, Style, FontColor]
+          Margins.Left = 80.000000000000000000
+          Margins.Right = 80.000000000000000000
+          Position.X = 106.000000000000000000
+          Position.Y = 276.000000000000000000
+          Size.Width = 145.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Uloguj se'
+          TextSettings.Font.Size = 18.000000000000000000
+          TintColor = claCornflowerblue
+          OnClick = UlogujSeBtnClick
+        end
+      end
+      object InputLayout: TLayout
+        Align = Bottom
+        Position.Y = 584.000000000000000000
+        Size.Width = 424.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+      end
+    end
+  end
+  object TestBtn: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 146.000000000000000000
+    Position.Y = 113.000000000000000000
+    Size.Width = 133.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Test'
+    TextSettings.Font.Size = 18.000000000000000000
+    OnClick = TestBtnClick
+  end
+end

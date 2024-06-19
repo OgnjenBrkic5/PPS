@@ -41,6 +41,7 @@ object FRegistracija: TFRegistracija
         XRadius = 30.000000000000000000
         YRadius = 30.000000000000000000
         object RegistrujSeBtn: TButton
+          StyledSettings = [Family, Style, FontColor]
           Position.X = 183.000000000000000000
           Position.Y = 408.000000000000000000
           Size.Width = 145.000000000000000000

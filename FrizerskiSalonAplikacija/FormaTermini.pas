@@ -85,6 +85,9 @@ begin
 
       TrajanjeCenaLabel.Text:= 'Ukupno vreme: ' + Timetostr(ukupnoVremeUsluga) + #13#10 + 'Ukupna cena ' + ukupnaCenaUsluga.ToString + ' din.';
 
+      //TrajanjeCenaLabel.Text:= 'Ukupno vreme: ' + HourOf(ukupnoVremeUsluga).ToString + ':' + MinuteOf(ukupnoVremeUsluga).ToString + #13#10 + 'Ukupna cena ' + ukupnaCenaUsluga.ToString + ' din.';
+
+
       with FDataModule do
       begin
             //   !!!------ Date format: 2.6.2024. ; NOT: 02.06.2024. ------!!!
@@ -115,7 +118,12 @@ begin
 
 
                   FDQuerySelectDostupnostRadnika.Sql.Clear;
-                  FDQuerySelectDostupnostRadnika.Sql.Text:= 'SELECT * FROM DostupnostRadnika WHERE IDRadnika = ' + FKalendar.IDRadnika.ToString + ' AND Datum = ' + quotedstr(FKalendar.Datum) + ' AND IDTermina = ' + quotedstr(FDQueryTemp['IDTremina']);
+                  //FDQuerySelectDostupnostRadnika.Sql.Text:= 'SELECT * FROM DostupnostRadnika WHERE IDRadnika = ' + FKalendar.IDRadnika.ToString + ' AND Datum = ' + quotedstr(FKalendar.Datum) + ' AND IDTermina = ' + quotedstr(FDQueryTemp['IDTremina']);
+                  FDQuerySelectDostupnostRadnika.Sql.Text:= 'SELECT * FROM DostupnostRadnika WHERE IDRadnika = '
+                  + FKalendar.IDRadnika.ToString + ' AND Datum = '
+                  + quotedstr(DatetoStr(FKalendar.Datum)) + ' AND IDTermina = '
+                  + quotedstr(FDQueryTemp['IDTremina']);
+
                   FDQuerySelectDostupnostRadnika.Open;
 
 

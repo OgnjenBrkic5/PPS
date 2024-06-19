@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, System.Rtti, FMX.Grid.Style, FMX.Grid,
-  FMX.ScrollBox, DataModule, FMX.Objects, FMX.Layouts;
+  FMX.ScrollBox, FMX.Objects, FMX.Layouts, DateUtils, DataModule;
 
 type
   TFPregledRezervacije = class(TForm)
@@ -75,7 +75,8 @@ begin
       end;
 
       Label1.Text:= FKalendar.RadnikKorisnickoIme;
-      Label2.Text:= FKalendar.Datum;
+      //Label2.Text:= FKalendar.Datum;
+      Label2.Text:= DateToStr(FKalendar.Datum);
 
       for var uslugeIndex := 0 to Length(FIzborUsluga.unetiIDUslugeArray)-1 do
       begin
@@ -90,6 +91,7 @@ begin
 
       Label3.Text:= FTermini.ukupnaCenaUsluga.ToString;
       Label4.Text:= TimetoStr(FTermini.ukupnoVremeUsluga);
+      //Label4.Text:= HourOf(FTermini.ukupnoVremeUsluga).ToString + ':' + MinuteOf(FTermini.ukupnoVremeUsluga).ToString;
       Label5.Text:= FPlacanje.NazivNacinaPlacanja;
 end;
 
@@ -114,17 +116,55 @@ begin
              for var terminiIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
              begin
                   //FDDatabaseConnection.Open;
+                  {
                   FDQueryTemp.Sql.Clear;
                   FDQueryTemp.ExecSql ('INSERT INTO DostupniTermini (Datum, IDTermina, Dostupnost) VALUES ('
                   + quotedstr(FKalendar.Datum) + ', '
                   + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ', '
                   + quotedstr(FTermini.izabraniStatusArray[terminiIndex])+')');
+                  }
 
+                  {//Old Insert
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.ExecSql ('INSERT INTO DostupniTermini (Datum, IDTermina, Dostupnost) VALUES ('
+                  + quotedstr(DateToStr(FKalendar.Datum)) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ', '
+                  + quotedstr(FTermini.izabraniStatusArray[terminiIndex])+')');
+                  }
+
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.Sql.Text := ('INSERT INTO DostupniTermini (Datum, IDTermina, Dostupnost) VALUES ('
+                  + ' :Datum , '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ', '
+                  + quotedstr(FTermini.izabraniStatusArray[terminiIndex])+')');
+                  FDQueryTemp.ParamByName('Datum').AsDate := FKalendar.Datum;
+                  //bind quotedstr(DateToStr(FKalendar.Datum))
+                  FDQueryTemp.ExecSql;
+
+
+                  {
                   FDQueryTemp.Sql.Clear;
                   FDQueryTemp.ExecSql ('INSERT INTO DostupnostRadnika (IDRadnika, Datum, IDTermina) VALUES ('
                   + quotedstr(FKalendar.IDRadnika.ToString) + ', '
                   + quotedstr(FKalendar.Datum) + ', '
                   + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ')');
+                  }
+
+                  {//Old Insert
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.ExecSql ('INSERT INTO DostupnostRadnika (IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + quotedstr(DateToStr(FKalendar.Datum)) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ')');
+                  }
+
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.Sql.Text := ('INSERT INTO DostupnostRadnika (IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + ' :Datum , '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[terminiIndex].ToString) + ')');
+                  FDQueryTemp.ParamByName('Datum').AsDate := FKalendar.Datum;
+                  FDQueryTemp.ExecSql;
             end;
 
 
@@ -144,17 +184,39 @@ begin
              for var zakazivanjeIndex := 0 to Length(FTermini.izabraniIDTerminaArray)-1 do
              begin
                   //FDDatabaseConnection.Open;
-                  FDQueryTemp.Sql.Clear;
+                  //FDQueryTemp.Sql.Clear;
 
 
+                  {
                   FDQueryTemp.ExecSql ('INSERT INTO Zakazivanje (IDKorisnika, IDUsluge, IDRadnika, Datum, IDTermina) VALUES ('
                   + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
                   + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ', '
                   + quotedstr(FKalendar.IDRadnika.ToString) + ', '
                   + quotedstr(FKalendar.Datum) + ', '
                   + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString) + ')');
+                  }
 
+                  {//OldInsert
+                  FDQueryTemp.ExecSql ('INSERT INTO Zakazivanje (IDKorisnika, IDUsluge, IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ', '
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + quotedstr(DateToStr(FKalendar.Datum)) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString) + ')');
+                  }
 
+                  FDQueryTemp.Sql.Clear;
+                  FDQueryTemp.Sql.Text:= ('INSERT INTO Zakazivanje (IDKorisnika, IDUsluge, IDRadnika, Datum, IDTermina) VALUES ('
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ', '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ', '
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ', '
+                  + ' :Datum , '
+                  //+ quotedstr(DateToStr(FKalendar.Datum)) + ', '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString) + ')');
+                  FDQueryTemp.ParamByName('Datum').AsDate := FKalendar.Datum;
+                  FDQueryTemp.ExecSql;
+
+                  {
                   FDQuerySelectZakazivanje.Sql.Clear;
                   FDQuerySelectZakazivanje.Sql.Text:= 'SELECT IDZakazaneUsluge FROM Zakazivanje WHERE IDKorisnika = '
                   + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ' AND IDUsluge = '
@@ -162,7 +224,28 @@ begin
                   + quotedstr(FKalendar.IDRadnika.ToString) + ' AND Datum = '
                   + quotedstr(FKalendar.Datum) + ' AND IDTermina = '
                   + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString);
+                  }
 
+
+                  {//Old Select
+                  FDQuerySelectZakazivanje.Sql.Clear;
+                  FDQuerySelectZakazivanje.Sql.Text:= 'SELECT IDZakazaneUsluge FROM Zakazivanje WHERE IDKorisnika = '
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ' AND IDUsluge = '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ' AND IDRadnika = '
+                  + quotedstr(FKalendar.IDRadnika.ToString) + ' AND Datum = '
+                  + quotedstr(DateToStr(FKalendar.Datum)) + ' AND IDTermina = '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString);
+                  }
+
+                  FDQuerySelectZakazivanje.Sql.Clear;
+                  FDQuerySelectZakazivanje.Sql.Text:= 'SELECT IDZakazaneUsluge FROM Zakazivanje WHERE IDKorisnika = '
+                  + quotedstr(FKorisnickiNalog.IDKorisnika.ToString) + ' AND IDUsluge = '
+                  + quotedstr(FIzborUsluga.unetiIDUslugeArray[pomIndex].ToString) + ' AND IDRadnika = '
+                  + quotedstr(FKalendar.IDRadnika.ToString) //+ ' AND Datum = '
+                  + ' AND Datum = :Datum ' //+ quotedstr(DateToStr(FKalendar.Datum))
+                  + ' AND IDTermina = '
+                  + quotedstr(FTermini.izabraniIDTerminaArray[zakazivanjeIndex].ToString);
+                  FDQuerySelectZakazivanje.ParamByName('Datum').AsDate := FKalendar.Datum;
 
                   FDQuerySelectZakazivanje.Open;
 

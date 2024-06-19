@@ -44,12 +44,12 @@ begin
       self.Hide;
   end;
 
+
 procedure TFLogIn.UlogujSeBtnClick(Sender: TObject);
 begin
-      var FormaPrijava := TFPrijava.Create(self);
-      FormaPrijava.Show;
+      FPrijava := TFPrijava.Create(self);
+      FPrijava.Show;
       self.Hide;
 end;
-
 
 end.

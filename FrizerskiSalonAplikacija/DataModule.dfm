@@ -62,7 +62,7 @@ object FDataModule: TFDataModule
     Connection = FDDatabaseConnection
     SQL.Strings = (
       'CREATE TABLE IF NOT EXISTS DostupniTermini ('
-      '    Datum      VARCHAR (20) NOT NULL,'
+      '    Datum      DATE         NOT NULL,'
       
         '    IDTermina  INTEGER      REFERENCES MoguciTermini (IDTremina)' +
         ' ON DELETE CASCADE'
@@ -81,7 +81,7 @@ object FDataModule: TFDataModule
       '    FOREIGN KEY ('
       '        IDTermina'
       '    )'
-      '    REFERENCES MoguciTermini (IDTremina) ON UPDATE CASCADE '
+      '    REFERENCES MoguciTermini (IDTremina) ON UPDATE CASCADE'
       ');'
       '')
     Left = 120
@@ -92,17 +92,15 @@ object FDataModule: TFDataModule
     SQL.Strings = (
       'CREATE TABLE IF NOT EXISTS DostupnostRadnika ('
       
-        '    IDRadnika INTEGER      REFERENCES Radnik (IDRadnika) ON DELE' +
-        'TE CASCADE'
+        '    IDRadnika INTEGER REFERENCES Radnik (IDRadnika) ON DELETE CA' +
+        'SCADE'
       
-        '                                                         ON UPDA' +
-        'TE CASCADE'
-      
-        '                                                         MATCH [' +
-        'FULL]'
-      '                           NOT NULL,'
-      '    Datum     VARCHAR (20) NOT NULL,'
-      '    IDTermina INTEGER      NOT NULL,'
+        '                                                    ON UPDATE CA' +
+        'SCADE'
+      '                                                    MATCH [FULL]'
+      '                      NOT NULL,'
+      '    Datum     DATE    NOT NULL,'
+      '    IDTermina INTEGER NOT NULL,'
       '    PRIMARY KEY ('
       '        IDRadnika,'
       '        Datum,'
@@ -118,9 +116,7 @@ object FDataModule: TFDataModule
       '    )'
       '    REFERENCES DostupniTermini (Datum,'
       '    IDTermina) ON UPDATE CASCADE'
-      ');'
-      ''
-      '')
+      ');')
     Left = 120
     Top = 336
   end
@@ -199,8 +195,8 @@ object FDataModule: TFDataModule
         '                                                                ' +
         ' MATCH [FULL]'
       '                                   NOT NULL,'
-      '    PocetniDatum     VARCHAR (20),'
-      '    KrajnjiDatum     VARCHAR (20),'
+      '    PocetniDatum     DATE,'
+      '    KrajnjiDatum     DATE,'
       '    TekstualnaPoruka VARCHAR (250),'
       '    PRIMARY KEY ('
       '        IDObavestenja ASC AUTOINCREMENT'
@@ -209,7 +205,8 @@ object FDataModule: TFDataModule
       '        IDRadnika'
       '    )'
       '    REFERENCES Radnik (IDRadnika) ON UPDATE CASCADE'
-      ');')
+      ');'
+      '')
     Left = 120
     Top = 592
   end
@@ -302,14 +299,16 @@ object FDataModule: TFDataModule
   object FDQueryCreateTableZakazivanje: TFDQuery
     Connection = FDDatabaseConnection
     SQL.Strings = (
-      'CREATE TABLE IF NOT EXISTS Zakazivanje ('
-      '    IDZakazaneUsluge INTEGER      NOT NULL'
-      '                                  UNIQUE,'
-      '    IDKorisnika      INTEGER      NOT NULL,'
-      '    IDUsluge         INTEGER      NOT NULL,'
-      '    IDRadnika        INTEGER      NOT NULL,'
-      '    Datum            VARCHAR (20) NOT NULL,'
-      '    IDTermina        INTEGER      NOT NULL,'
+      'CREATE TABLE IF NOT EXISTS Zakazivanje;'
+      ''
+      'CREATE TABLE Zakazivanje ('
+      '    IDZakazaneUsluge INTEGER NOT NULL'
+      '                             UNIQUE,'
+      '    IDKorisnika      INTEGER NOT NULL,'
+      '    IDUsluge         INTEGER NOT NULL,'
+      '    IDRadnika        INTEGER NOT NULL,'
+      '    Datum            DATE    NOT NULL,'
+      '    IDTermina        INTEGER NOT NULL,'
       '    PRIMARY KEY ('
       '        IDZakazaneUsluge ASC AUTOINCREMENT'
       '    ),'
@@ -329,8 +328,7 @@ object FDataModule: TFDataModule
       '    REFERENCES DostupnostRadnika (IDRadnika,'
       '    Datum,'
       '    IDTermina) ON UPDATE CASCADE'
-      ');'
-      '')
+      ');')
     Left = 120
     Top = 912
   end
@@ -343,8 +341,8 @@ object FDataModule: TFDataModule
   object FDDatabaseConnection: TFDConnection
     Params.Strings = (
       
-        'Database=C:\Users\Ognjen\Documents\GitHub\PPS\FrizerskiSalonApli' +
-        'kacija\Database\FrizerskiSalonDatabase.db'
+        'Database=C:\Users\PC\Documents\GitHub\PPS\FrizerskiSalonAplikaci' +
+        'ja\Database\FrizerskiSalonDatabase.db'
       'LockingMode=Normal'
       'DriverID=SQLite')
     Connected = True
@@ -439,7 +437,89 @@ object FDataModule: TFDataModule
   end
   object FDTransaction: TFDTransaction
     Connection = FDDatabaseConnection
-    Left = 832
+    Left = 856
     Top = 16
+  end
+  object FDQueryCreateTableTipoviAlata: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS TipoviAlata ('
+      '    IDTipaAlata    INTEGER      UNIQUE'
+      '                                NOT NULL'
+      '                                DEFAULT (1),'
+      '    NazivTipaAlata VARCHAR (50) NOT NULL,'
+      '    PRIMARY KEY ('
+      '        IDTipaAlata ASC AUTOINCREMENT'
+      '    )'
+      ');')
+    Left = 696
+    Top = 144
+  end
+  object FDQueryCreateTableZaduzeniAlat: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS ZaduzeniAlat ('
+      '    IDZaduzenogAlata INTEGER      UNIQUE'
+      '                                  NOT NULL'
+      '                                  DEFAULT (1),'
+      '    IDRadnika        INTEGER      NOT NULL,'
+      '    IDTipaAlata      INTEGER      NOT NULL,'
+      '    Stanje           VARCHAR (60),'
+      '    PRIMARY KEY ('
+      '        IDZaduzenogAlata ASC AUTOINCREMENT'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDRadnika'
+      '    )'
+      '    REFERENCES Radnik (IDRadnika) ON UPDATE CASCADE,'
+      '    FOREIGN KEY ('
+      '        IDTipaAlata'
+      '    )'
+      '    REFERENCES TipoviAlata (IDTipaAlata) ON UPDATE CASCADE'
+      ');'
+      '')
+    Left = 696
+    Top = 208
+  end
+  object FDQueryCreateTableIstorijaOdrzavana: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'CREATE TABLE IF NOT EXISTS IstorijaOdrzavana ('
+      '    IDOdrzavanja     INTEGER UNIQUE'
+      '                             NOT NULL'
+      '                             DEFAULT (1),'
+      '    IDZaduzenogAlata INTEGER NOT NULL,'
+      '    Datum            DATE,'
+      '    PRIMARY KEY ('
+      '        IDOdrzavanja ASC AUTOINCREMENT'
+      '    ),'
+      '    FOREIGN KEY ('
+      '        IDZaduzenogAlata'
+      '    )'
+      '    REFERENCES ZaduzeniAlat (IDZaduzenogAlata) ON UPDATE CASCADE'
+      ');')
+    Left = 696
+    Top = 272
+  end
+  object FDQuerySelectTipoviAlata: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'SELECT * FROM TipoviAlata;')
+    Left = 968
+    Top = 144
+  end
+  object FDQuerySelectZaduzeniAlat: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'SELECT * FROM ZaduzeniAlat;')
+    Left = 968
+    Top = 208
+  end
+  object FDQuerySelectIstorijaOdrzavana: TFDQuery
+    Connection = FDDatabaseConnection
+    SQL.Strings = (
+      'SELECT * FROM IstorijaOdrzavana;')
+    Left = 968
+    Top = 272
   end
 end
